@@ -1,0 +1,114 @@
+<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Sando - Release</title><meta property="og:title" content="Sando - Hard Dance Producer, DJ And Label Owner"><meta property="og:type" content="website"><meta property="og:description" content="Where High Energy Hard Dance Music Lives"><meta name="description" content="Where High Energy Hard Dance Music Lives"><meta property="og:image" content="https://www.sandoproduces.com/assets/img/OG Facebook Card.jpg"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=a549af2a81cd9900ee897d8bc9c4b5e9"><link rel="stylesheet" href="assets/css/styles.min.css?h=d18717d53f585518c990d7307f9edf48"></head><body><style>
+    /* 1. Lock the page height to exactly one screen and kill all scrolling */
+    .release-environment {
+        height: 100vh !important;
+        height: 100dvh !important; /* Mobile address bar fix */
+        overflow: hidden !important; 
+        overscroll-behavior: none !important;
+        padding-top: 90px !important; /* Tightens the top gap */
+        padding-bottom: 0 !important;
+    }
+
+    /* 2. Tell the content to dynamically shrink the empty space to fit the screen */
+    .release-environment .master-content-area {
+        height: 100% !important;
+        flex-grow: 1 !important;
+        justify-content: space-evenly !important; /* Perfectly balances the gaps */
+        padding: 0 0 60px 0 !important; /* Leaves a little breathing room above the footer */
+        margin: 0 !important;
+    }
+
+    /* 3. Kill the massive margins so things don't push off the screen */
+    .release-environment .hardware-player,
+    .release-environment .release-title-container {
+        margin-bottom: 0 !important; 
+        margin-top: 0 !important;
+    }
+
+    /* 4. Staple the footer to the absolute bottom of the glass */
+    .release-environment .sando-legal-footer {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        z-index: 2000 !important; /* Keeps it above everything */
+    }
+
+    /* 5. Mobile compression (Squishes things slightly on small phones to ensure they fit) */
+    @media (max-width: 768px) {
+        .release-environment {
+            padding-top: 60px !important;
+        }
+        .release-environment .release-title {
+            font-size: clamp(2.5rem, 12vw, 4rem) !important; /* Prevents title from taking up half the phone */
+        }
+        .release-environment .hardware-player {
+            padding: 15px !important; /* Slims the player vertically */
+        }
+    }
+</style>
+<div class="master-page-wrapper release-environment">
+    
+    <div class="master-content-area">
+        <header class="release-header">
+            BEN HEMSLEY
+        </header>
+
+<div class="release-title-container">
+    <h1 class="release-title">THROUGH<br>2 YOU</h1>
+    </div>
+
+<div class="hardware-player">
+    <div class="release-accent-dot"></div> <div class="player-labels">
+        <span class="label-text">SANDO REMIX</span>
+        <span class="label-text">BOUNCE<br>140 BPM</span>
+    </div>
+            
+            <div class="player-controls">
+                <div class="chrome-play-button">
+                    <div class="play-triangle"></div>
+                </div>
+                
+                <div class="volume-fader">
+                    <div class="fader-track"></div>
+                    <div class="fader-knob"></div>
+                </div>
+            </div>
+
+            <div class="player-timeline-container">
+                <span class="time-readout" id="current-time">00:00</span> 
+                
+                <div class="timeline-bar">
+                    <div class="timeline-progress" style="width: 0%;"></div>
+                </div>
+                
+                <span class="time-readout" id="total-duration">00:00</span>
+            </div>
+        </div>
+
+<div class="harvest-vault">
+    <h3 class="vault-label">SUBSCRIBE TO DOWNLOAD FOR FREE<BR>(You won't be spammed every day, I promise)</h3>
+    
+    <form class="vault-form" action="https://sandoproduces.us5.list-manage.com/subscribe/post" method="POST" target="hidden_submit">
+        
+        <input type="hidden" name="u" value="9c24f58ad0bc55e1cc4cc27ec">
+        <input type="hidden" name="id" value="b408479745">
+        <input type="hidden" name="SOURCE" value="Release Vault Download">
+
+        <div class="vault-input-group">
+            <input type="email" name="EMAIL" class="vault-input" placeholder="YOUR EMAIL ADDRESS" required>
+            <button type="submit" class="vault-btn">JOIN</button>
+        </div>
+    </form>
+</div>
+
+<iframe name="hidden_submit" id="hidden_submit" style="display:none;"></iframe>
+    </div> <footer class="sando-legal-footer">
+        <div class="footer-content">
+            <p class="copyright-line">© 2026 SANDO. ALL RIGHTS RESERVED.</p>
+            <p class="warning-line">Any reproduction, distribution, or public broadcasting of the audio and visual works on this site without explicit consent is strictly prohibited.</p>
+        </div>
+    </footer>
+
+</div> <audio id="release-audio" src="https://raw.githubusercontent.com/SandoProduces/sandowebsiteassets/main/BenHemsley-Through2You(SandoRemix).mp3"></audio><div class="d-flex flex-column vh-100"></div><script src="assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script><script src="assets/js/script.min.js?h=8bb9ae8b34fe5555b1dcde01ae37c591"></script></body></html>

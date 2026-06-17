@@ -1,53 +1,81 @@
-<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Sando - Treasury</title><meta property="og:title" content="Sando - Hard Dance Producer, DJ And Label Owner"><meta property="og:type" content="website"><meta property="og:description" content="Where High Energy Hard Dance Music Lives"><meta name="description" content="Where High Energy Hard Dance Music Lives"><meta property="og:image" content="https://www.sandoproduces.com/assets/img/OG Facebook Card.jpg"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=a549af2a81cd9900ee897d8bc9c4b5e9"><link rel="stylesheet" href="assets/css/styles.min.css?h=46b21f68a10477af7d8a41361bd61ddc"><link rel="stylesheet" href="assets/css/animate.min.min.css?h=5512c3e92e3931978c9ddcc7dbeed22b"></head><body><section id="ttr-section" data-title="thetreasuryrecords">
-    <div class="treasury-environment">
-        
-        <div class="treasury-static-bg"></div>
+<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Sando - Treasury</title><meta property="og:title" content="Sando - Hard Dance Producer, DJ And Label Owner"><meta property="og:type" content="website"><meta property="og:description" content="Where High Energy Hard Dance Music Lives"><meta name="description" content="Where High Energy Hard Dance Music Lives"><meta property="og:image" content="https://www.sandoproduces.com/assets/img/OG Facebook Card.jpg"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=a549af2a81cd9900ee897d8bc9c4b5e9"><link rel="stylesheet" href="assets/css/styles.min.css?h=d18717d53f585518c990d7307f9edf48"><link rel="stylesheet" href="assets/css/animate.min.min.css?h=5512c3e92e3931978c9ddcc7dbeed22b"></head><body><style>
+    /* Makes the scrolling layer a flex column so it can push the footer down */
+    .treasury-ui-layer {
+        display: flex !important;
+        flex-direction: column !important;
+        padding-bottom: 0 !important; /* Overrides the old dead space */
+    }
 
-        <video id="treasury-desktop-video" class="treasury-video desktop-video" autoplay muted playsinline>
-            <source src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/WebsiteTTRBGVisualiser0001.webm" type="video/webm">
-        </video>
+    /* Acts as the spring to push the footer to the bottom */
+    .treasury-slab {
+        margin-bottom: auto !important; 
+    }
 
-        <video id="treasury-mobile-video" class="treasury-video mobile-video" autoplay muted playsinline>
-            <source src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/WebsiteTTRBGVisualiserMob0001.webm" type="video/webm">
-        </video>
+    /* Gives the footer a slight backdrop so the text is legible over the moving video */
+    #ttr-section .sando-legal-footer {
+        margin-top: 80px !important;
+        background: linear-gradient(to top, rgba(3, 4, 5, 0.9), transparent) !important;
+        border-top: none !important;
+    }
+</style>
 
-        <div class="treasury-ui-layer" id="ttr-ui-layer">
-            <div class="treasury-slab">
+<div class="master-page-wrapper">
+    <section id="ttr-section" data-title="thetreasuryrecords">
+        <div class="treasury-environment">
+            
+            <div class="treasury-static-bg"></div>
+
+            <video id="treasury-desktop-video" class="treasury-video desktop-video" autoplay muted playsinline>
+                <source src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/WebsiteTTRBGVisualiser0001.webm" type="video/webm">
+            </video>
+
+            <video id="treasury-mobile-video" class="treasury-video mobile-video" autoplay muted playsinline>
+                <source src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/WebsiteTTRBGVisualiserMob0001.webm" type="video/webm">
+            </video>
+
+            <div class="treasury-ui-layer" id="ttr-ui-layer">
                 
-                <div class="slab-column slab-left">
-                    <h2 class="slab-title">OUR SOUND</h2>
-                    <div class="slab-text">
-                        <p>The Treasury Records is an independent electronic music label based in the North West of the UK. Founded by Sando as a dedicated platform for high-energy Hard Dance and UK Bounce, the imprint focuses on forward-thinking production that doesn’t always fit cleanly into standard genre brackets.</p>
-                        <p>Our output is built on creative freedom. Rather than locking into one specific tempo or sound, The Treasury Records exists to support artists who push the boundaries of hard electronic music, shifting styles while keeping the energy high. It’s about building a solid foundation for unique, high quality music and the community that drives it.</p>
+                <div class="treasury-slab">
+                    
+                    <div class="slab-column slab-left">
+                        <h2 class="slab-title">OUR SOUND</h2>
+                        <div class="slab-text">
+                            <p>The Treasury Records is an independent electronic music label based in the North West of the UK. Founded by Sando as a dedicated platform for high-energy Hard Dance and UK Bounce, the imprint focuses on forward-thinking production that doesn’t always fit cleanly into standard genre brackets.</p>
+                            <p>Our output is built on creative freedom. Rather than locking into one specific tempo or sound, The Treasury Records exists to support artists who push the boundaries of hard electronic music, shifting styles while keeping the energy high. It’s about building a solid foundation for unique, high quality music and the community that drives it.</p>
+                        </div>
                     </div>
+
+                    <div class="slab-column slab-right">
+                        
+                        <div class="slab-visual-carousel" id="ttr-carousel">
+                            <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/CryptikzLondon.jpg" class="carousel-slide active">
+                            <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/MangoMonster.jpg" class="carousel-slide">
+                            <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/MecoTheRide.jpg" class="carousel-slide">
+                            <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/NitinHookup.jpg" class="carousel-slide">
+                            <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/OddTime.jpg" class="carousel-slide">
+                            <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/SinziBadman.jpg" class="carousel-slide">
+                        </div>
+
+                        <div class="routing-grid">
+                            <a href="https://soundcloud.com/thetreasuryrecords" target="_blank" class="route-btn">SOUNDCLOUD</a>
+                            <a href="https://www.instagram.com/thetreasuryrecords" target="_blank" class="route-btn">INSTAGRAM</a>
+                            <a href="mailto:thetreasuryrecords@gmail.com?subject=DEMO%20SUBMISSION:%20[artist%20name]%20-%20[track%20title]" class="route-btn highlight-route">SUBMIT DEMO</a>
+                        </div>
+                        
+                        <p class="demo-instructions">We are always listening to new music. Please send private streaming links (SoundCloud/Dropbox). Do not attach audio files directly.</p>
+                    
+                    </div> 
                 </div>
 
-                <div class="slab-column slab-right">
-                    
-                    <div class="slab-visual-carousel" id="ttr-carousel">
-                        <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/CryptikzLondon.jpg" class="carousel-slide active">
-                        <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/MangoMonster.jpg" class="carousel-slide">
-                        <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/MecoTheRide.jpg" class="carousel-slide">
-                        <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/NitinHookup.jpg" class="carousel-slide">
-                        <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/OddTime.jpg" class="carousel-slide">
-                        <img src="https://cdn.jsdelivr.net/gh/SandoProduces/sandowebsiteassets@main/TTR Album Page/SinziBadman.jpg" class="carousel-slide">
+                <footer class="sando-legal-footer">
+                    <div class="footer-content">
+                        <p class="copyright-line">© 2026 SANDO. ALL RIGHTS RESERVED.</p>
+                        <p class="warning-line">Any reproduction, distribution, or public broadcasting of the audio and visual works on this site without explicit consent is strictly prohibited.</p>
                     </div>
+                </footer>
 
-                    <div class="routing-grid">
-                        <a href="https://soundcloud.com/thetreasuryrecords" target="_blank" class="route-btn">SOUNDCLOUD</a>
-                        <a href="https://www.instagram.com/thetreasuryrecords" target="_blank" class="route-btn">INSTAGRAM</a>
-                        <a href="mailto:thetreasuryrecords@gmail.com?subject=DEMO%20SUBMISSION:%20[artist%20name]%20-%20[track%20title]" class="route-btn highlight-route">SUBMIT DEMO</a>
-                    </div>
-                    
-                    <p class="demo-instructions">We are always listening to new music. Please send private streaming links (SoundCloud/Dropbox). Do not attach audio files directly.</p>
-                
-                </div> </div>
+            </div>
+
         </div>
-
-    </div>
-</section><div class="fw-bolder text-center sidebar-nav" style="background: rgba(0,0,0,0.51);opacity: 1;backdrop-filter: blur(9px) contrast(99%) sepia(0%);-webkit-backdrop-filter: blur(9px) contrast(99%) sepia(0%);font-size: 18px;text-shadow: 2px 2px var(--bs-indigo);"><a data-bss-hover-animate="pulse" href="index.html" style="text-shadow: 2px 2px var(--bs-indigo);">Home</a><a data-bss-hover-animate="pulse" href="contact.html">Contact</a><a data-bss-hover-animate="pulse" href="bio.html" style="text-shadow: 2px 3px var(--bs-indigo);">Bio</a><a data-bss-hover-animate="pulse" href="discography.html" style="text-shadow: 2px 2px var(--bs-indigo);">Discography</a><a data-bss-hover-animate="pulse" href="previews.html">Previews</a><a data-bss-hover-animate="pulse" href="socials.html">Socials</a><a data-bss-hover-animate="pulse" href="resources.html">Resources</a></div><a class="desktop-toggle" href="#">MENU</a><nav class="navbar bg-transparent mobile-hamburger" data-bs-theme="dark"><div class="container-fluid"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navcol-1"><ul class="navbar-nav"></ul><a data-bss-hover-animate="pulse" href="index.html" style="text-shadow: 2px 2px var(--bs-indigo);">Home</a><a href="Release.html">Release</a><a data-bss-hover-animate="pulse" href="contact.html">Contact</a><a data-bss-hover-animate="pulse" href="bio.html" style="text-shadow: 2px 3px var(--bs-indigo);">Bio</a><a data-bss-hover-animate="pulse" href="discography.html" style="text-shadow: 2px 2px var(--bs-indigo);">Discography</a><a data-bss-hover-animate="pulse" href="previews.html">Previews</a><a data-bss-hover-animate="pulse" href="socials.html">Socials</a><a data-bss-hover-animate="pulse" href="resources.html">Resources</a></div></div></nav><footer class="sando-legal-footer">
-    <div class="footer-content">
-        <p class="copyright-line">&copy; 2026 Sando. All Rights Reserved.</p>
-        <p class="warning-line">Any reproduction, distribution, or public broadcasting of the audio and visual works on this site without explicit consent is strictly prohibited.</p>
-    </div>
-</footer><script src="assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script><script src="assets/js/script.min.js?h=797f7b0f8af72feab25c104f4f31bec6"></script></body></html>
+    </section>
+</div><div class="fw-bolder text-center sidebar-nav" style="background: rgba(0,0,0,0.51);opacity: 1;backdrop-filter: blur(9px) contrast(99%) sepia(0%);-webkit-backdrop-filter: blur(9px) contrast(99%) sepia(0%);font-size: 18px;text-shadow: 2px 2px var(--bs-indigo);"><a data-bss-hover-animate="pulse" href="index.html" style="text-shadow: 2px 2px var(--bs-indigo);">Home</a><a href="release.html">Release</a><a data-bss-hover-animate="pulse" href="contact.html">Contact</a><a data-bss-hover-animate="pulse" href="bio.html" style="text-shadow: 2px 3px var(--bs-indigo);">Bio</a><a data-bss-hover-animate="pulse" href="discography.html" style="text-shadow: 2px 2px var(--bs-indigo);">Discography</a><a data-bss-hover-animate="pulse" href="previews.html">Previews</a><a data-bss-hover-animate="pulse" href="socials.html">Socials</a><a data-bss-hover-animate="pulse" href="resources.html">Resources</a></div><a class="desktop-toggle" href="#">MENU</a><nav class="navbar bg-transparent mobile-hamburger" data-bs-theme="dark"><div class="container-fluid"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navcol-1"><ul class="navbar-nav"></ul><a data-bss-hover-animate="pulse" href="index.html" style="text-shadow: 2px 2px var(--bs-indigo);">Home</a><a href="release.html">Release</a><a data-bss-hover-animate="pulse" href="contact.html">Contact</a><a data-bss-hover-animate="pulse" href="bio.html" style="text-shadow: 2px 3px var(--bs-indigo);">Bio</a><a data-bss-hover-animate="pulse" href="discography.html" style="text-shadow: 2px 2px var(--bs-indigo);">Discography</a><a data-bss-hover-animate="pulse" href="previews.html">Previews</a><a data-bss-hover-animate="pulse" href="socials.html">Socials</a><a data-bss-hover-animate="pulse" href="resources.html">Resources</a></div></div></nav><script src="assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script><script src="assets/js/script.min.js?h=8bb9ae8b34fe5555b1dcde01ae37c591"></script></body></html>
