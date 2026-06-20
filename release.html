@@ -1,51 +1,89 @@
-<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Sando - Release</title><meta property="og:title" content="Sando - Hard Dance Producer, DJ And Label Owner"><meta property="og:type" content="website"><meta property="og:description" content="Where High Energy Hard Dance Music Lives"><meta name="description" content="Where High Energy Hard Dance Music Lives"><meta property="og:image" content="https://www.sandoproduces.com/assets/img/OG Facebook Card.jpg"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=a549af2a81cd9900ee897d8bc9c4b5e9"><link rel="stylesheet" href="assets/css/styles.min.css?h=4abf93aa42e1bade1f0d47b72a422b64"></head><body><style>
-/* 1. Lock the page height to exactly one screen and kill all scrolling */
-    .release-environment {
-        height: 100vh !important;
-        height: 100dvh !important; 
-        overflow: hidden !important; 
-        overscroll-behavior: none !important;
-        
-        /* Change this number to slide the entire block up closer to the ceiling */
-        padding-top: 150px !important; 
-        
-        padding-bottom: 0 !important;
+<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Sando - Release</title><meta property="og:title" content="Sando - Hard Dance Producer, DJ And Label Owner"><meta property="og:type" content="website"><meta property="og:description" content="Where High Energy Hard Dance Music Lives"><meta name="description" content="Where High Energy Hard Dance Music Lives"><meta property="og:image" content="https://www.sandoproduces.com/assets/img/OG Facebook Card.jpg"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=a549af2a81cd9900ee897d8bc9c4b5e9"><link rel="stylesheet" href="assets/css/styles.min.css?h=699c79db6f5b6188e41fc4e2c8aa05fa"></head><body><style>
+    /* 1. THE ROOT CAUSE FIX: Pulls the vignette overlay out of the physical layout flow */
+    .release-environment::before {
+        position: absolute !important;
     }
-
-/* 2. Stack the content tightly at the top instead of rubber-banding */
-    .release-environment .master-content-area {
-        height: 100% !important;
-        flex-grow: 1 !important;
+/* 1. The Environment (Flex Wrapper) */
+    .release-environment {
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-start !important; /* Packs everything to the top */
+        min-height: 100vh !important; /* MIN-height is the key. It stretches if content is taller. */
+        min-height: 100dvh !important;
+        padding-top: 150px !important; /* Adjust this to move everything up/down on desktop */
+        width: 100% !important;
+        overflow: hidden !important;
+        overscroll-behavior: none !important;
+    }
+
+    /* 2. The Content Area (The Spacer) */
+    .release-environment .master-content-area {
+        flex: 1 auto !important; /* This acts like a spring, pushing the footer to the bottom */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
         align-items: center !important;
-        gap: 25px !important; /* The exact spacing between your title, player, and vault */
-        padding: 0 0 60px 0 !important; 
+        gap: 25px !important;
+        width: 100% !important;
+        padding-bottom: 60px !important; /* Breathing room above the footer */
         margin: 0 !important;
     }
 
-    /* 3. Kill the massive margins so things don't push off the screen */
+    /* 3. Kill the margins on the inner elements */
     .release-environment .hardware-player,
     .release-environment .release-title-container {
         margin-bottom: 0 !important; 
         margin-top: 0 !important;
     }
 
-    /* 4. Staple the footer to the absolute bottom of the glass */
-    .release-environment .sando-legal-footer {
-        position: absolute !important;
-        bottom: 0 !important;
-        left: 0 !important;
+    /* 4. The Footer (Natural Flow) */
+    .sando-legal-footer {
+        flex-shrink: 0 !important; /* Stops the footer from compressing */
         width: 100% !important;
-        margin: 0 !important;
-        z-index: 2000 !important; /* Keeps it above everything */
+        z-index: 20 !important;
+        background: transparent !important;
+        padding-bottom: 0 !important;
+        
+        /* Notice there is NO position: absolute and NO bottom: 0 here */
     }
+    .bandcamp-dl-btn {
+    width: 380px;
+    max-width: 400px !important;
+    text-align: center;
+    display: inline-block !important;
+    padding: 10px 20px !important;
+    color: #fff !important;
+    font-family: 'Montserrat', sans-serif !important;
+    background: linear-gradient( to bottom, #0a0a0c 5%, #32333b 26%, #9da0a8 85%, #f2f2f7 100% ) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid #3a3a3c;
+    border-radius: 6px;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    backdrop-filter: blur(4px) !important;
+    margin-top: 20px !important; /* Base margin */
+    animation: release-hover-pulse 1s, plasma-flash 4s infinite ease-in-out !important;
+}
+
+.bandcamp-dl-btn:hover {
+  animation: marquee-bounce !important;
+  background-color: #5e2ca5 !important;
+  color: #ffffff !important;
+  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.8) !important;
+  transform: none !important;
+}
 
     /* 5. Mobile compression (Squishes things slightly on small phones to ensure they fit) */
     @media (max-width: 768px) {
         .release-environment {
+            overscroll-behavior: none !important;
             padding-top: 125px !important;
+        }
+                .release-header {
+            padding-top: 1px !important;
         }
         .release-environment .release-title {
             font-size: clamp(2.5rem, 12vw, 4rem) !important; /* Prevents title from taking up half the phone */
@@ -53,6 +91,26 @@
         .release-environment .hardware-player {
             padding: 15px !important; /* Slims the player vertically */
         }
+        .sando-legal-footer {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        z-index: 2000 !important; /* Keeps it above everything */
+    }
+    .bandcamp-dl-btn {
+width: 280px;
+max-width: 340px !important;
+text-align: center;
+background: linear-gradient( to bottom, #0a0a0c 5%, #32333b 26%, #9da0a8 85%, #f2f2f7 100% );
+border: 1px solid rgba(255, 255, 255, 0.15);
+border-top: 1px solid rgba(255, 255, 255, 0.3);
+border-top: 1px solid #3a3a3c;
+border-radius: 6px;
+transform: translateY(18px) !important;
+    }
+        
     }
 </style>
 <div class="master-page-wrapper release-environment">
@@ -109,6 +167,10 @@
         </div>
     </form>
 </div>
+    
+<a href="https://sandoproduces.bandcamp.com/track/ben-hemsley-through-2-you-sando-remix" target="_blank" class="bandcamp-dl-btn">
+    DOWNLOAD ON BANDCAMP
+</a>
 
 <iframe name="hidden_submit" id="hidden_submit" style="display:none;"></iframe>
     </div> <footer class="sando-legal-footer">
@@ -117,5 +179,5 @@
             <p class="warning-line">Any reproduction, distribution, or public broadcasting of the audio and visual works on this site without explicit consent is strictly prohibited.</p>
         </div>
     </footer>
-
-</div> <audio id="release-audio" src="https://raw.githubusercontent.com/SandoProduces/sandowebsiteassets/main/BenHemsley-Through2You(SandoRemix).mp3"></audio><div class="d-flex flex-column vh-100"></div><script src="assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script><script src="assets/js/script.min.js?h=8bb9ae8b34fe5555b1dcde01ae37c591"></script></body></html>
+ <audio id="release-audio" src="https://raw.githubusercontent.com/SandoProduces/sandowebsiteassets/main/BenHemsley-Through2You(SandoRemix).mp3"></audio>
+</div><div class="d-flex flex-column vh-100"></div><script src="assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script><script src="assets/js/script.min.js?h=5c5ff97bb1d4cd837e393fb144d278d5"></script></body></html>
