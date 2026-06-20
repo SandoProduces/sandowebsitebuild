@@ -1,117 +1,191 @@
-<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Sando - Release</title><meta property="og:title" content="Sando - Hard Dance Producer, DJ And Label Owner"><meta property="og:type" content="website"><meta property="og:description" content="Where High Energy Hard Dance Music Lives"><meta name="description" content="Where High Energy Hard Dance Music Lives"><meta property="og:image" content="https://www.sandoproduces.com/assets/img/OG Facebook Card.jpg"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=a549af2a81cd9900ee897d8bc9c4b5e9"><link rel="stylesheet" href="assets/css/styles.min.css?h=699c79db6f5b6188e41fc4e2c8aa05fa"></head><body><style>
-    /* 1. THE ROOT CAUSE FIX: Pulls the vignette overlay out of the physical layout flow */
-    .release-environment::before {
-        position: absolute !important;
+<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Sando - Release</title><meta property="og:title" content="Sando - Hard Dance Producer, DJ And Label Owner"><meta property="og:type" content="website"><meta property="og:description" content="Where High Energy Hard Dance Music Lives"><meta property="og:image" content="https://www.sandoproduces.com/assets/img/OG Facebook Card.jpg"><meta name="description" content="My Latest Release."><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=a549af2a81cd9900ee897d8bc9c4b5e9"><link rel="stylesheet" href="assets/css/styles.min.css?h=85ca93e78320dfd0b2585f55cff76a2a"></head><body class="d-flex"><style>
+/* ========================================================= */
+    /* 0. FLOOR SWEEPERS (Kills Global Margin Voids)             */
+    /* ========================================================= */
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #050505 !important; 
     }
-/* 1. The Environment (Flex Wrapper) */
+
+    /* Flattens the bottom margin on ANY hidden global wrapper your site builder uses */
+    body > * {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Specifically targets our wrappers just to be safe */
+    .master-page-wrapper, .release-environment {
+        margin-bottom: 0 !important;
+    }
+
+    .sando-legal-footer p {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding: 0 !important;
+    }
+    /* ========================================================= */
+    /* 1. GHOST KILLERS & VIGNETTE FIX                           */
+    /* ========================================================= */
+    
+    /* Pulls the vignette overlay out of the physical layout flow */
+    .release-environment::before {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        min-height: 100vh !important; 
+        min-height: 100dvh !important;
+        height: auto !important; 
+    }
+
+    /* Kills the physical footprint of the hidden audio file */
+    #hidden_submit, #release-audio {
+        display: none !important;
+        position: absolute !important;
+        height: 0 !important;
+        width: 0 !important;
+    }
+
+    /* ========================================================= */
+    /* 2. THE FLUID ENVIRONMENT (Universal Safety Valve)         */
+    /* ========================================================= */
     .release-environment {
         display: flex !important;
         flex-direction: column !important;
-        min-height: 100vh !important; /* MIN-height is the key. It stretches if content is taller. */
+        
+        /* The Safety Valve: At least screen height, but grows if content needs room */
+        min-height: 100vh !important; 
         min-height: 100dvh !important;
-        padding-top: 150px !important; /* Adjust this to move everything up/down on desktop */
+        height: auto !important; 
+        
+        /* THE BUMPER: Minimum 130px padding absorbs the -40px title shift so it clears the header */
+        padding-top: clamp(80px, 12vh, 130px) !important; 
+        box-sizing: border-box !important;
         width: 100% !important;
-        overflow: hidden !important;
-        overscroll-behavior: none !important;
     }
 
-    /* 2. The Content Area (The Spacer) */
     .release-environment .master-content-area {
-        flex: 1 auto !important; /* This acts like a spring, pushing the footer to the bottom */
+        /* The Spring: Absorbs empty space to push the footer to the bottom on large screens */
+        flex: 1 0 auto !important; 
+        
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
         align-items: center !important;
-        gap: 25px !important;
+        
+        /* THE BUMPER: Minimum 45px gap absorbs the -30px player shift so it clears the title */
+        gap: clamp(10px, 3vh, 60px) !important;
         width: 100% !important;
-        padding-bottom: 60px !important; /* Breathing room above the footer */
+        
+        /* Dynamic floor gap before the footer */
+        padding-bottom: clamp(30px, 5vh, 60px) !important; 
         margin: 0 !important;
+        box-sizing: border-box !important;
     }
 
-    /* 3. Kill the margins on the inner elements */
-    .release-environment .hardware-player,
+/* Keeps the title margin at 0 */
     .release-environment .release-title-container {
-        margin-bottom: 0 !important; 
-        margin-top: 0 !important;
+        margin: 0 !important; 
     }
 
-    /* 4. The Footer (Natural Flow) */
+    /* Gives the player its own dedicated spacing control */
+    .release-environment .hardware-player {
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        
+        /* THE CONTROL: This pushes the Harvest Vault further down. 
+           Change the first number for the OnePlus, the last number for the BenQ. */
+        margin-bottom: clamp(0px, 1vh, 5px) !important; 
+    }
+
     .sando-legal-footer {
-        flex-shrink: 0 !important; /* Stops the footer from compressing */
+        flex-shrink: 0 !important; 
         width: 100% !important;
         z-index: 20 !important;
         background: transparent !important;
-        padding-bottom: 0 !important;
-        
-        /* Notice there is NO position: absolute and NO bottom: 0 here */
+        padding-bottom: 0 !important; /* Kills the 25px global padding void */
+        margin: 0 !important;
+        position: relative !important; 
     }
+
+    .sando-legal-footer .warning-line {
+        margin-bottom: 0 !important;
+    }
+
+    /* ========================================================= */
+    /* 3. DOWNLOAD BUTTON                                        */
+    /* ========================================================= */
     .bandcamp-dl-btn {
-    width: 380px;
-    max-width: 400px !important;
-    text-align: center;
-    display: inline-block !important;
-    padding: 10px 20px !important;
-    color: #fff !important;
-    font-family: 'Montserrat', sans-serif !important;
-    background: linear-gradient( to bottom, #0a0a0c 5%, #32333b 26%, #9da0a8 85%, #f2f2f7 100% ) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-top: 1px solid #3a3a3c;
-    border-radius: 6px;
-    font-size: 0.9rem !important;
-    text-transform: uppercase !important;
-    text-decoration: none !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    backdrop-filter: blur(4px) !important;
-    margin-top: 20px !important; /* Base margin */
-    animation: release-hover-pulse 1s, plasma-flash 4s infinite ease-in-out !important;
-}
+        width: 100% !important; 
+        max-width: 380px !important; 
+        text-align: center;
+        display: inline-block !important;
+        padding: 10px 20px !important;
+        color: #fff !important;
+        font-family: 'Montserrat', sans-serif !important;
+        background: linear-gradient( to bottom, #0a0a0c 5%, #32333b 26%, #9da0a8 85%, #f2f2f7 100% ) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 6px !important;
+        font-size: 0.9rem !important;
+        text-transform: uppercase !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        backdrop-filter: blur(4px) !important;
+        
+        /* Dynamic margin pushes it away from the vault */
+        margin-top: clamp(20px, 6vh, 50px) !important; 
+        animation: plasma-flash 6s infinite ease-in-out !important;
+        box-sizing: border-box !important;
+    }
 
-.bandcamp-dl-btn:hover {
-  animation: marquee-bounce !important;
-  background-color: #5e2ca5 !important;
-  color: #ffffff !important;
-  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.8) !important;
-  transform: none !important;
-}
+    .bandcamp-dl-btn:hover {
+        animation: none !important;
+        background: #5e2ca5 !important;
+        color: #ffffff !important;
+        box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.8) !important;
+        transform: none !important;
+    }
 
-    /* 5. Mobile compression (Squishes things slightly on small phones to ensure they fit) */
+/* ========================================================= */
+    /* 4. MOBILE ADJUSTMENTS (Portrait)                          */
+    /* ========================================================= */
     @media (max-width: 768px) {
         .release-environment {
-            overscroll-behavior: none !important;
-            padding-top: 125px !important;
+            padding-top: 110px !important;
+            min-height: auto !important; /* Forces the container to shrink to fit the content */
+            padding-bottom: 20px !important;
         }
-                .release-header {
+        .release-header {
             padding-top: 1px !important;
         }
         .release-environment .release-title {
-            font-size: clamp(2.5rem, 12vw, 4rem) !important; /* Prevents title from taking up half the phone */
+            font-size: clamp(2.5rem, 12vw, 4rem) !important; 
         }
         .release-environment .hardware-player {
-            padding: 15px !important; /* Slims the player vertically */
+            padding: 15px !important; 
         }
-        .sando-legal-footer {
-        position: absolute !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        margin: 0 !important;
-        z-index: 2000 !important; /* Keeps it above everything */
-    }
-    .bandcamp-dl-btn {
-width: 280px;
-max-width: 340px !important;
-text-align: center;
-background: linear-gradient( to bottom, #0a0a0c 5%, #32333b 26%, #9da0a8 85%, #f2f2f7 100% );
-border: 1px solid rgba(255, 255, 255, 0.15);
-border-top: 1px solid rgba(255, 255, 255, 0.3);
-border-top: 1px solid #3a3a3c;
-border-radius: 6px;
-transform: translateY(18px) !important;
-    }
+        .bandcamp-dl-btn {
+            max-width: 340px !important;
+        }
+
+        /* --- KILL THE SPRING --- */
+        .release-environment .master-content-area {
+            flex: 0 0 auto !important; /* Turns off the expansion */
+            padding-bottom: 40px !important; /* Sets the exact gap you want */
+        }
         
+        .sando-legal-footer {
+            margin-top: 0 !important; /* Footer now sits right after the content */
+            padding-bottom: 0 !important;
+        }
+        /* Forces the page to cut off exactly at the bottom of the viewport */
+
     }
+    
 </style>
 <div class="master-page-wrapper release-environment">
     
@@ -180,4 +254,4 @@ transform: translateY(18px) !important;
         </div>
     </footer>
  <audio id="release-audio" src="https://raw.githubusercontent.com/SandoProduces/sandowebsiteassets/main/BenHemsley-Through2You(SandoRemix).mp3"></audio>
-</div><div class="d-flex flex-column vh-100"></div><script src="assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script><script src="assets/js/script.min.js?h=5c5ff97bb1d4cd837e393fb144d278d5"></script></body></html>
+</div><div class="d-flex flex-column vh-100" style="position: static;"></div><script src="assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script><script src="assets/js/script.min.js?h=5c5ff97bb1d4cd837e393fb144d278d5"></script></body></html>
