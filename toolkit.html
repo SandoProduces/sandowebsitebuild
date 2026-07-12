@@ -1,0 +1,1505 @@
+<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>SandoProducesWebsiteFlexChanges</title><meta property="og:title" content="Sando - Hard Dance Producer, DJ And Label Owner"><meta property="og:type" content="website"><meta property="og:description" content="Where High Energy Hard Dance Music Lives"><meta name="description" content="Where High Energy Hard Dance Music Lives"><meta property="og:image" content="https://www.sandoproduces.com/assets/img/OG Facebook Card.jpg"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=a549af2a81cd9900ee897d8bc9c4b5e9"><link rel="stylesheet" href="assets/css/styles.min.css?h=54a342ba747ee291028a8cde9177113a"><link rel="stylesheet" href="assets/css/animate.min.min.css?h=5512c3e92e3931978c9ddcc7dbeed22b"></head><body><!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sando Studio Toolkit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #000; color: #e5e5e5; }
+        
+        /* Dashboard Tab Grid */
+        .nav-pills .nav-link { 
+            color: #a3a3a3; 
+            font-weight: 600; 
+            font-size: 0.875rem; 
+            border-radius: 0.375rem; 
+            padding: 0.5rem 1.25rem; 
+            background-color: #171717;
+            border: 1px solid #262626;
+            transition: all 0.2s;
+        }
+        .nav-pills .nav-link:hover { color: #fff; background-color: #262626; border-color: #404040; }
+        .nav-pills .nav-link.active { background-color: #4f46e5; color: #fff; border-color: #4f46e5; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
+        
+        /* Responsive Section Padding */
+        .toolkit-section { display: none; min-height: 60vh; padding: 2rem 0 4rem 0; animation: fadeIn 0.3s ease-in-out; }
+        .toolkit-section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* EQ Card Styling */
+        .eq-card { background-color: #171717; border: 1px solid #404040; transition: border-color 0.3s; }
+        .eq-card:hover { border-color: #4f46e5; }
+        .eq-vis { background-color: #0a0a0a; border: 1px solid #404040; border-radius: 0.5rem; height: 80px; position: relative; }
+    </style>
+</head>
+<body>
+
+    <div style="padding-top: 100px; padding-bottom: 2rem; position: relative; z-index: 10;"> 
+        <div class="container-xl">
+
+            <div class="text-center mb-4">
+                <h1 class="text-primary fw-bold text-uppercase mb-2" style="letter-spacing: 3px; font-size: clamp(1.5rem, 4vw, 2.5rem);">Studio Toolkit</h1>
+                <p class="text-secondary small tracking-widest text-uppercase">Production Utilities & Guides</p>
+            </div>
+
+            <div class="d-flex justify-content-center mb-5">
+                <ul class="nav nav-pills justify-content-center gap-2" id="toolkit-tabs">
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="rhythm">Rhythm Explorer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="arrange">Arrangement</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#" data-target="delay">Delay Sync</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="chords">Chords & Scales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="harmonic">Harmonic Mixing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="tempo">Tap Tempo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="eq">EQ Cheat Sheet</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="ideas">Block Breaker</a></li>
+                </ul>
+            </div>
+
+            <main class="w-100">
+                
+<!-- RHYTHM EXPLORER MODULE -->
+        <div id="rhythm" class="toolkit-section">
+            <div class="row g-4">
+                
+                <!-- Visualizer & Global Controls -->
+                <div class="col-12 col-lg-7 col-xl-8 d-flex flex-column gap-3">
+                    
+                    <!-- SVG Visualizer Container (Uncaged width, fills the column naturally) -->
+                    <div class="bg-dark border border-secondary rounded p-4 d-flex align-items-center justify-content-center position-relative w-100 flex-grow-1" style="min-height: 450px;">
+                        
+                        <!-- Canvas expanded to 360x360 -->
+                        <svg id="rhythm-svg" class="w-100 h-100 overflow-visible" viewBox="-180 -180 360 360" style="max-height: 600px;">
+                            <!-- Populated by JS -->
+                        </svg>
+                        
+<!-- Center Play/BPM Controls -->
+                        <style>
+                            /* Nuke the invisible number arrows so text can actually center */
+                            #rhythm-bpm-input::-webkit-outer-spin-button,
+                            #rhythm-bpm-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+                            #rhythm-bpm-input[type=number] { -moz-appearance: textfield; }
+                        </style>
+                        <div class="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center justify-content-center rounded-4 shadow" style="background: rgba(23, 23, 23, 0.85);backdrop-filter: blur(4px);-webkit-backdrop-filter: blur(4px);border: 1px solid #404040;z-index: 5;width: 90px;height: 90px;gap: 6px;">
+                            
+                            <!-- Button with clean flex alignment -->
+                            <button id="rhythm-play-btn" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center m-0 p-0 shadow-none" style="width: 38px; height: 38px; min-height: 38px; flex-shrink: 0; border: none; background-color: #4f46e5;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" id="rhythm-play-icon" style="margin-left: 2px;">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                            
+                            <!-- Input with zeroed padding to stay perfectly stacked -->
+                            <input type="number" id="rhythm-bpm-input" class="form-control bg-transparent text-white fw-bold text-center border-0 m-0 p-0 shadow-none" style="width: 60px; height: 20px; font-size: 1rem; line-height: 1;" value="140">
+                            
+                        </div>
+                    </div>
+
+                    <!-- Linear MIDI View (Uncaged width, slightly taller) -->
+                    <div class="bg-black border border-secondary rounded p-3 position-relative w-100" style="height: 110px;">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-secondary fw-bold tracking-widest" style="font-size: 0.65rem;">LINEAR MIDI VIEW (32 STEPS)</span>
+                        </div>
+                        <div id="rhythm-linear-view" class="position-relative w-100 d-flex flex-column gap-1" style="height: calc(100% - 24px);">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track Controls Sidebar -->
+                <div class="col-12 col-lg-5 col-xl-4">
+                    <div class="bg-dark p-3 p-md-4 rounded border border-secondary h-100">
+                        <h6 class="text-secondary fw-bold mb-4 tracking-widest">TRACK CONTROLS</h6>
+                        <div id="rhythm-tracks-container" class="d-flex flex-column gap-3">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+                
+<!-- ARRANGEMENT ARCHITECT MODULE -->
+<div id="arrange" class="toolkit-section">
+            <div class="row g-4 h-100">
+                
+                <div class="col-12 col-lg-8 col-xl-9 d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-end mb-3">
+                        <h2 class="fw-bold m-0 text-light">Arrangement Overview</h2>
+                        <span class="text-secondary font-monospace small" id="arrange-total">TOTAL: 0 BARS</span>
+                    </div>
+                    
+                    <div class="w-100 overflow-x-auto pb-3 mb-4 border-bottom border-secondary" style="height: 300px;">
+                        <div class="d-flex h-100 align-items-end gap-2" id="arrange-timeline" style="min-width: max-content; padding-bottom: 10px;">
+                            </div>
+                    </div>
+
+                    <div>
+                        <span class="text-secondary fw-bold small tracking-widest d-block mb-2">ADD NEW SECTION</span>
+                        <div class="d-flex flex-wrap gap-2" id="arrange-toolbar"></div>
+                    </div>
+                    <!-- Toolbar & Save/Load Controls -->
+                    <div class="mt-4">
+                        <span class="text-secondary fw-bold small tracking-widest d-block mb-2">ADD NEW SECTION</span>
+                        <div class="d-flex flex-wrap gap-2 mb-4" id="arrange-toolbar"></div>
+
+                        <!-- Save & Load Module -->
+                        <div class="bg-black p-3 rounded border border-secondary" style="max-width: 500px;">
+                            <span class="text-secondary fw-bold small tracking-widest d-block mb-2">SAVE / LOAD PROJECT</span>
+                            <p class="text-secondary mb-3" style="font-size: 0.75rem;">
+                                Download your current arrangement structure to your device. You can share this file with collaborators or load it back in later to continue working.
+                            </p>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-primary fw-bold px-3" onclick="saveArrangement()">
+                                    &darr; Save to Computer
+                                </button>
+                                <input type="file" id="arrange-file-upload" class="d-none" accept=".json" onchange="loadArrangement(event)">
+                                <button class="btn btn-sm btn-outline-secondary fw-bold px-3" onclick="document.getElementById('arrange-file-upload').click()">
+                                    &uarr; Load File
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 col-xl-3">
+                    <div class="bg-dark p-4 rounded border border-secondary h-100">
+                        <h6 class="text-secondary fw-bold mb-4 tracking-widest">BLOCK INSPECTOR</h6>
+                        <div id="arrange-inspector" class="d-flex flex-column gap-4">
+                            </div>
+                    </div>
+                </div>
+                
+            </div>
+
+</div>
+        </div> <div id="chords" class="toolkit-section">
+                    <div class="d-flex flex-column align-items-center h-100">
+                        <div class="w-100 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 p-3 rounded mb-4 border border-secondary" style="max-width: 900px; background-color: #171717;">
+                            <div class="d-flex gap-3 w-100 w-md-auto">
+                                <select id="chord-key" class="form-select bg-dark text-light border-secondary">
+                                    <option value="C">C</option><option value="C#">C#</option><option value="D">D</option><option value="D#">D#</option>
+                                    <option value="E">E</option><option value="F">F</option><option value="F#">F#</option><option value="G">G</option>
+                                    <option value="G#">G#</option><option value="A">A</option><option value="A#">A#</option><option value="B">B</option>
+                                </select>
+                                <select id="chord-scale" class="form-select bg-dark text-light border-secondary">
+                                    <option value="Major">Major</option>
+                                    <option value="Minor" selected>Minor (Natural)</option>
+                                    <option value="Harmonic Minor">Harmonic Minor</option>
+                                    <option value="Melodic Minor">Melodic Minor</option>
+                                    <option value="Major Pentatonic">Major Pentatonic</option>
+                                    <option value="Minor Pentatonic">Minor Pentatonic</option>
+                                    <option value="Blues">Blues Minor</option>
+                                    <option value="Phrygian">Phrygian</option>
+                                    <option value="Phrygian Dominant">Phrygian Dominant</option>
+                                    <option value="Dorian">Dorian</option>
+                                </select>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 w-100 w-md-auto justify-content-center">
+                                <span class="text-secondary">Vol</span>
+                                <input type="range" id="chord-vol" class="form-range" min="0" max="100" value="80" style="width: 100px;">
+                            </div>
+                        </div>
+
+                        <div class="text-center mb-5 w-100">
+                            <h6 class="text-secondary fw-bold mb-3 tracking-widest text-uppercase" id="chord-title">C MINOR SCALE NOTES</h6>
+                            <div class="d-flex gap-2 justify-content-center flex-wrap" id="chord-notes">
+                                </div>
+                        </div>
+
+                        <div class="w-100 overflow-x-auto pb-3">
+                            <div class="position-relative d-flex mx-auto" style="min-width: 640px; max-width: 900px; height: 200px;" id="piano-keyboard">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="harmonic" class="toolkit-section">
+                    <div class="d-flex flex-column align-items-center">
+                        <h2 class="fw-bold mb-2 text-light text-center">Harmonic Mixing</h2>
+                        <p class="text-secondary mb-5 small text-center">Click any segment to highlight compatible mix-in keys.</p>
+                        <div class="row w-100 m-0" style="max-width: 1200px;">
+                            <div class="col-lg-6 d-flex flex-column align-items-center mb-5 px-0 px-md-3">
+                                <h6 class="fw-bold text-primary mb-4 tracking-widest text-uppercase">Camelot Wheel</h6>
+                                <div id="camelot-container" class="w-100" style="max-width: 500px;"></div>
+                            </div>
+                            <div class="col-lg-6 d-flex flex-column align-items-center mb-5 px-0 px-md-3">
+                                <h6 class="fw-bold text-success mb-4 tracking-widest text-uppercase">Circle of Fifths</h6>
+                                <div id="fifths-container" class="w-100" style="max-width: 500px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tempo" class="toolkit-section">
+                    <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                        <div id="tap-btn" class="rounded-circle d-flex flex-column align-items-center justify-content-center shadow" 
+                             style="width: clamp(250px, 80vw, 320px); height: clamp(250px, 80vw, 320px); background-color: #171717; border: 4px solid rgba(79, 70, 229, 0.3); cursor: pointer; transition: background-color 0.1s;">
+                            <span class="text-secondary fw-bold tracking-widest mb-2">TAP HERE</span>
+                            <span id="tap-bpm-display" class="fw-bold text-white" style="font-size: clamp(3rem, 15vw, 5rem);">---</span>
+                            <span class="text-primary mt-2 font-monospace">BPM</span>
+                        </div>
+
+                        <div class="mt-5 d-flex flex-column align-items-center gap-3 p-4 rounded border border-secondary w-100" style="max-width: 400px; background-color: #171717;">
+                            <div class="d-flex flex-column flex-sm-row gap-3 w-100">
+                                <button id="metro-btn" class="btn btn-primary rounded-pill fw-bold px-4 py-2 w-100" disabled>START METRO</button>
+                                <button id="apply-bpm-btn" class="btn btn-success rounded-pill fw-bold px-4 py-2 text-light w-100" disabled>APPLY BPM</button>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 mt-2 w-100 justify-content-center">
+                                <span class="text-secondary small">Click Vol</span>
+                                <input type="range" id="metro-vol" class="form-range" min="0" max="100" value="50" style="width: 150px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="delay" class="toolkit-section active">
+                    <div class="d-flex flex-column align-items-center h-100">
+                        <div class="p-4 rounded-4 w-100" style="max-width: 600px; background-color: #171717; border: 1px solid #404040;">
+                            <h2 class="text-center fw-bold mb-4">Delay & LFO Calculator</h2>
+                            <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mb-4">
+                                <span class="text-secondary fw-bold">PROJECT TEMPO:</span>
+                                <input type="number" id="delay-bpm" value="140" class="form-control bg-dark text-primary fw-bold text-center border-secondary" style="width: 100px; font-size: 1.25rem;">
+                                <span class="text-secondary fw-bold">BPM</span>
+                            </div>
+                            <div class="row g-3" id="delay-results">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="eq" class="toolkit-section">
+                    <div class="w-100">
+                        <h2 class="fw-bold mb-4 text-center text-md-start">Expanded EQ Cheat Sheet</h2>
+                        <div class="row g-4 m-0" id="eq-grid">
+                            </div>
+                    </div>
+                </div>
+
+                <div id="ideas" class="toolkit-section">
+                    <div class="d-flex flex-column align-items-center justify-content-center h-100 text-center">
+                        <div style="max-width: 800px;">
+                            <h2 id="block-prompt" class="display-6 fw-bold mb-5 lh-base" style="font-size: clamp(1.5rem, 5vw, 2.5rem);">Loading strategy...</h2>
+                            <button id="block-btn" class="btn btn-warning rounded-pill fw-bold px-4 px-md-5 py-3 fs-6 fs-md-5 text-dark w-100 w-md-auto shadow">Draw New Strategy</button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div> 
+
+    <script>
+        // --- GLOBAL STATE & NAVIGATION ---
+        let globalBpm = 140;
+
+        document.querySelectorAll('#toolkit-tabs .nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelectorAll('#toolkit-tabs .nav-link').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.toolkit-section').forEach(s => s.classList.remove('active'));
+                
+                e.target.classList.add('active');
+                const targetId = e.target.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+        
+// --- RHYTHM EXPLORER LOGIC ---
+        let rhythmTracks = [
+            { id: 0, name: 'TRACK 1', hex: '#3b82f6', steps: 16, pulses: 4, offset: 0, volume: 50, muted: false },
+            { id: 1, name: 'TRACK 2', hex: '#10b981', steps: 16, pulses: 7, offset: 2, volume: 50, muted: false },
+            { id: 2, name: 'TRACK 3', hex: '#f59e0b', steps: 12, pulses: 5, offset: 0, volume: 50, muted: false },
+            { id: 3, name: 'TRACK 4', hex: '#a855f7', steps: 16, pulses: 0, offset: 0, volume: 50, muted: false }
+        ];
+        
+        let rhythmAudioCtx = null;
+        let rhythmBuffers = [null, null, null, null];
+        let rhythmIsPlaying = false;
+        let rhythmNextNoteTime = 0;
+        let rhythmCurrentStep = 0;
+        let rhythmTimerID = null;
+        let rhythmVisStep = 0; // Decoupled step for visualizer updates
+
+        const rhythmPlayBtn = document.getElementById('rhythm-play-btn');
+        const rhythmPlayIcon = document.getElementById('rhythm-play-icon');
+        const rhythmBpmInput = document.getElementById('rhythm-bpm-input');
+
+        function generateEuclidean(steps, pulses, offset) {
+            let pattern = Array(steps).fill(0);
+            if (pulses > 0) {
+                for (let i = 0; i < pulses; i++) {
+                    pattern[Math.round((i / pulses) * steps)] = 1;
+                }
+            }
+            if (offset > 0) {
+                pattern = [...pattern.slice(-offset), ...pattern.slice(0, -offset)];
+            }
+            return pattern;
+        }
+
+        // Render Sidebar Controls
+        function renderRhythmTracksUI() {
+            const container = document.getElementById('rhythm-tracks-container');
+            container.innerHTML = rhythmTracks.map((t, i) => `
+                <div class="bg-black rounded p-3 border border-secondary">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge" style="background-color: ${t.hex}; color: #fff;">${t.name}</span>
+                        <div class="d-flex gap-2">
+                            <input type="file" id="rhythm-file-${i}" class="d-none" accept="audio/*" onchange="handleRhythmUpload(${i}, event)">
+                            <button class="btn btn-sm ${rhythmBuffers[i] ? 'btn-primary' : 'btn-outline-secondary'}" onclick="document.getElementById('rhythm-file-${i}').click()" title="Load Sample">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                            </button>
+                            <button class="btn btn-sm ${t.muted ? 'btn-danger' : 'btn-outline-secondary'}" onclick="toggleRhythmMute(${i})">
+                                ${t.muted ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6"/></svg>' : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>'}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-2 small">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-secondary" style="width: 45px;">Steps</span>
+                            <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="32" value="${t.steps}" oninput="updateRhythmTrack(${i}, 'steps', parseInt(this.value))">
+                            <span class="text-light font-monospace text-end" style="width: 20px;">${t.steps}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-secondary" style="width: 45px;">Pulses</span>
+                            <input type="range" class="form-range flex-grow-1 mx-2" min="0" max="${t.steps}" value="${t.pulses}" oninput="updateRhythmTrack(${i}, 'pulses', parseInt(this.value))">
+                            <span class="text-light font-monospace text-end" style="width: 20px;">${t.pulses}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-secondary" style="width: 45px;">Offset</span>
+                            <input type="range" class="form-range flex-grow-1 mx-2" min="0" max="${t.steps}" value="${t.offset}" oninput="updateRhythmTrack(${i}, 'offset', parseInt(this.value))">
+                            <span class="text-light font-monospace text-end" style="width: 20px;">${t.offset}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-2 mt-1">
+                            <span class="text-secondary" style="width: 45px;">Vol</span>
+                            <input type="range" class="form-range flex-grow-1 mx-2" min="0" max="100" value="${t.volume}" oninput="updateRhythmTrack(${i}, 'volume', parseInt(this.value))" ${t.muted ? 'disabled' : ''}>
+                            <span class="text-light font-monospace text-end" style="width: 35px;">${t.volume}%</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+function drawRhythmVisualizers() {
+            const svg = document.getElementById('rhythm-svg');
+            const linearView = document.getElementById('rhythm-linear-view');
+            
+            // SVG
+            let svgHtml = '';
+            rhythmTracks.forEach((track, trackIdx) => {
+                // Expanded radius math: Outer ring is 170, spacing is 32
+                // Rings: 170, 138, 106, 74. (Inner diameter = 148px, perfectly clearing the 90px box)
+                const radius = 170 - (trackIdx * 32);
+                const pattern = generateEuclidean(track.steps, track.pulses, track.offset);
+                const angleStep = (Math.PI * 2) / track.steps;
+                
+                svgHtml += `<circle cx="0" cy="0" r="${radius}" fill="none" stroke="#333" stroke-width="2" />`;
+                pattern.forEach((isActive, stepIdx) => {
+                    const angle = (stepIdx * angleStep) - (Math.PI / 2);
+                    const x = Math.cos(angle) * radius;
+                    const y = Math.sin(angle) * radius;
+                    const isCurrent = (rhythmVisStep % track.steps) === stepIdx;
+                    
+                    const r = isActive ? (isCurrent ? 8 : 6) : 2;
+                    const fill = isActive ? track.hex : '#444';
+                    const opacity = track.muted ? 0.3 : (isCurrent && isActive ? 1 : 0.8);
+                    
+                    svgHtml += `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" opacity="${opacity}" style="transition: all 0.05s;" />`;
+                });
+            });
+            svg.innerHTML = svgHtml;
+
+            // Linear View
+            let linearHtml = '';
+            rhythmTracks.forEach((track) => {
+                const pattern = generateEuclidean(track.steps, track.pulses, track.offset);
+                linearHtml += `<div class="d-flex w-100 gap-1 opacity-75" style="height: 12px;">`;
+                for(let i=0; i<32; i++) {
+                    const isActive = pattern[i % track.steps] === 1;
+                    const bg = (isActive && !track.muted) ? track.hex : '#222';
+                    linearHtml += `<div class="flex-grow-1 rounded-sm" style="background-color: ${bg}; border-radius: 2px;"></div>`;
+                }
+                linearHtml += `</div>`;
+            });
+            
+            // Playhead
+            const leftPos = (rhythmVisStep % 32) * (100 / 32);
+            linearHtml += `<div class="position-absolute top-0 bottom-0 z-1" style="width: 2px; background: rgba(255,255,255,0.7); left: ${leftPos}%; transition: left 0.05s;"></div>`;
+            linearView.innerHTML = linearHtml;
+        }
+
+// Logic Actions
+        window.updateRhythmTrack = (id, field, value) => {
+            rhythmTracks[id][field] = value;
+            
+            // Target the specific track's HTML elements
+            const trackDiv = document.getElementById('rhythm-tracks-container').children[id];
+            if (!trackDiv) return;
+
+            if (field === 'steps') {
+                // Constrain pulses and offset if steps are reduced below their current values
+                if (rhythmTracks[id].pulses > value) {
+                    rhythmTracks[id].pulses = value;
+                    trackDiv.querySelectorAll('input[type="range"]')[1].value = value;
+                    trackDiv.querySelectorAll('.font-monospace')[1].innerText = value;
+                }
+                if (rhythmTracks[id].offset > value) {
+                    rhythmTracks[id].offset = value;
+                    trackDiv.querySelectorAll('input[type="range"]')[2].value = value;
+                    trackDiv.querySelectorAll('.font-monospace')[2].innerText = value;
+                }
+                // Update slider maximums
+                trackDiv.querySelectorAll('input[type="range"]')[1].max = value;
+                trackDiv.querySelectorAll('input[type="range"]')[2].max = value;
+                // Update steps text
+                trackDiv.querySelectorAll('.font-monospace')[0].innerText = value;
+            } else if (field === 'pulses') {
+                trackDiv.querySelectorAll('.font-monospace')[1].innerText = value;
+            } else if (field === 'offset') {
+                trackDiv.querySelectorAll('.font-monospace')[2].innerText = value;
+            } else if (field === 'volume') {
+                trackDiv.querySelectorAll('.font-monospace')[3].innerText = value + '%';
+            }
+
+            drawRhythmVisualizers(); // Only redraws the circles/midi view, NOT the sliders
+        };
+
+        window.toggleRhythmMute = (id) => {
+            rhythmTracks[id].muted = !rhythmTracks[id].muted;
+            renderRhythmTracksUI();
+            drawRhythmVisualizers();
+        };
+
+        window.handleRhythmUpload = async (id, event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            // Clean name for UI
+            let cleanName = file.name.replace(/\.[^/.]+$/, "").toUpperCase();
+            if (cleanName.length > 12) cleanName = cleanName.substring(0, 10) + '..';
+            rhythmTracks[id].name = cleanName;
+
+            // Decode Audio
+            if (!rhythmAudioCtx) rhythmAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                try {
+                    const arrayBuffer = e.target.result;
+                    rhythmBuffers[id] = await rhythmAudioCtx.decodeAudioData(arrayBuffer);
+                    renderRhythmTracksUI();
+                } catch (err) { console.error("Error decoding audio:", err); }
+            };
+            reader.readAsArrayBuffer(file);
+        };
+
+        // Audio Engine
+        function playSynthFallback(ctx, type, time, volume, trackGain) {
+            if (type === 0) { // Kick
+                const osc = ctx.createOscillator();
+                osc.connect(trackGain);
+                osc.frequency.setValueAtTime(150, time);
+                osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.5);
+                trackGain.gain.setValueAtTime(volume, time);
+                trackGain.gain.exponentialRampToValueAtTime(0.01, time + 0.5);
+                osc.start(time); osc.stop(time + 0.5);
+            } else if (type === 1) { // Hat
+                const bufferSize = ctx.sampleRate * 0.1;
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'highpass'; filter.frequency.value = 5000;
+                noise.connect(filter); filter.connect(trackGain);
+                trackGain.gain.setValueAtTime(volume * 0.5, time);
+                trackGain.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
+                noise.start(time);
+            } else if (type === 2) { // Snare
+                const osc = ctx.createOscillator();
+                const oscGain = ctx.createGain();
+                osc.type = 'triangle';
+                osc.connect(oscGain); oscGain.connect(trackGain);
+                osc.frequency.setValueAtTime(250, time);
+                osc.frequency.exponentialRampToValueAtTime(100, time + 0.1);
+                oscGain.gain.setValueAtTime(0.7 * volume, time);
+                oscGain.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
+                osc.start(time); osc.stop(time + 0.2);
+
+                const bufferSize = ctx.sampleRate * 0.25; 
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+                const noiseFilter = ctx.createBiquadFilter();
+                noiseFilter.type = 'highpass'; noiseFilter.frequency.value = 2000;
+                const noiseGain = ctx.createGain();
+                noise.connect(noiseFilter); noiseFilter.connect(noiseGain); noiseGain.connect(trackGain);
+                noiseGain.gain.setValueAtTime(0.15 * volume, time);
+                noiseGain.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
+                noise.start(time);
+            } else if (type === 3) { // Perc
+                const osc = ctx.createOscillator();
+                osc.type = 'square';
+                osc.connect(trackGain);
+                osc.frequency.setValueAtTime(800, time);
+                osc.frequency.exponentialRampToValueAtTime(100, time + 0.05);
+                trackGain.gain.setValueAtTime(volume * 0.4, time);
+                trackGain.gain.exponentialRampToValueAtTime(0.01, time + 0.05);
+                osc.start(time); osc.stop(time + 0.1);
+            }
+        }
+
+        function scheduleRhythmNote(stepNumber, time) {
+            const ctx = rhythmAudioCtx;
+            rhythmTracks.forEach((track, index) => {
+                const pattern = generateEuclidean(track.steps, track.pulses, track.offset);
+                const trackStep = stepNumber % track.steps;
+                
+                if (pattern[trackStep] === 1 && !track.muted) {
+                    const trackGain = ctx.createGain();
+                    trackGain.connect(ctx.destination);
+                    const vol = track.volume / 100;
+                    
+                    if (rhythmBuffers[index]) {
+                        const source = ctx.createBufferSource();
+                        source.buffer = rhythmBuffers[index];
+                        trackGain.gain.value = vol;
+                        source.connect(trackGain);
+                        source.start(time);
+                    } else {
+                        playSynthFallback(ctx, index, time, vol, trackGain);
+                    }
+                }
+            });
+
+            // Sync visualizer to actual playhead time
+            const timeUntilPlay = (time - ctx.currentTime) * 1000;
+            setTimeout(() => {
+                if (rhythmIsPlaying) {
+                    rhythmVisStep = stepNumber;
+                    drawRhythmVisualizers();
+                }
+            }, Math.max(0, timeUntilPlay));
+        }
+
+        function rhythmScheduler() {
+            while (rhythmNextNoteTime < rhythmAudioCtx.currentTime + 0.1) {
+                scheduleRhythmNote(rhythmCurrentStep, rhythmNextNoteTime);
+                rhythmNextNoteTime += (60.0 / globalBpm) / 4; 
+                rhythmCurrentStep++;
+            }
+            rhythmTimerID = setTimeout(rhythmScheduler, 25);
+        }
+
+        rhythmPlayBtn.addEventListener('click', () => {
+            if (!rhythmAudioCtx) rhythmAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (rhythmAudioCtx.state === 'suspended') rhythmAudioCtx.resume();
+            
+            rhythmIsPlaying = !rhythmIsPlaying;
+            
+            if (rhythmIsPlaying) {
+                rhythmPlayIcon.innerHTML = `<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>`;
+                rhythmPlayBtn.classList.replace('btn-primary', 'btn-danger');
+                rhythmPlayBtn.style.backgroundColor = '#dc2626';
+                
+                if (rhythmCurrentStep === 0 || rhythmNextNoteTime < rhythmAudioCtx.currentTime) {
+                    rhythmNextNoteTime = rhythmAudioCtx.currentTime + 0.05;
+                }
+                rhythmScheduler();
+            } else {
+                rhythmPlayIcon.innerHTML = `<path d="M8 5v14l11-7z"/>`;
+                rhythmPlayBtn.classList.replace('btn-danger', 'btn-primary');
+                rhythmPlayBtn.style.backgroundColor = '#4f46e5';
+                
+                clearTimeout(rhythmTimerID);
+                rhythmCurrentStep = 0;
+                rhythmVisStep = 0;
+                drawRhythmVisualizers();
+            }
+        });
+
+        rhythmBpmInput.addEventListener('input', (e) => {
+            globalBpm = Number(e.target.value);
+            updateDelays(globalBpm); // Sync with Delay Sync module
+        });
+
+        // Initialize Rhythm UI
+        renderRhythmTracksUI();
+        drawRhythmVisualizers();
+
+// --- ARRANGEMENT ARCHITECT LOGIC ---
+        const BLOCK_TYPES = {
+            'Intro': { color: '#9333ea' },
+            'Verse': { color: '#0d9488' },
+            'Pre-Chorus': { color: '#0891b2' },
+            'Chorus': { color: '#db2777' },
+            'Break': { color: '#2563eb' },
+            'Bridge': { color: '#4f46e5' },
+            'Build': { color: '#f59e0b' },
+            'Pre-Drop': { color: '#f97316' },
+            'Drop': { color: '#dc2626' },
+            'Outro': { color: '#059669' }
+        };
+
+        let arrangeBlocks = [
+            { id: '1', type: 'Intro', bars: 16, energy: 3, notes: 'e.g. Filter sweep on master. Introduce off-beat bass.' },
+            { id: '2', type: 'Break', bars: 16, energy: 5, notes: 'e.g. Drop the kick. Add massive reverb to vocals.' },
+            { id: '3', type: 'Build', bars: 8, energy: 8, notes: 'e.g. Snare roll + risers. Pitch bend up 1 octave.' },
+            { id: '4', type: 'Drop', bars: 32, energy: 10, notes: 'e.g. Hard bounce kick. Donk bass full volume.' }
+        ];
+        
+        let selectedBlockId = '1';
+        let draggedBlockIdx = null;
+
+        function renderArrangement() {
+            const timeline = document.getElementById('arrange-timeline');
+            const inspector = document.getElementById('arrange-inspector');
+            const toolbar = document.getElementById('arrange-toolbar');
+            const totalLabel = document.getElementById('arrange-total');
+
+            // Update Total Bars
+            const totalBars = arrangeBlocks.reduce((acc, curr) => acc + (Number(curr.bars) || 0), 0);
+            totalLabel.innerText = `TOTAL: ${totalBars} BARS`;
+
+            // Render Toolbar Buttons (Removed the empty check so they always draw)
+            toolbar.innerHTML = Object.keys(BLOCK_TYPES).map(type => 
+                `<button class="btn btn-sm text-white fw-bold border-0 shadow-sm" style="background-color: ${BLOCK_TYPES[type].color}; opacity: 0.9;" onclick="addArrangementBlock('${type}')">+ ${type}</button>`
+            ).join('');
+
+// Render Timeline Blocks
+            timeline.innerHTML = arrangeBlocks.map((block, index) => {
+                const isSelected = block.id === selectedBlockId;
+                const styleData = BLOCK_TYPES[block.type];
+                const width = Math.max((Number(block.bars) || 0) * 8, 80);
+                const height = Math.max((block.energy / 10) * 100, 15);
+
+                return `
+                <div draggable="true" 
+                     ondragstart="arrangeDragStart(event, ${index})" 
+                     ondragover="arrangeDragOver(event)" 
+                     ondrop="arrangeDrop(event, ${index})"
+                     onclick="selectArrangementBlock('${block.id}')"
+                     class="position-relative d-flex flex-column justify-content-end rounded-top shadow-lg ${isSelected ? 'border border-2 border-light opacity-100' : 'opacity-75'}"
+                     style="width: ${width}px; height: ${height}%; background-color: ${styleData.color}; cursor: pointer; transition: all 0.2s;">
+                     
+                    <div class="py-2 w-100 text-center border-top border-light border-opacity-25 d-flex flex-column align-items-center justify-content-center gap-1" style="background: rgba(0,0,0,0.2); pointer-events: none;">
+                        <span class="fw-bold text-white lh-1" style="font-size: 0.65rem; letter-spacing: 1px;">${block.type.toUpperCase()}</span>
+                        <span class="px-2 py-1 rounded text-white fw-bold lh-1" style="font-size: 0.55rem; background-color: rgba(0,0,0,0.5);">${block.bars} BARS</span>
+                    </div>
+                </div>`;
+            }).join('');
+
+            // Render Inspector Panel
+            const selected = arrangeBlocks.find(b => b.id === selectedBlockId);
+            if (selected) {
+                const styleData = BLOCK_TYPES[selected.type];
+                const idx = arrangeBlocks.findIndex(b => b.id === selectedBlockId);
+                inspector.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="px-2 py-1 rounded fw-bold text-white small" style="background-color: ${styleData.color};">${selected.type.toUpperCase()}</span>
+                        <div class="d-flex gap-1">
+                            <button class="btn btn-sm btn-dark border-secondary" onclick="moveArrangementBlock(${idx}, -1)" title="Move Left">&larr;</button>
+                            <button class="btn btn-sm btn-dark border-secondary" onclick="moveArrangementBlock(${idx}, 1)" title="Move Right">&rarr;</button>
+                            <button class="btn btn-sm btn-outline-danger ms-2 fw-bold" onclick="deleteArrangementBlock('${selected.id}')" title="Delete Block">X</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="text-secondary fw-bold small tracking-widest mb-1">LENGTH (BARS)</label>
+                        <input type="number" min="1" value="${selected.bars}" class="form-control bg-black text-light border-secondary" onchange="updateArrangementBlock('${selected.id}', 'bars', this.value)">
+                    </div>
+
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <label class="text-secondary fw-bold small tracking-widest">ENERGY LEVEL</label>
+                            <span class="text-primary font-monospace small">${selected.energy}/10</span>
+                        </div>
+                        <input type="range" min="1" max="10" value="${selected.energy}" class="form-range" onchange="updateArrangementBlock('${selected.id}', 'energy', this.value)">
+                    </div>
+
+                    <div class="d-flex flex-column h-100">
+                        <label class="text-secondary fw-bold small tracking-widest mb-1">PRODUCTION NOTES</label>
+                        <textarea class="form-control bg-black text-light border-secondary" style="min-height: 120px; resize: none;" onchange="updateArrangementBlock('${selected.id}', 'notes', this.value)">${selected.notes}</textarea>
+                    </div>
+                `;
+            } else {
+                inspector.innerHTML = `<div class="text-center text-secondary mt-4">Select a block to edit.</div>`;
+            }
+        }
+
+        // Arrangement Actions
+        function selectArrangementBlock(id) { selectedBlockId = id; renderArrangement(); }
+        
+        function addArrangementBlock(type) {
+            const newBlock = {
+                id: Date.now().toString(), type, bars: 8,
+                energy: type === 'Drop' || type === 'Chorus' ? 10 : (type === 'Build' || type === 'Pre-Drop' ? 8 : 5),
+                notes: ''
+            };
+            arrangeBlocks.push(newBlock);
+            selectedBlockId = newBlock.id;
+            renderArrangement();
+        }
+        
+        function updateArrangementBlock(id, field, value) {
+            const block = arrangeBlocks.find(b => b.id === id);
+            if(block) {
+                block[field] = (field === 'bars' || field === 'energy') ? Number(value) : value;
+                renderArrangement();
+            }
+        }
+        
+        function deleteArrangementBlock(id) {
+            arrangeBlocks = arrangeBlocks.filter(b => b.id !== id);
+            if(!arrangeBlocks.find(b => b.id === selectedBlockId) && arrangeBlocks.length > 0) selectedBlockId = arrangeBlocks[0].id;
+            renderArrangement();
+        }
+        
+        function moveArrangementBlock(index, dir) {
+            if ((dir === -1 && index === 0) || (dir === 1 && index === arrangeBlocks.length - 1)) return;
+            const temp = arrangeBlocks[index];
+            arrangeBlocks[index] = arrangeBlocks[index + dir];
+            arrangeBlocks[index + dir] = temp;
+            renderArrangement();
+        }
+
+        // Desktop Drag & Drop API
+        function arrangeDragStart(e, idx) {
+            draggedBlockIdx = idx;
+            e.dataTransfer.setData('text/plain', idx);
+            e.dataTransfer.effectAllowed = 'move';
+        }
+        function arrangeDragOver(e) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; }
+        function arrangeDrop(e, dropIdx) {
+            e.preventDefault();
+            if (draggedBlockIdx === null || draggedBlockIdx === dropIdx) return;
+            const draggedBlock = arrangeBlocks[draggedBlockIdx];
+            arrangeBlocks.splice(draggedBlockIdx, 1);
+            arrangeBlocks.splice(dropIdx, 0, draggedBlock);
+            draggedBlockIdx = null;
+            renderArrangement();
+        }
+
+        // Initialize Arrangement tab
+        renderArrangement();        // --- DELAY SYNC LOGIC ---
+        const delayBpmInput = document.getElementById('delay-bpm');
+        const delayResults = document.getElementById('delay-results');
+
+        function updateDelays(bpm) {
+            const quarterNote = 60000 / bpm;
+            const delays = [
+                { name: '1/1 (Whole)', ms: quarterNote * 4 },
+                { name: '1/2 (Half)', ms: quarterNote * 2 },
+                { name: '1/4 (Quarter)', ms: quarterNote },
+                { name: '1/4D (Dotted)', ms: quarterNote * 1.5 },
+                { name: '1/4T (Triplet)', ms: quarterNote * 0.6667 },
+                { name: '1/8 (Eighth)', ms: quarterNote / 2 },
+                { name: '1/8D (Dotted)', ms: quarterNote * 0.75 },
+                { name: '1/8T (Triplet)', ms: quarterNote * 0.3333 },
+                { name: '1/16 (Sixteenth)', ms: quarterNote / 4 },
+                { name: '1/16D (Dotted)', ms: quarterNote * 0.375 },
+                { name: '1/16T (Triplet)', ms: quarterNote * 0.1667 },
+                { name: '1/32 (Thirty-Second)', ms: quarterNote / 8 }
+            ];
+
+            delayResults.innerHTML = delays.map(d => `
+                <div class="col-12 col-md-6">
+                    <div class="d-flex justify-content-between align-items-center p-3 rounded bg-dark border border-secondary" style="font-size: 0.875rem;">
+                        <span class="text-light text-truncate pe-2">${d.name}</span>
+                        <div class="d-flex gap-2 gap-md-3 flex-shrink-0">
+                            <span class="text-primary font-monospace">${d.ms.toFixed(1)} ms</span>
+                            <span class="text-success font-monospace text-end" style="width: 50px;">${(1000 / d.ms).toFixed(2)} Hz</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        delayBpmInput.addEventListener('input', (e) => {
+            globalBpm = Number(e.target.value);
+            updateDelays(globalBpm);
+        });
+        updateDelays(globalBpm); // Init
+
+        // Save and Load API
+        window.saveArrangement = () => {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(arrangeBlocks, null, 2));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "sando_arrangement.json");
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        };
+
+        window.loadArrangement = (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const loadedBlocks = JSON.parse(e.target.result);
+                    if (Array.isArray(loadedBlocks)) {
+                        arrangeBlocks = loadedBlocks;
+                        if (arrangeBlocks.length > 0) selectedBlockId = arrangeBlocks[0].id;
+                        renderArrangement();
+                    }
+                } catch (err) {
+                    alert("Invalid arrangement file. Please select a valid .json project.");
+                }
+                event.target.value = ''; // Reset input so the same file can be loaded again if needed
+            };
+            reader.readAsText(file);
+        };
+
+        // --- CHORDS & SCALES LOGIC ---
+        const keysList = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+        const chordKeySelect = document.getElementById('chord-key');
+        const chordScaleSelect = document.getElementById('chord-scale');
+        const chordVolInput = document.getElementById('chord-vol');
+        const chordTitle = document.getElementById('chord-title');
+        const chordNotesContainer = document.getElementById('chord-notes');
+        const pianoContainer = document.getElementById('piano-keyboard');
+        
+        // Comprehensive Scale Dictionary
+        const scaleIntervals = {
+            'Major': [0, 2, 4, 5, 7, 9, 11],
+            'Minor': [0, 2, 3, 5, 7, 8, 10],
+            'Harmonic Minor': [0, 2, 3, 5, 7, 8, 11],
+            'Melodic Minor': [0, 2, 3, 5, 7, 9, 11],
+            'Major Pentatonic': [0, 2, 4, 7, 9],
+            'Minor Pentatonic': [0, 3, 5, 7, 10],
+            'Blues': [0, 3, 5, 6, 7, 10],
+            'Phrygian': [0, 1, 3, 5, 7, 8, 10],
+            'Phrygian Dominant': [0, 1, 4, 5, 7, 8, 10],
+            'Dorian': [0, 2, 3, 5, 7, 9, 10]
+        };
+
+        let pianoAudioCtx = null;
+
+        function playPianoPluck(freq) {
+            if (!pianoAudioCtx) pianoAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const ctx = pianoAudioCtx;
+            if(ctx.state === 'suspended') ctx.resume();
+            
+            const osc1 = ctx.createOscillator();
+            const osc2 = ctx.createOscillator();
+            const gainNode = ctx.createGain();
+            const filter = ctx.createBiquadFilter();
+
+            osc1.type = 'sawtooth';
+            osc2.type = 'square';
+            osc1.frequency.value = freq;
+            osc2.frequency.value = freq * 1.005;
+
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(2000, ctx.currentTime);
+            filter.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 1.5);
+
+            const actualVolume = chordVolInput.value / 100;
+            gainNode.gain.setValueAtTime(actualVolume, ctx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.5);
+
+            osc1.connect(filter);
+            osc2.connect(filter);
+            filter.connect(gainNode);
+            gainNode.connect(ctx.destination);
+
+            osc1.start(); osc2.start();
+            osc1.stop(ctx.currentTime + 1.5); osc2.stop(ctx.currentTime + 1.5);
+        }
+
+        function renderChords() {
+            const root = chordKeySelect.value;
+            const type = chordScaleSelect.value;
+            const rootIdx = keysList.indexOf(root);
+            
+            const intervals = scaleIntervals[type] || scaleIntervals['Minor'];
+            const activeNotes = intervals.map(interval => keysList[(rootIdx + interval) % 12]);
+            
+            chordTitle.innerText = `${root} ${type.toUpperCase()} SCALE NOTES`;
+            chordNotesContainer.innerHTML = activeNotes.map(n => 
+                `<span class="px-3 py-2 rounded fw-bold border" style="background-color: rgba(67, 56, 202, 0.2); color: #818cf8; border-color: rgba(55, 48, 163, 0.5);">${n}</span>`
+            ).join('');
+
+            // Generate Keyboard
+            const octaves = [4, 5];
+            let keyboard = [];
+            octaves.forEach(oct => {
+                keysList.forEach((note, i) => {
+                    const isBlack = note.includes('#');
+                    const freq = 440 * Math.pow(2, ((i + (oct - 4) * 12) - 9) / 12);
+                    keyboard.push({ note, oct, isBlack, freq, label: `${note}${oct}` });
+                });
+            });
+
+            const whiteKeys = keyboard.filter(n => !n.isBlack);
+            let html = '';
+            
+// White Keys (Now using onpointerdown to fix double firing)
+            whiteKeys.forEach(whiteKey => {
+                const isActive = activeNotes.includes(whiteKey.note);
+                
+                // UPDATED: Solid purple background and white text for active keys
+                const bg = isActive ? '#4f46e5' : '#ffffff'; 
+                const color = isActive ? '#ffffff' : '#9ca3af'; 
+                
+                const hoverClass = isActive ? '' : 'opacity-75';
+                html += `
+                <div class="flex-grow-1 border-end border-secondary rounded-bottom d-flex align-items-end justify-content-center pb-2 cursor-pointer ${hoverClass}" 
+                     style="background-color: ${bg}; cursor: pointer; transition: background 0.2s;"
+                     onpointerdown="playPianoPluck(${whiteKey.freq})">
+                    <span class="fw-bold" style="font-size: 0.75rem; color: ${color}; pointer-events: none;">${whiteKey.note}</span>
+                </div>`;
+            });
+
+            // Black Keys (Now using onpointerdown to fix double firing)
+            keyboard.forEach((keyObj, i) => {
+                if (!keyObj.isBlack) return;
+                const isActive = activeNotes.includes(keyObj.note);
+                const whiteKeysBefore = keyboard.slice(0, i).filter(k => !k.isBlack).length;
+                const leftPercent = (whiteKeysBefore / 14) * 100;
+                const bg = isActive ? '#4f46e5' : '#171717';
+                const color = isActive ? '#ffffff' : '#52525b';
+                
+                html += `
+                <div class="position-absolute rounded-bottom border border-dark d-flex align-items-end justify-content-center pb-2 z-1" 
+                     style="top: 0; height: 65%; width: 4%; left: ${leftPercent}%; margin-left: -2%; background-color: ${bg}; cursor: pointer; transition: background 0.2s;"
+                     onpointerdown="playPianoPluck(${keyObj.freq})">
+                    <span class="fw-bold" style="font-size: 0.6rem; color: ${color}; pointer-events: none;">${keyObj.note}</span>
+                </div>`;
+            });
+
+            pianoContainer.innerHTML = html;
+        }
+
+        chordKeySelect.addEventListener('change', renderChords);
+        chordScaleSelect.addEventListener('change', renderChords);
+        renderChords(); // Init
+
+        // --- HARMONIC MIXING LOGIC ---
+        let selCamelot = null;
+        let selFifths = null;
+
+        function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+            const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+            return { x: centerX + (radius * Math.cos(angleInRadians)), y: centerY + (radius * Math.sin(angleInRadians)) };
+        }
+
+        function getDonutPath(x, y, innerRadius, outerRadius, startAngle, endAngle) {
+            const start = startAngle + 0.5; const end = endAngle - 0.5;
+            const startOuter = polarToCartesian(x, y, outerRadius, end);
+            const endOuter = polarToCartesian(x, y, outerRadius, start);
+            const startInner = polarToCartesian(x, y, innerRadius, end);
+            const endInner = polarToCartesian(x, y, innerRadius, start);
+            const largeArcFlag = end - start <= 180 ? "0" : "1";
+            return [
+                "M", startOuter.x, startOuter.y,
+                "A", outerRadius, outerRadius, 0, largeArcFlag, 0, endOuter.x, endOuter.y,
+                "L", endInner.x, endInner.y,
+                "A", innerRadius, innerRadius, 0, largeArcFlag, 1, startInner.x, startInner.y,
+                "Z"
+            ].join(" ");
+        }
+
+        function getHarmonicColor(matchStatus, type) {
+            if (matchStatus === 1) return type === 'camelot' ? '#4f46e5' : '#10b981'; // Primary
+            if (matchStatus === 2) return type === 'camelot' ? '#312e81' : '#064e3b'; // Compatible
+            return '#171717'; // Neutral
+        }
+
+        function renderWheels() {
+            const R_HOLE = 55, R_INNER_OUTER = 120, R_OUTER_INNER = 125, R_OUTER_OUTER = 190;
+            const R_TEXT_INNER = 87.5, R_TEXT_OUTER = 157.5;
+            
+            // Camelot Logic
+            const camelotOrder = [8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7];
+            let camSvg = `<svg viewBox="0 0 400 400" class="w-100" style="filter: drop-shadow(0 25px 25px rgba(0,0,0,0.5));">`;
+            camelotOrder.forEach((num, i) => {
+                const startAngle = i * 30, endAngle = (i + 1) * 30, midAngle = startAngle + 15;
+                const innerTextPos = polarToCartesian(200, 200, R_TEXT_INNER, midAngle);
+                const outerTextPos = polarToCartesian(200, 200, R_TEXT_OUTER, midAngle);
+                
+                const iMatch = selCamelot && ((selCamelot.num===num && selCamelot.letter==='A') ? 1 : ((selCamelot.num===num && selCamelot.letter!=='A') || (Math.abs(selCamelot.num-num)===1 || Math.abs(selCamelot.num-num)===11) && selCamelot.letter==='A') ? 2 : 0);
+                const oMatch = selCamelot && ((selCamelot.num===num && selCamelot.letter==='B') ? 1 : ((selCamelot.num===num && selCamelot.letter!=='B') || (Math.abs(selCamelot.num-num)===1 || Math.abs(selCamelot.num-num)===11) && selCamelot.letter==='B') ? 2 : 0);
+
+                camSvg += `
+                    <g>
+                        <path d="${getDonutPath(200, 200, R_HOLE, R_INNER_OUTER, startAngle, endAngle)}" fill="${getHarmonicColor(iMatch, 'camelot')}" stroke="#262626" stroke-width="2" style="cursor:pointer;" onclick="setCamelot(${num}, 'A')"/>
+                        <text x="${innerTextPos.x}" y="${innerTextPos.y}" fill="${iMatch ? '#fff' : '#737373'}" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="middle" pointer-events="none">${num}A</text>
+                        <path d="${getDonutPath(200, 200, R_OUTER_INNER, R_OUTER_OUTER, startAngle, endAngle)}" fill="${getHarmonicColor(oMatch, 'camelot')}" stroke="#262626" stroke-width="2" style="cursor:pointer;" onclick="setCamelot(${num}, 'B')"/>
+                        <text x="${outerTextPos.x}" y="${outerTextPos.y}" fill="${oMatch ? '#fff' : '#737373'}" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle" pointer-events="none">${num}B</text>
+                    </g>`;
+            });
+            camSvg += `<circle cx="200" cy="200" r="${R_HOLE}" fill="#0a0a0a" stroke="#262626" stroke-width="2" /></svg>`;
+            document.getElementById('camelot-container').innerHTML = camSvg;
+
+            // Fifths Logic
+            const fMaj = ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'Db', 'Ab', 'Eb', 'Bb', 'F'];
+            const fMin = ['Am', 'Em', 'Bm', 'F#m', 'C#m', 'G#m', 'D#m', 'Bbm', 'Fm', 'Cm', 'Gm', 'Dm'];
+            let fifSvg = `<svg viewBox="0 0 400 400" class="w-100" style="filter: drop-shadow(0 25px 25px rgba(0,0,0,0.5));">`;
+            fMaj.forEach((_, i) => {
+                const startAngle = i * 30, endAngle = (i + 1) * 30, midAngle = startAngle + 15;
+                const innerTextPos = polarToCartesian(200, 200, R_TEXT_INNER, midAngle);
+                const outerTextPos = polarToCartesian(200, 200, R_TEXT_OUTER, midAngle);
+                
+                const iMatch = selFifths && ((selFifths.idx===i && selFifths.ring==='min') ? 1 : ((selFifths.idx===i && selFifths.ring!=='min') || (Math.abs(selFifths.idx-i)===1 || Math.abs(selFifths.idx-i)===11) && selFifths.ring==='min') ? 2 : 0);
+                const oMatch = selFifths && ((selFifths.idx===i && selFifths.ring==='maj') ? 1 : ((selFifths.idx===i && selFifths.ring!=='maj') || (Math.abs(selFifths.idx-i)===1 || Math.abs(selFifths.idx-i)===11) && selFifths.ring==='maj') ? 2 : 0);
+
+                fifSvg += `
+                    <g>
+                        <path d="${getDonutPath(200, 200, R_HOLE, R_INNER_OUTER, startAngle, endAngle)}" fill="${getHarmonicColor(iMatch, 'fifths')}" stroke="#262626" stroke-width="2" style="cursor:pointer;" onclick="setFifths(${i}, 'min')"/>
+                        <text x="${innerTextPos.x}" y="${innerTextPos.y}" fill="${iMatch ? '#fff' : '#737373'}" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="middle" pointer-events="none">${fMin[i]}</text>
+                        <path d="${getDonutPath(200, 200, R_OUTER_INNER, R_OUTER_OUTER, startAngle, endAngle)}" fill="${getHarmonicColor(oMatch, 'fifths')}" stroke="#262626" stroke-width="2" style="cursor:pointer;" onclick="setFifths(${i}, 'maj')"/>
+                        <text x="${outerTextPos.x}" y="${outerTextPos.y}" fill="${oMatch ? '#fff' : '#737373'}" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle" pointer-events="none">${fMaj[i]}</text>
+                    </g>`;
+            });
+            fifSvg += `<circle cx="200" cy="200" r="${R_HOLE}" fill="#0a0a0a" stroke="#262626" stroke-width="2" /></svg>`;
+            document.getElementById('fifths-container').innerHTML = fifSvg;
+        }
+
+        window.setCamelot = (num, letter) => { selCamelot = { num, letter }; renderWheels(); };
+        window.setFifths = (idx, ring) => { selFifths = { idx, ring }; renderWheels(); };
+        renderWheels(); // Init
+
+        // --- TAP TEMPO LOGIC ---
+        let taps = [];
+        let calcBpm = 0;
+        let metronomeOn = false;
+        let metroTimer = null;
+        let metroAudioCtx = null;
+        
+        const tapBtn = document.getElementById('tap-btn');
+        const tapBpmDisplay = document.getElementById('tap-bpm-display');
+        const metroBtn = document.getElementById('metro-btn');
+        const applyBpmBtn = document.getElementById('apply-bpm-btn');
+        const metroVol = document.getElementById('metro-vol');
+
+        function playMetroClick() {
+            if (!metroAudioCtx) metroAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const ctx = metroAudioCtx;
+            if(ctx.state === 'suspended') ctx.resume();
+            
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            const filter = ctx.createBiquadFilter();
+
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(800, ctx.currentTime);
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(10000, ctx.currentTime);
+            gain.gain.setValueAtTime(metroVol.value / 100, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+
+            osc.connect(filter); filter.connect(gain); gain.connect(ctx.destination);
+            osc.start(); osc.stop(ctx.currentTime + 0.1);
+        }
+
+        function handleTapEvent(e) {
+            e.preventDefault(); 
+            tapBtn.style.backgroundColor = '#262626';
+            setTimeout(() => tapBtn.style.backgroundColor = '#171717', 100);
+
+            const now = Date.now();
+            taps.push(now);
+            if (taps.length > 4) taps.shift();
+
+            if (taps.length > 1) {
+                let intervals = [];
+                for (let i = 1; i < taps.length; i++) intervals.push(taps[i] - taps[i-1]);
+                const avg = intervals.reduce((a, b) => a + b) / intervals.length;
+                calcBpm = Math.round(60000 / avg);
+                
+                tapBpmDisplay.innerText = calcBpm;
+                metroBtn.disabled = false;
+                applyBpmBtn.disabled = false;
+                applyBpmBtn.innerText = `APPLY (${calcBpm})`;
+                
+                if (metronomeOn) {
+                    clearInterval(metroTimer);
+                    metroTimer = setInterval(playMetroClick, 60000 / calcBpm);
+                }
+            }
+        }
+        
+        tapBtn.addEventListener('pointerdown', handleTapEvent);
+
+        metroBtn.addEventListener('click', () => {
+            metronomeOn = !metronomeOn;
+            if (metronomeOn) {
+                metroBtn.innerText = 'STOP METRO';
+                metroBtn.classList.replace('btn-primary', 'btn-danger');
+                metroTimer = setInterval(playMetroClick, 60000 / calcBpm);
+            } else {
+                metroBtn.innerText = 'START METRO';
+                metroBtn.classList.replace('btn-danger', 'btn-primary');
+                clearInterval(metroTimer);
+            }
+        });
+
+applyBpmBtn.addEventListener('click', () => {
+            globalBpm = calcBpm;
+            
+            // 1. Push the new BPM to the other module inputs
+            const delayInput = document.getElementById('delay-bpm');
+            if (delayInput) delayInput.value = calcBpm;
+            
+            const rhythmInput = document.getElementById('rhythm-bpm-input');
+            if (rhythmInput) rhythmInput.value = calcBpm;
+
+            // 2. Recalculate the Delay Sync times
+            if (typeof updateDelays === 'function') updateDelays(globalBpm);
+            
+            // 3. UI Feedback
+            applyBpmBtn.innerText = `APPLIED!`;
+            applyBpmBtn.classList.replace('btn-success', 'btn-outline-success');
+            setTimeout(() => {
+                applyBpmBtn.classList.replace('btn-outline-success', 'btn-success');
+                applyBpmBtn.innerText = `APPLY TO PROJECT (${calcBpm})`;
+            }, 1000);
+        });
+
+        // --- EQ CHEAT SHEET LOGIC ---
+        const eqData = [
+            { name: 'Kick Drum', sub: '40-60Hz (Thump)', cut: '300-400Hz (Boxiness)', boost: '3-5kHz (Click/Attack)', curves: [5, 30, 10] },
+            { name: 'Snare Drum', sub: '150-200Hz (Body)', cut: '800Hz-1kHz (Honk)', boost: '5-8kHz (Snap/Crack)', curves: [15, 35, 5] },
+            { name: 'Toms', sub: '80-120Hz (Low Tom)', cut: '300-500Hz (Mud)', boost: '3-5kHz (Stick Attack)', curves: [10, 30, 15] },
+            { name: 'Cymbals/Hats', sub: 'Highpass @ 300Hz', cut: '1-2kHz (Harshness)', boost: '10kHz+ (Air/Brilliance)', curves: [35, 30, 5] },
+            { name: 'Bass Guitar', sub: '60-80Hz (Bottom)', cut: '250Hz (Mud)', boost: '800Hz-1kHz (Fret Noise/Presence)', curves: [5, 25, 15] },
+            { name: 'Synth Bass', sub: '40-80Hz (Weight)', cut: '200-300Hz (Clutter)', boost: '2-4kHz (Bite/Drive)', curves: [5, 30, 10] },
+            { name: 'Acoustic Guitar', sub: 'Highpass @ 80Hz', cut: '200-300Hz (Boominess)', boost: '3-5kHz (Sparkle)', curves: [30, 30, 10] },
+            { name: 'Electric Guitar', sub: '150-200Hz (Chug)', cut: '2-3kHz (Ice Pick)', boost: '4-5kHz (Bite)', curves: [15, 35, 10] },
+            { name: 'Piano', sub: '100-200Hz (Warmth)', cut: '400-600Hz (Muffled Mids)', boost: '3-4kHz (Presence)', curves: [10, 30, 10] },
+            { name: 'Male Vocal', sub: '100-150Hz (Fullness)', cut: '300-400Hz (Mud)', boost: '4-5kHz (Presence), 10kHz (Air)', curves: [10, 30, 5] },
+            { name: 'Female Vocal', sub: '150-250Hz (Fullness)', cut: '400-600Hz (Boxy)', boost: '5-6kHz (Presence), 10kHz (Air)', curves: [15, 35, 5] },
+            { name: 'Strings/Pads', sub: 'Highpass @ 150Hz', cut: '1-2kHz (Nasal)', boost: '7-10kHz (Shimmer)', curves: [35, 30, 5] }
+        ];
+
+        document.getElementById('eq-grid').innerHTML = eqData.map(item => `
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="eq-card p-3 p-md-4 rounded-3 h-100 position-relative overflow-hidden">
+                    <h5 class="text-primary fw-bold mb-3 d-flex justify-content-between">
+                        ${item.name}
+                    </h5>
+                    <div class="eq-vis w-100 mb-3 d-flex align-items-center justify-content-center p-2">
+                        <div class="position-absolute w-100 h-100 d-flex justify-content-between px-4" style="opacity: 0.2;">
+                            <div style="width: 1px; height: 100%; background: #737373;"></div>
+                            <div style="width: 1px; height: 100%; background: #737373;"></div>
+                            <div style="width: 1px; height: 100%; background: #737373;"></div>
+                        </div>
+                        <svg viewBox="0 0 200 40" class="w-100 h-100 overflow-visible" preserveAspectRatio="none" style="position: relative; z-index: 2;">
+                            <path d="M 0,20 C 20,20 30,${item.curves[0]} 50,${item.curves[0]} C 70,${item.curves[0]} 80,20 100,20 C 120,20 130,${item.curves[1]} 150,${item.curves[1]} C 170,${item.curves[1]} 180,${item.curves[2]} 200,${item.curves[2]}" 
+                                  fill="none" stroke="#4f46e5" stroke-width="3" stroke-linecap="round" style="opacity: 0.8;"></path>
+                            <circle cx="50" cy="${item.curves[0]}" r="4" fill="#a3a3a3"></circle>
+                            <circle cx="150" cy="${item.curves[1]}" r="4" fill="#f87171"></circle>
+                            <circle cx="200" cy="${item.curves[2]}" r="4" fill="#34d399"></circle>
+                        </svg>
+                    </div>
+                    <div class="d-flex flex-column gap-2 text-sm">
+                        <div class="bg-dark p-2 rounded">
+                            <span class="text-secondary fw-bold text-uppercase d-block mb-1" style="font-size: 0.75rem;">Bottom / Weight</span>
+                            <span>${item.sub}</span>
+                        </div>
+                        <div class="bg-dark p-2 rounded">
+                            <span class="text-danger fw-bold text-uppercase d-block mb-1" style="font-size: 0.75rem;">Common Cuts</span>
+                            <span>${item.cut}</span>
+                        </div>
+                        <div class="bg-dark p-2 rounded">
+                            <span class="text-success fw-bold text-uppercase d-block mb-1" style="font-size: 0.75rem;">Common Boosts</span>
+                            <span>${item.boost}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        // --- BLOCK BREAKER LOGIC ---
+        const prompts = [
+            "Layer a pure sine wave sub underneath your mid-bass and high-pass the mid-bass at 120Hz.",
+            "Add a subtle pitch-envelope drop to the very start of your 808 to give it more strike.",
+            "Distort only the high frequencies of your bassline using a multiband saturator.",
+            "Duplicate your sub bass, pitch it up an octave, widen it 100%, and mix it in quietly.",
+            "Bounce your donk bass to audio, reverse the tail of every 4th hit.",
+            "Apply an LFO to the cutoff filter of your off-beat bass, synced to 1/8th dotted.",
+            "Mute the sub bass completely for the last beat before the drop.",
+            "Saturate your kick and sub bass together on a drum bus to glue them.",
+            "Shorten the decay of your off-beat bounce bass by 50% to make the groove tighter.",
+            "Pitch your entire bassline down exactly one semitone for a darker feel.",
+            "Add white noise to your mid-bass patch to give it more grit in the high-end.",
+            "Use FM synthesis to create a metallic screech layer for your main bass.",
+            "Automate the distortion drive on your bass to increase right before the snare hits.",
+            "High-pass your sub bass at 30Hz to remove inaudible mud and regain headroom.",
+            "Layer a heavily chorus-effected Reese bass underneath your main donk.",
+            "Change the root note of your bassline but keep the kick drum pitch the same.",
+            "Sidechain your mid-bass to your snare drum, not just your kick.",
+            "Add a subtle bitcrusher to the tail of your 808.",
+            "Pan a high-passed copy of your bassline slightly left and right using a delay of 15ms.",
+            "Make the bass play staccato 1/16th notes for one bar at the end of an 8-bar loop.",
+            "Use a transient shaper to reduce the attack on your sub bass so it doesn't clash with the kick.",
+            "Pitch bend the final note of your bassline down a full octave.",
+            "Add a fast 1/16th arpeggio layer playing the exact same notes as your bassline.",
+            "Put a flanger on the mid-bass and automate the rate to speed up over 8 bars.",
+            "Render a bass slide to audio, stretch it to be twice as long, and use it as a transition.",
+            "Create a polyrhythm: sequence your bassline in 3/4 time over a 4/4 drum beat.",
+            "Layer an acoustic bass guitar sample under your synth bass for organic texture.",
+            "Apply a vocal formant filter to your screech lead to make it 'talk'.",
+            "Distort your bass heavily, then EQ out all the harsh frequencies around 2kHz-4kHz.",
+            "Add a tiny click sample right on the transient of your sub bass.",
+            "Automate the decay time of your off-beat bass so it gets longer right before the drop.",
+            "Use a tremolo effect on the bassline synced to 1/16th notes for added bounce.",
+            "Duplicate the bassline, drop it an octave, and distort it to oblivion, then mix at 5%.",
+            "Cut all the low-mid frequencies (200Hz-400Hz) out of your bassline to clean the mix.",
+            "Layer a sampled choir note pitched down 2 octaves underneath your main bass.",
+            "Use a gate on your bassline sidechained to a ghost 1/16th note hi-hat pattern.",
+            "Pitch your off-beat bass up a perfect fifth for the last 8 bars of the drop.",
+            "Add an automated EQ sweep to the bass during the build-up, cutting the lows.",
+            "Bounce a long bass note, put a huge reverb on it, and reverse it into the drop.",
+            "Make the sub bass mono, but add a chorus effect to the frequencies above 300Hz.",
+
+            // --- DRUMS & PERCUSSION (41-80) ---
+            "Layer a 909 ride cymbal directly over your main drop kick.",
+            "Nudge your clap slightly early (by a few milliseconds) to make the track feel faster.",
+            "Send just your hi-hats to a phaser to give the top-end movement.",
+            "Take the tail of your snare, reverse it, and put it right before the actual snare hit.",
+            "Use a vocal chop or breath sound as a percussion hit instead of a shaker.",
+            "Mute the kick drum exactly on beat 4 of the final bar before the drop.",
+            "Add a heavily distorted 808 tom fill leading into the break.",
+            "Sidechain your overhead cymbals to your kick drum for a pumping groove.",
+            "Pitch down a crash cymbal by 12 semitones and use it as an impact effect.",
+            "Layer a synthetic clap with an acoustic rimshot.",
+            "Add a ride cymbal playing on every off-beat (the 'and') in the chorus.",
+            "Take a random foley sound (keys dropping, door closing), EQ it, and use it as a snare layer.",
+            "Distort the snare drum using a guitar amp simulator plugin.",
+            "Create a hi-hat pattern using only 1/8th notes, but automate the velocity wildly.",
+            "Pan your open hi-hat 30% to the left, and your shaker 30% to the right.",
+            "Add a gated reverb to your snare drum for an 80s arena rock vibe.",
+            "Layer a low-pitched, synthesized 'thwack' under your Hard Dance kick's punch.",
+            "Render your entire drum bus to audio, chop it up, and rearrange the loop.",
+            "Slightly swing the 1/16th notes on your shakers to loosen up the grid.",
+            "Add a high-pass filter to the entire drum bus at 200Hz during the build-up.",
+            "Use a transient designer to remove the sustain from your kick, making it purely a click.",
+            "Layer three different kick drums together: one for sub, one for chest punch, one for the click.",
+            "Put a short, slapback delay on your clap to make it sound wider.",
+            "Tune your kick drum so the fundamental frequency matches the root key of your song.",
+            "Record yourself beatboxing a simple rhythm and layer it quietly beneath your main drums.",
+            "Add a subtle ping-pong delay to your off-beat hi-hat.",
+            "Completely remove all cymbals from the first half of your drop.",
+            "Use a bitcrusher on a breakbeat loop and tuck it under your main 4/4 drums.",
+            "Take the punch of a gabber kick and layer it over the tail of an 808.",
+            "Automate the panning of a 1/16th note hi-hat roll from left to right.",
+            "Mute everything except the drums and the sub bass for an 8-bar section.",
+            "Add a massive reverb to a single snare hit at the end of every 16-bar phrase.",
+            "Layer a tambourine exactly on top of your snare drum, mixed low.",
+            "Use an envelope shaper to increase the attack of your kick drum.",
+            "Pitch your snare drum up 2 semitones in the build-up, increasing pitch every bar.",
+            "Add a subtle overdrive to your drum bus to glue the transients together.",
+            "Use a reversed kick drum as a sweep-up effect before the 1 of a new section.",
+            "Pan all your toms slightly to the right, to mimic a real drum kit perspective.",
+            "Take a drum loop, EQ out everything except the high frequencies, and use it as top-loop texture.",
+            "Compress your drum bus heavily, but mix the dry, uncompressed signal back in (parallel compression).",
+
+            // --- SYNTHS, LEADS & MELODY (81-120) ---
+            "Delete your main melody entirely and write a new one using only 3 notes.",
+            "Layer a bright, detuned supersaw underneath a plucky FM lead.",
+            "Add a 1/8th dotted delay to your vocal chop and drown it in distortion.",
+            "Double your main lead melody with an acoustic piano an octave lower.",
+            "Apply bitcrushing to your main synth to give it a retro, aggressive 8-bit texture.",
+            "Render your chord progression to audio, chop it every 1/4 note, and randomly rearrange the slices.",
+            "Layer a white noise sweep playing the exact same rhythm as your main lead synth.",
+            "Pitch your entire track up 1 semitone for the final 16 bars of the song.",
+            "Add a very subtle vibrato to your lead synth to make it sound less static.",
+            "Use a pentatonic scale for your main melody to ensure it sounds catchy.",
+            "Change the root note of the underlying chords, but keep the lead melody exactly the same.",
+            "Add a high-pitched, sustained string note playing the root key throughout the entire break.",
+            "Automate the glide (portamento) time on your lead synth to increase at the end of a phrase.",
+            "Take your main melody, reverse the MIDI notes, and see if it sounds better.",
+            "Layer a completely clean, pure sine wave an octave above your distorted lead.",
+            "Put a heavy phaser on your supersaw chords and automate the rate.",
+            "Use an arpeggiator on your chord progression, set it to 1/16th notes, and mix it in quietly.",
+            "Add a vocal formant filter to your synth lead to give it a 'talking' characteristic.",
+            "Pitch bend the final note of your lead melody up a full octave.",
+            "Layer a sampled brass stab under the accented notes of your main synth line.",
+            "Apply heavy compression to your piano, then saturate the mid-range.",
+            "Take a short vocal phrase, pitch it up 12 semitones, and chop it into a rhythm.",
+            "Add a 1/4 note delay to your lead synth, but automate the delay mix to 0% during the fast notes.",
+            "Use a gate on your synth pad, sidechained to the kick drum rhythm.",
+            "Duplicate your lead synth, hard pan one left and one right, and delay the right channel by 10ms.",
+            "Write a melody that strictly follows the rhythm of a spoken sentence.",
+            "Add a sub-oscillator to your lead synth patch to give it more body.",
+            "Automate the volume of your lead synth to quickly dip down every time the snare hits.",
+            "Take a 1-bar synth loop, render it, time-stretch it to 4 bars, and use it as an ambient background.",
+            "Layer a music box or glockenspiel an octave above your main melody.",
+            "Use a comb filter on a supersaw patch to create metallic, hollow textures.",
+            "Bounce your lead melody to audio, pitch it down 12 semitones, and use it as a counter-melody.",
+            "Add a heavy tremolo effect to your synth pad to give it a pumping rhythm.",
+            "Create a chord progression using only major 7th and minor 9th chords.",
+            "Automate the release time of your synth envelope to get longer as the build-up progresses.",
+            "Layer a heavily distorted guitar under your synth chords for added crunch.",
+            "Add a pitch envelope to the attack of your lead synth to give it a 'pew' laser sound.",
+            "Use a granular synthesizer to stretch out a single vocal note into a long, evolving pad.",
+            "Double your melody line with a synth whistling patch.",
+            "Apply a rotary speaker (Leslie) effect to your synth chords.",
+
+            // --- ARRANGEMENT & STRUCTURE (121-160) ---
+            "Halve the tempo for exactly 2 bars right before the final drop.",
+            "Drop every instrument out of the mix except the vocals for 1 beat before the chorus.",
+            "Introduce your main drop melody playing quietly through a low-pass filter during the intro.",
+            "Make your drop 8 bars longer by copy-pasting it, but remove the bass from the repeated section.",
+            "Change the time signature to 3/4 for a single bar at the end of a breakdown.",
+            "Create a 'false drop': build the tension up, drop the kick for 1 beat, then hit with the real drop.",
+            "End the track abruptly without a fade-out or a crash cymbal.",
+            "Start the track with the chorus playing acapella.",
+            "Add an extra 2 bars of purely atmospheric buildup right when the listener expects the drop.",
+            "Remove the hi-hats completely from the second half of the verse.",
+            "Introduce a brand new, completely unrelated instrument only in the outro.",
+            "Make the second verse half the length of the first verse.",
+            "Add a massive, reverberated snare hit on the 1 of a new section, then silence for 3 beats.",
+            "Double the speed of the hi-hats in the second half of the drop to increase energy.",
+            "Remove the kick drum for the first 4 bars of the second drop.",
+            "Build tension by slowly automating a high-pass filter on the entire master bus.",
+            "Add a completely silent bar in the middle of your track.",
+            "Introduce a counter-melody in the second half of the chorus.",
+            "Make the transition between the verse and chorus instantly abrupt, with no riser or crash.",
+            "Start the drop with just the bass and kick, bringing the melody in 4 bars later.",
+            "Add a spoken-word vocal sample right before the drop hits.",
+            "Drop the tempo by 10 BPM over the course of a 4-bar breakdown.",
+            "Remove the snare drum from the first 8 bars of the verse.",
+            "Add a subtle, rising Shepard tone to the background of your build-up.",
+            "Repeat the last word of the vocal phrase with a heavy delay into the break.",
+            "Make the intro exactly 16 bars long, introducing a new element every 4 bars.",
+            "End the drop 1 beat early to catch the listener off guard.",
+            "Introduce the off-beat bass rhythm during the intro using a muted synth pluck.",
+            "Layer a massive white noise crash on the 1 of every 8 bars in the chorus.",
+            "Create a breakdown section using only organic, acoustic instruments.",
+            "Add a 1-bar drum fill at the end of every 16-bar phrase.",
+            "Mute all melodic elements for 2 bars and let the drums and bass groove alone.",
+            "Introduce the lead vocal heavily distorted, then clear it up when the verse starts.",
+            "Make the final chorus double the length of the first chorus.",
+            "Start the track with a heavily degraded, 'vinyl' filtered version of the drop.",
+            "Add a subtle reverse cymbal before every major chord change.",
+            "Remove the sub bass for the first 8 bars of the track.",
+            "Create a 'B-section' for your drop with a completely different bassline rhythm.",
+            "Add a dramatic, orchestral hit on the downbeat of the breakdown.",
+            "End the track with a long, un-quantized piano improvisation.",
+
+            // --- FX, MIXING & WORKFLOW (161-200) ---
+            "Render your entire master track, reverse it, and mix it quietly in the background at -30dB.",
+            "Put a 100% wet reverb on a single clap, bounce it to audio, and reverse it into the drop.",
+            "Automate the stereo width of your master bus: completely mono during the build, 120% wide on the drop.",
+            "Add a subtle chorus effect to your vocal bus to thicken it up.",
+            "Use a dynamic EQ to duck the frequencies in your bassline only when the kick hits.",
+            "Put a heavy distortion plugin on your return reverb channel.",
+            "Render all your MIDI tracks to audio right now and delete the synths. Commit to the audio.",
+            "Delete the track or sound you have spent the most time trying to 'fix'.",
+            "Duplicate your entire project, change the tempo by +10 BPM, and pitch everything up 1 semitone.",
+            "Take a 5-minute break. Don't listen to the track. Come back and listen with fresh ears.",
+            "Apply a tape stop effect to the entire master bus at the end of a breakdown.",
+            "Use mid-side EQ to cut the low frequencies (below 150Hz) out of the side channels.",
+            "Put a subtle phaser on your master bus during the intro.",
+            "Layer a recording of vinyl crackle or room noise under the entire track.",
+            "Limit your master bus heavily, but turn the threshold down so it only catches the loudest transients.",
+            "Pan your main vocal slightly off-center (L5 or R5) to leave room for the kick and snare.",
+            "Add a subtle, fast auto-pan to your hi-hats to make them flutter across the stereo field.",
+            "Use a spectral panning plugin to spread the high frequencies of your synth out wide.",
+            "Put a bitcrusher on your reverb return and mix it in parallel.",
+            "Automate the pitch of your master bus up by +1 semitone during the build-up, then slam it back down on the drop.",
+            "Create a dedicated return track just for white noise and sidechain it to the kick.",
+            "Use a vocal doubler plugin on your lead synth to make it massive.",
+            "Saturate the mid-range of your master bus using a multi-band saturator.",
+            "Add a 1/8th note delay to your entire drum bus, but mix it at only 5%.",
+            "Use an envelope follower on your bassline to modulate the cutoff of a white noise layer.",
+            "High-pass everything in the track except the kick and sub-bass at 100Hz.",
+            "Put a heavily resonant low-pass filter on your master bus and automate a slow sweep.",
+            "Add a subtle flanger to your snare drum.",
+            "Use parallel compression on your vocals: smash a duplicate track and mix it quietly with the original.",
+            "Create a 'fake stereo' effect on a mono synth by delaying one channel by 15ms.",
+            "Apply a glitch or stutter effect plugin to your master bus for just the last beat of a 16-bar phrase.",
+            "Listen to your mix in mono. Fix any phase cancellation issues.",
+            "Turn your studio monitors down until you can barely hear the track. Adjust the balance of the kick and vocal.",
+            "Add a subtle, slow LFO to the global pitch of your track to give it a 'warped record' feel.",
+            "Use a transient shaper to add more attack to your master bus.",
+            "Put a heavy overdrive on a copy of your vocal, high-pass it, and mix it under the clean vocal.",
+            "Add a massive, 10-second decay reverb to a single crash cymbal at the end of the track.",
+            "Automate the master volume down by -3dB during the verse, and bring it back to 0dB for the drop.",
+            "Use a multiband compressor to strictly control the sub frequencies (20Hz-60Hz) of your bass.",
+            "Bounce a 1-bar loop of your track, pitch it up 12 semitones, and use it as an ambient layer.",
+
+            // --- ADVANCED PRO TRICKS & HARD DANCE/BOUNCE SECRETS (201-225) ---
+            "Create a 'Reverse Ghost Chord': Reverse your chord progression, apply heavy reverb, bounce to audio, and reverse it back to swell into the downbeat.",
+            "Automate your master stereo width: sum the track to 0% mono during the build-up, then snap it to 120% wide exactly on the drop.",
+            "Use 'New York Compression' on your drum bus: heavily squash a parallel drum track with a fast attack/release and mix it subtly under your dry drums.",
+            "To get a hyper-clean vocal mix, sidechain a compressor on your vocal reverb return to the dry vocal. The reverb ducks during words and swells in the gaps.",
+            "Use the Haas effect for ultra-wide claps without phasing issues: pan one clap hard left, pan a duplicate hard right, and delay the right channel by 10-15ms.",
+            "Bounce your Bounce/Donk bass to audio and pitch it up using Ableton's 'Complex Pro' warp mode. Mess with the Formant slider for vocal-like bass artifacts.",
+            "Put a soft clipper or saturator on your master bus right before the final limiter. Shaving stray transients with saturation buys you 2-3dB of transparent loudness.",
+            "Create a 'push-pull' groove: physically move your drum MIDI slightly off the grid. Delay claps by 10ms and pull shakers 5ms early.",
+            "Instead of boosting EQ to make a lead cut through, find the instrument masking it (like supersaws) and use a dynamic EQ to cut 3kHz only when the lead plays.",
+            "For monstrous Hard Dance reverse basses, take a 909 kick tail, reverse it, compress heavily, and automate a notch filter sweeping up the frequency spectrum.",
+            "Resample your bassline through a convolution reverb loaded with a completely unrelated impulse response (like a drum loop or a vocal chop) for alien textures.",
+            "Layer a completely silent, filtered white noise track and sidechain it heavily to your kick and snare. It adds a subtle 'breathing' top-end that glues the groove.",
+            "Use a vocoder on your drum bus with a synth chord acting as the carrier. It creates robotic, pitched percussion layers that perfectly match your song's key.",
+            "Add a very short, pitch-envelope 'zap' or laser sound to the transient of your kick drum. It helps the attack cut through without taking up sub headroom.",
+            "The 'Rule of Three' for arrangement: If a 4-bar loop repeats, make sure the 4th iteration has a fill, a dropout, or a variation to prevent listener fatigue.",
+            "Bounce a heavily modulated synth lead to audio, load it into a sampler, and play it like a completely new instrument using extreme pitch bends and glides.",
+            "Split your Reese bass into three EQ bands. Keep the sub strictly mono, add a stereo chorus to the mids, and a heavy dimension expander to the highs.",
+            "Add an auto-filter to your reverb return and apply a fast LFO to the cutoff. It creates a rhythmic pumping effect in the background wash.",
+            "Layer a transient-only snare sample (just the 'crack' without the body) directly over your main clap to give it unnatural, aggressive impact.",
+            "Take your main vocal, pitch it down exactly 12 semitones, heavily distort it, and tuck it right under the lead vocal during the chorus for extra weight.",
+            "Use a gate on a long, sustained synth pad, and trigger the gate's sidechain using the MIDI from your 16th-note hi-hat pattern.",
+            "Automate the drive parameter of a saturator on your master bus, increasing it by just 10% during the final 8 bars of the drop for maximum energy.",
+            "Record the master output of your track playing through your phone speakers or a cheap bluetooth speaker, and layer it subtly underneath the mix for lofi grit.",
+            "For a signature UK Bounce donk, use FM synthesis: set the Modulator to a sine wave +7 semitones above the Carrier, with a fast, plucky decay on the index envelope.",
+"Split your kick into two channels: Sub (0-150Hz) and Crunch (150Hz+). Keep the sub completely clean and mono, and aggressively distort and widen the Crunch channel.",
+"Use mid-side EQ on your lead synth bus. Set it to 'Side' mode and boost 8kHz with a high shelf to make the lead sound massive without hurting the center punch of the kick and snare.",
+"Phase-align your kick and sub bass manually: bounce both to audio, zoom all the way in, and physically slide the bass audio so its first waveform cycle aligns perfectly with the kick's tail.",
+"Apply a 16th-note swing specifically to your shaker and top-hat layers, but keep the kick, bass, and main clap 100% straight on the grid to create push-and-pull friction.",
+"Increase the pre-delay on your main vocal reverb to 30-50ms. This completely separates the vocal transient from the reverb wash, pushing the dry vocal to the front of the mix.",
+"Create a parallel 'trash bus': send all synths and basses to an aux channel, decimate it with absolute distortion, high-pass at 500Hz, and blend it in at -20dB for intense upper-harmonic crunch.",
+"Duplicate the lead vocal, shift the formant down by 3-4 steps without changing the pitch, and blend it underneath the main channel for a thicker, modern electronic vocal texture.",
+"For classic Hard Dance screeches: pitch a saw wave up +48 semitones, then use a very fast pitch envelope to snap it down to the root note for a sharp, aggressive attack.",
+"Layer a completely silent, filtered white noise track and use a gate sidechained to a complex percussion loop. Mute the percussion loop, leaving pure rhythmic noise texture.",
+"Put a transient shaper on your donk bus, heavily boost the attack, then put a hard clipper immediately after it so it knocks aggressively without clipping your master headroom.",
+"Layer an organ or classic M1 bass patch, heavily compressed, directly over a pure sine-wave sub to get that classic 2000s club bounce weight without muddying the low end.",
+"Automate the unison detune spread on your supersaws: keep the spread tight and narrow during the verse, and automate it to open up to maximum width right when the drop hits.",
+"Mute the master bus completely for exactly a 1/16th or 1/8th note right before the drop hits. Absolute digital silence hits harder than a sub-drop.",
+"Put a harsh sidechain compressor on the off-beat ride cymbal, keyed to the kick, but with an extremely short release so the ride 'sucks' back in aggressively rather than smoothly.",
+"Take a 1-second snippet of an old rave vocal, throw it into a granular synth, freeze the grain position, and play it as a drone pad underneath the breakdown.",
+"Use a chorus effect on your off-beat bass, but set the mix to 100% wet and turn the LFO rate to 0Hz. It creates a static, metallic, comb-filtered effect that hardens the tone.",
+"Instead of a standard riser, layer a Shepard tone synth underneath your 16-bar build-up to create the psychological illusion of pitch continuously climbing without ever reaching a peak.",
+"Freeze a massive 10-second reverb tail of a single chord stab, bounce it to audio, and use volume automation to sidechain it rhythmically in the background of a verse.",
+"Instead of compressing the mid-range on your master bus to get loudness, use upward expansion on the 2kHz-5kHz band to bring out the snap and bite of leads only when they hit.",
+"Create a 'ghost clap': take your main drop clap, pitch it down 5 semitones, cut the high frequencies, and place it exactly on the 2 and 4 beats during the intro to tease the drop.",
+"Take the final note of your breakdown melody, put a long delay on it with high feedback, and automate a low-pass filter to close down as it washes into the drop.",
+"Make your off-beat bounce bass note slightly shorter than a 1/16th note and add a tiny bit of release so it doesn't click. This creates a tighter 'vacuum' between the kick and bass.",
+"Use the pink noise mixing trick: route a pink noise generator to your master at a low volume. Solo each track and balance its fader so it just barely peaks through the noise, then mute the noise.",
+"Put a bitcrusher on your pre-shift clap or reverse clap sweep. It gives the build-up digital grit and makes the clean transient of the main drop clap sound much wider by contrast."
+        ];
+        
+        const promptEl = document.getElementById('block-prompt');
+        const btnEl = document.getElementById('block-btn');
+        let currentPrompt = "";
+
+        function drawCard() {
+            let next;
+            do { next = prompts[Math.floor(Math.random() * prompts.length)]; } while (next === currentPrompt);
+            currentPrompt = next;
+            promptEl.innerText = `"${currentPrompt}"`;
+        }
+        
+        btnEl.addEventListener('click', drawCard);
+        drawCard(); // Init
+    </script>
+</body>
+</html><div class="fw-bolder text-center sidebar-nav" style="background: rgba(0,0,0,0.51);opacity: 1;backdrop-filter: blur(9px) contrast(99%) sepia(0%);-webkit-backdrop-filter: blur(9px) contrast(99%) sepia(0%);font-size: 18px;text-shadow: 2px 2px var(--bs-indigo);"><a data-bss-hover-animate="pulse" href="index.html" style="text-shadow: 2px 2px var(--bs-indigo);">Home</a><a href="release.html">Release</a><a data-bss-hover-animate="pulse" href="contact.html">Contact</a><a data-bss-hover-animate="pulse" href="bio.html" style="text-shadow: 2px 3px var(--bs-indigo);">Bio</a><a data-bss-hover-animate="pulse" href="discography.html" style="text-shadow: 2px 2px var(--bs-indigo);">Discography</a><a data-bss-hover-animate="pulse" href="previews.html">Previews</a><a data-bss-hover-animate="pulse" href="socials.html">Socials</a><a data-bss-hover-animate="pulse" href="treasury.html">The Treasury Records</a><a data-bss-hover-animate="pulse" href="resources.html">Resources</a></div><a class="desktop-toggle" href="#">MENU</a><nav class="navbar bg-transparent mobile-hamburger" data-bs-theme="dark"><div class="container-fluid"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navcol-1"><ul class="navbar-nav"></ul><a data-bss-hover-animate="pulse" href="index.html" style="text-shadow: 2px 2px var(--bs-indigo);">Home</a><a href="release.html">Release</a><a data-bss-hover-animate="pulse" href="contact.html">Contact</a><a data-bss-hover-animate="pulse" href="bio.html" style="text-shadow: 2px 3px var(--bs-indigo);">Bio</a><a data-bss-hover-animate="pulse" href="previews.html">Previews</a><a data-bss-hover-animate="pulse" href="socials.html">Socials</a><a data-bss-hover-animate="pulse" href="treasury.html">The Treasury Records</a><a data-bss-hover-animate="pulse" href="resources.html">Resources</a></div></div></nav><footer class="sando-legal-footer">
+    <div class="footer-content">
+        <p class="copyright-line">&copy; 2026 Sando. All Rights Reserved.</p>
+        <p class="warning-line">Any reproduction, distribution, or public broadcasting of the audio and visual works on this site without explicit consent is strictly prohibited.</p>
+        <p class="privacy-link"><a href="privacy.html">PRIVACY POLICY</a></p>
+    </div>
+</footer>
+<script src="assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script><script src="assets/js/script.min.js?h=f949ceb86f3acb03d3a515ffea71cec0"></script></body></html>
