@@ -1,10 +1,11 @@
-<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Sando - Studio Toolkit</title><meta property="og:title" content="Sando - Hard Dance Producer, DJ And Label Owner"><meta property="og:type" content="website"><meta property="og:description" content="Where High Energy Hard Dance Music Lives"><meta property="og:image" content="https://www.sandoproduces.com/assets/img/OG Facebook Card.jpg"><meta name="description" content="Production Utilities &amp; Guides"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=a549af2a81cd9900ee897d8bc9c4b5e9"><link rel="stylesheet" href="assets/css/styles.min.css?h=1e913c360004203d8f8130072c25ee4b"><link rel="stylesheet" href="assets/css/animate.min.min.css?h=5512c3e92e3931978c9ddcc7dbeed22b"></head><body><!DOCTYPE html>
+<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Sando - Studio Toolkit</title><meta property="og:title" content="Sando - Hard Dance Producer, DJ And Label Owner"><meta property="og:type" content="website"><meta property="og:description" content="Where High Energy Hard Dance Music Lives"><meta property="og:image" content="https://www.sandoproduces.com/assets/img/OG Facebook Card.jpg"><meta name="description" content="Production Utilities &amp; Guides"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="icon" type="image/png" sizes="150x150" href="assets/img/Sando%20Graffiti%20Logo%20BW%20150x150.png?h=4f598d5a7ac974b190cc2bac06d899f8"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=a549af2a81cd9900ee897d8bc9c4b5e9"><link rel="stylesheet" href="assets/css/styles.min.css?h=8ecfe73d700a1195dd4565da1be9d670"><link rel="stylesheet" href="assets/css/animate.min.min.css?h=5512c3e92e3931978c9ddcc7dbeed22b"></head><body><!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sando Studio Toolkit</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/midi-writer-js@2.1.4/browser/midiwriter.js"></script>
     <style>
         body { background-color: #000; color: #e5e5e5; }
         
@@ -63,62 +64,92 @@
         <div id="rhythm" class="toolkit-section">
             <div class="row g-4">
                 
-                <!-- Visualizer & Global Controls -->
-                <div class="col-12 col-lg-7 col-xl-8 d-flex flex-column gap-3">
-                    
-                    <!-- SVG Visualizer Container (Uncaged width, fills the column naturally) -->
-                    <div class="bg-dark border border-secondary rounded p-4 d-flex align-items-center justify-content-center position-relative w-100 flex-grow-1" style="min-height: 450px;">
-                        
-                        <!-- Canvas expanded to 360x360 -->
-                        <svg id="rhythm-svg" class="w-100 h-100 overflow-visible" viewBox="-180 -180 360 360" style="max-height: 600px;">
-                            <!-- Populated by JS -->
-                        </svg>
-                        
-<!-- Center Play/BPM Controls -->
-                        <style>
-                            /* Nuke the invisible number arrows so text can actually center */
-                            #rhythm-bpm-input::-webkit-outer-spin-button,
-                            #rhythm-bpm-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-                            #rhythm-bpm-input[type=number] { -moz-appearance: textfield; }
-                        </style>
-                        <div class="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center justify-content-center rounded-4 shadow" style="background: rgba(23, 23, 23, 0.85);backdrop-filter: blur(4px);-webkit-backdrop-filter: blur(4px);border: 1px solid #404040;z-index: 5;width: 90px;height: 90px;gap: 6px;">
+                <!-- Focal Point: Linear MIDI View & Transport -->
+                <div class="col-12">
+                    <div class="bg-black border border-secondary rounded p-3 p-md-4 position-relative w-100 shadow">
+                        <!-- Transport Header -->
+                        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 pb-3 border-bottom border-secondary gap-3">
                             
-                            <!-- Button with clean flex alignment -->
-                            <button id="rhythm-play-btn" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center m-0 p-0 shadow-none" style="width: 38px; height: 38px; min-height: 38px; flex-shrink: 0; border: none; background-color: #4f46e5;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" id="rhythm-play-icon" style="margin-left: 2px;">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
+                            <div class="d-flex align-items-center gap-3">
+                                <button id="rhythm-play-btn" class="btn btn-primary rounded d-flex align-items-center justify-content-center p-0 shadow-none" style="width: 44px; height: 44px; background-color: #4f46e5; border: none;">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" id="rhythm-play-icon" style="margin-left: 2px;">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </button>
+                                <div class="d-flex align-items-center bg-dark rounded px-3 border border-secondary h-100" style="height: 44px;">
+                                    <span class="text-secondary fw-bold small me-2 tracking-widest">BPM</span>
+                                    <style>
+                                        #rhythm-bpm-input::-webkit-outer-spin-button, #rhythm-bpm-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+                                        #rhythm-bpm-input[type=number] { -moz-appearance: textfield; }
+                                    </style>
+                                    <input type="number" id="rhythm-bpm-input" class="form-control bg-transparent text-white fw-bold text-center border-0 p-0 shadow-none" style="width: 45px; font-size: 1.1rem;" value="140">
+                                </div>
+                            </div>
+                            
+                            <span class="text-secondary fw-bold tracking-widest d-none d-md-block" style="font-size: 0.85rem; letter-spacing: 3px;">LINEAR MIDI VIEW (32 STEPS)</span>
+                            
+                            <button class="btn btn-sm btn-outline-secondary fw-bold px-3 py-2" style="font-size: 0.75rem;" onclick="exportRhythmMidi()">
+                                &darr; EXPORT MIDI
                             </button>
-                            
-                            <!-- Input with zeroed padding to stay perfectly stacked -->
-                            <input type="number" id="rhythm-bpm-input" class="form-control bg-transparent text-white fw-bold text-center border-0 m-0 p-0 shadow-none" style="width: 60px; height: 20px; font-size: 1rem; line-height: 1;" value="140">
-                            
                         </div>
-                    </div>
-
-                    <!-- Linear MIDI View (Uncaged width, slightly taller) -->
-                    <div class="bg-black border border-secondary rounded p-3 position-relative w-100" style="height: 110px;">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="text-secondary fw-bold tracking-widest" style="font-size: 0.65rem;">LINEAR MIDI VIEW (32 STEPS)</span>
-                        </div>
-                        <div id="rhythm-linear-view" class="position-relative w-100 d-flex flex-column gap-1" style="height: calc(100% - 24px);">
+                        
+                        <!-- Linear View Grid -->
+                        <div id="rhythm-linear-view" class="position-relative w-100 d-flex flex-column justify-content-between gap-1" style="height: 110px;">
                             <!-- Populated by JS -->
                         </div>
                     </div>
                 </div>
 
-                <!-- Track Controls Sidebar -->
+                <!-- Lower Half: Modules -->
+                
+                <!-- 4/4 Backing Loop Module -->
                 <div class="col-12 col-lg-5 col-xl-4">
                     <div class="bg-dark p-3 p-md-4 rounded border border-secondary h-100">
-                        <h6 class="text-secondary fw-bold mb-4 tracking-widest">TRACK CONTROLS</h6>
-                        <div id="rhythm-tracks-container" class="d-flex flex-column gap-3">
+                        <div class="bg-black p-3 rounded border border-secondary">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <span class="text-secondary fw-bold small tracking-widest d-block">4/4 BACKING DRUMS</span>
+                                <button id="backing-toggle-btn" class="btn btn-sm btn-outline-secondary fw-bold px-4 py-1" onclick="toggleBacking()">OFF</button>
+                            </div>
+                            
+                            <div id="backing-mixer" class="d-flex flex-column gap-3 opacity-50" style="pointer-events: none; transition: opacity 0.2s;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <button id="back-mute-0" class="btn btn-sm btn-secondary p-0 fw-bold" style="width: 32px; height: 32px; font-size: 0.7rem;" onclick="toggleBackingMute(0)">ON</button>
+                                    <span class="text-white fw-bold" style="font-size: 0.8rem; width: 45px;">KICK</span>
+                                    <input type="range" class="form-range flex-grow-1 m-0" min="0" max="100" value="60" oninput="updateBackingVol(0, this.value)">
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <button id="back-mute-1" class="btn btn-sm btn-secondary p-0 fw-bold" style="width: 32px; height: 32px; font-size: 0.7rem;" onclick="toggleBackingMute(1)">ON</button>
+                                    <span class="text-white fw-bold" style="font-size: 0.8rem; width: 45px;">CLAP</span>
+                                    <input type="range" class="form-range flex-grow-1 m-0" min="0" max="100" value="55" oninput="updateBackingVol(1, this.value)">
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <button id="back-mute-2" class="btn btn-sm btn-secondary p-0 fw-bold" style="width: 32px; height: 32px; font-size: 0.7rem;" onclick="toggleBackingMute(2)">ON</button>
+                                    <span class="text-white fw-bold" style="font-size: 0.8rem; width: 45px;">HAT</span>
+                                    <input type="range" class="form-range flex-grow-1 m-0" min="0" max="100" value="60" oninput="updateBackingVol(2, this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Tabbed Track Controls -->
+                <div class="col-12 col-lg-7 col-xl-8">
+                    <div class="bg-dark p-3 p-md-4 rounded border border-secondary h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="text-secondary fw-bold m-0 tracking-widest">TRACK CONTROLS</h6>
+                            <button id="mute-all-rhythm-btn" class="btn btn-sm btn-outline-secondary fw-bold px-3 py-1" style="font-size: 0.7rem;" onclick="toggleAllRhythmTracksMute()">
+                                MUTE ALL
+                            </button>
+                        </div>
+                        <div id="rhythm-tracks-container">
                             <!-- Populated by JS -->
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
+
                 
 <!-- ARRANGEMENT ARCHITECT MODULE -->
 <div id="arrange" class="toolkit-section">
@@ -135,10 +166,6 @@
                             </div>
                     </div>
 
-                    <div>
-                        <span class="text-secondary fw-bold small tracking-widest d-block mb-2">ADD NEW SECTION</span>
-                        <div class="d-flex flex-wrap gap-2" id="arrange-toolbar"></div>
-                    </div>
                     <!-- Toolbar & Save/Load Controls -->
                     <div class="mt-4">
                         <span class="text-secondary fw-bold small tracking-widest d-block mb-2">ADD NEW SECTION</span>
@@ -307,6 +334,87 @@
         });
         
 // --- RHYTHM EXPLORER LOGIC ---
+        
+        // Backing Track State & URLs
+        let backingEnabled = false;
+        const backingData = [
+            { id: 0, url: 'https://raw.githubusercontent.com/SandoProduces/sandowebsiteassets/main/909_Kick_Sat04.wav', arrayBuffer: null, audioBuffer: null, vol: 60, active: true },
+            { id: 1, url: 'https://raw.githubusercontent.com/SandoProduces/sandowebsiteassets/main/Claps2.wav', arrayBuffer: null, audioBuffer: null, vol: 55, active: true },
+            { id: 2, url: 'https://raw.githubusercontent.com/SandoProduces/sandowebsiteassets/main/RBDHATS8.wav', arrayBuffer: null, audioBuffer: null, vol: 60, active: true }
+        ];
+
+        // Silently preload the audio files in the background on page load
+        backingData.forEach(async (drum) => {
+            try {
+                const response = await fetch(drum.url);
+                drum.arrayBuffer = await response.arrayBuffer();
+            } catch (e) { console.warn("Waiting for drum URLs to be added."); }
+        });
+
+        // Toggle Master ON/OFF and Decode audio for playback
+        window.toggleBacking = async () => {
+            backingEnabled = !backingEnabled;
+            const btn = document.getElementById('backing-toggle-btn');
+            const mixer = document.getElementById('backing-mixer');
+            
+            if (backingEnabled) {
+                btn.innerText = 'ON';
+                btn.classList.replace('btn-outline-secondary', 'btn-success');
+                mixer.classList.remove('opacity-50');
+                mixer.style.pointerEvents = 'auto'; // Unlock the sliders
+
+                // Decode the preloaded background files into active audio memory
+                if (!rhythmAudioCtx) rhythmAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                for (let drum of backingData) {
+                    if (drum.arrayBuffer && !drum.audioBuffer) {
+                        try {
+                            drum.audioBuffer = await rhythmAudioCtx.decodeAudioData(drum.arrayBuffer.slice(0));
+                        } catch(e) {}
+                    }
+                }
+            } else {
+                btn.innerText = 'OFF';
+                btn.classList.replace('btn-success', 'btn-outline-secondary');
+                mixer.classList.add('opacity-50');
+                mixer.style.pointerEvents = 'none'; // Lock the sliders
+            }
+        };
+
+        // Mini Mixer Controls
+        window.toggleBackingMute = (id) => {
+            backingData[id].active = !backingData[id].active;
+            const btn = document.getElementById(`back-mute-${id}`);
+            if (backingData[id].active) {
+                btn.innerText = 'ON';
+                btn.classList.replace('btn-outline-secondary', 'btn-secondary');
+            } else {
+                btn.innerText = 'M';
+                btn.classList.replace('btn-secondary', 'btn-outline-secondary');
+            }
+        };
+
+        window.updateBackingVol = (id, val) => {
+            backingData[id].vol = parseInt(val);
+        };
+
+        // Fire the specific drum hit
+        function playBackingNote(id, time) {
+            const ctx = rhythmAudioCtx;
+            const drum = backingData[id];
+            
+            // Only play if master is ON, audio is loaded, and the specific track isn't muted
+            if (!ctx || !drum.active || !drum.audioBuffer) return;
+            
+            const gain = ctx.createGain();
+            gain.connect(ctx.destination);
+            gain.gain.value = (drum.vol / 100) * (drum.vol / 100); 
+            
+            const source = ctx.createBufferSource();
+            source.buffer = drum.audioBuffer;
+            source.connect(gain);
+            source.start(time);
+        }
+
         let rhythmTracks = [
             { id: 0, name: 'TRACK 1', hex: '#3b82f6', steps: 16, pulses: 4, offset: 0, volume: 50, muted: false },
             { id: 1, name: 'TRACK 2', hex: '#10b981', steps: 16, pulses: 7, offset: 2, volume: 50, muted: false },
@@ -339,218 +447,320 @@
             return pattern;
         }
 
-        // Render Sidebar Controls
-        function renderRhythmTracksUI() {
-            const container = document.getElementById('rhythm-tracks-container');
-            container.innerHTML = rhythmTracks.map((t, i) => `
-                <div class="bg-black rounded p-3 border border-secondary">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="badge" style="background-color: ${t.hex}; color: #fff;">${t.name}</span>
-                        <div class="d-flex gap-2">
-                            <input type="file" id="rhythm-file-${i}" class="d-none" accept="audio/*" onchange="handleRhythmUpload(${i}, event)">
-                            <button class="btn btn-sm ${rhythmBuffers[i] ? 'btn-primary' : 'btn-outline-secondary'}" onclick="document.getElementById('rhythm-file-${i}').click()" title="Load Sample">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
-                            </button>
-                            <button class="btn btn-sm ${t.muted ? 'btn-danger' : 'btn-outline-secondary'}" onclick="toggleRhythmMute(${i})">
-                                ${t.muted ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6"/></svg>' : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>'}
-                            </button>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-column gap-2 small">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="text-secondary" style="width: 45px;">Steps</span>
-                            <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="32" value="${t.steps}" oninput="updateRhythmTrack(${i}, 'steps', parseInt(this.value))">
-                            <span class="text-light font-monospace text-end" style="width: 20px;">${t.steps}</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="text-secondary" style="width: 45px;">Pulses</span>
-                            <input type="range" class="form-range flex-grow-1 mx-2" min="0" max="${t.steps}" value="${t.pulses}" oninput="updateRhythmTrack(${i}, 'pulses', parseInt(this.value))">
-                            <span class="text-light font-monospace text-end" style="width: 20px;">${t.pulses}</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="text-secondary" style="width: 45px;">Offset</span>
-                            <input type="range" class="form-range flex-grow-1 mx-2" min="0" max="${t.steps}" value="${t.offset}" oninput="updateRhythmTrack(${i}, 'offset', parseInt(this.value))">
-                            <span class="text-light font-monospace text-end" style="width: 20px;">${t.offset}</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-2 mt-1">
-                            <span class="text-secondary" style="width: 45px;">Vol</span>
-                            <input type="range" class="form-range flex-grow-1 mx-2" min="0" max="100" value="${t.volume}" oninput="updateRhythmTrack(${i}, 'volume', parseInt(this.value))" ${t.muted ? 'disabled' : ''}>
-                            <span class="text-light font-monospace text-end" style="width: 35px;">${t.volume}%</span>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
+// Tabbed Interface State
+        let activeRhythmTrackIdx = 0;
 
-function drawRhythmVisualizers() {
-            const svg = document.getElementById('rhythm-svg');
-            const linearView = document.getElementById('rhythm-linear-view');
-            
-            // SVG
-            let svgHtml = '';
-            rhythmTracks.forEach((track, trackIdx) => {
-                // Expanded radius math: Outer ring is 170, spacing is 32
-                // Rings: 170, 138, 106, 74. (Inner diameter = 148px, perfectly clearing the 90px box)
-                const radius = 170 - (trackIdx * 32);
-                const pattern = generateEuclidean(track.steps, track.pulses, track.offset);
-                const angleStep = (Math.PI * 2) / track.steps;
-                
-                svgHtml += `<circle cx="0" cy="0" r="${radius}" fill="none" stroke="#333" stroke-width="2" />`;
-                pattern.forEach((isActive, stepIdx) => {
-                    const angle = (stepIdx * angleStep) - (Math.PI / 2);
-                    const x = Math.cos(angle) * radius;
-                    const y = Math.sin(angle) * radius;
-                    const isCurrent = (rhythmVisStep % track.steps) === stepIdx;
-                    
-                    const r = isActive ? (isCurrent ? 8 : 6) : 2;
-                    const fill = isActive ? track.hex : '#444';
-                    const opacity = track.muted ? 0.3 : (isCurrent && isActive ? 1 : 0.8);
-                    
-                    svgHtml += `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" opacity="${opacity}" style="transition: all 0.05s;" />`;
-                });
-            });
-            svg.innerHTML = svgHtml;
-
-            // Linear View
-            let linearHtml = '';
-            rhythmTracks.forEach((track) => {
-                const pattern = generateEuclidean(track.steps, track.pulses, track.offset);
-                linearHtml += `<div class="d-flex w-100 gap-1 opacity-75" style="height: 12px;">`;
-                for(let i=0; i<32; i++) {
-                    const isActive = pattern[i % track.steps] === 1;
-                    const bg = (isActive && !track.muted) ? track.hex : '#222';
-                    linearHtml += `<div class="flex-grow-1 rounded-sm" style="background-color: ${bg}; border-radius: 2px;"></div>`;
-                }
-                linearHtml += `</div>`;
-            });
-            
-            // Playhead
-            const leftPos = (rhythmVisStep % 32) * (100 / 32);
-            linearHtml += `<div class="position-absolute top-0 bottom-0 z-1" style="width: 2px; background: rgba(255,255,255,0.7); left: ${leftPos}%; transition: left 0.05s;"></div>`;
-            linearView.innerHTML = linearHtml;
-        }
-
-// Logic Actions
-        window.updateRhythmTrack = (id, field, value) => {
-            rhythmTracks[id][field] = value;
-            
-            // Target the specific track's HTML elements
-            const trackDiv = document.getElementById('rhythm-tracks-container').children[id];
-            if (!trackDiv) return;
-
-            if (field === 'steps') {
-                // Constrain pulses and offset if steps are reduced below their current values
-                if (rhythmTracks[id].pulses > value) {
-                    rhythmTracks[id].pulses = value;
-                    trackDiv.querySelectorAll('input[type="range"]')[1].value = value;
-                    trackDiv.querySelectorAll('.font-monospace')[1].innerText = value;
-                }
-                if (rhythmTracks[id].offset > value) {
-                    rhythmTracks[id].offset = value;
-                    trackDiv.querySelectorAll('input[type="range"]')[2].value = value;
-                    trackDiv.querySelectorAll('.font-monospace')[2].innerText = value;
-                }
-                // Update slider maximums
-                trackDiv.querySelectorAll('input[type="range"]')[1].max = value;
-                trackDiv.querySelectorAll('input[type="range"]')[2].max = value;
-                // Update steps text
-                trackDiv.querySelectorAll('.font-monospace')[0].innerText = value;
-            } else if (field === 'pulses') {
-                trackDiv.querySelectorAll('.font-monospace')[1].innerText = value;
-            } else if (field === 'offset') {
-                trackDiv.querySelectorAll('.font-monospace')[2].innerText = value;
-            } else if (field === 'volume') {
-                trackDiv.querySelectorAll('.font-monospace')[3].innerText = value + '%';
-            }
-
-            drawRhythmVisualizers(); // Only redraws the circles/midi view, NOT the sliders
-        };
-
-        window.toggleRhythmMute = (id) => {
-            rhythmTracks[id].muted = !rhythmTracks[id].muted;
+        window.selectRhythmTrack = (idx) => {
+            activeRhythmTrackIdx = idx;
             renderRhythmTracksUI();
             drawRhythmVisualizers();
         };
 
-        window.handleRhythmUpload = async (id, event) => {
-            const file = event.target.files[0];
-            if (!file) return;
+// Render Tabbed Sidebar Controls
+        function renderRhythmTracksUI() {
+            const container = document.getElementById('rhythm-tracks-container');
             
-            // Clean name for UI
-            let cleanName = file.name.replace(/\.[^/.]+$/, "").toUpperCase();
-            if (cleanName.length > 12) cleanName = cleanName.substring(0, 10) + '..';
-            rhythmTracks[id].name = cleanName;
+            // 1. Render Browser-Style Tabs
+            let tabsHtml = `<div class="d-flex border-bottom border-secondary mb-3 overflow-x-auto" style="gap: 4px;">`;
+            rhythmTracks.forEach((t, i) => {
+                const isActive = i === activeRhythmTrackIdx;
+                const bg = isActive ? '#000' : '#171717';
+                const borderTop = isActive ? `border-top: 3px solid ${t.hex};` : `border-top: 3px solid transparent;`;
+                const color = isActive ? '#fff' : '#a3a3a3';
+                tabsHtml += `
+                    <div class="px-3 px-md-4 py-2 rounded-top flex-grow-1 text-center" 
+                         style="background-color: ${bg}; color: ${color}; ${borderTop} cursor: pointer; transition: all 0.2s; white-space: nowrap; font-weight: 600; font-size: 0.85rem;"
+                         onclick="selectRhythmTrack(${i})">
+                        ${t.name} ${t.muted ? '(M)' : ''}
+                    </div>
+                `;
+            });
+            tabsHtml += `</div>`;
 
-            // Decode Audio
-            if (!rhythmAudioCtx) rhythmAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            const reader = new FileReader();
-            reader.onload = async (e) => {
-                try {
-                    const arrayBuffer = e.target.result;
-                    rhythmBuffers[id] = await rhythmAudioCtx.decodeAudioData(arrayBuffer);
-                    renderRhythmTracksUI();
-                } catch (err) { console.error("Error decoding audio:", err); }
-            };
-            reader.readAsArrayBuffer(file);
+            // 2. Render Single Active Control Panel
+            const t = rhythmTracks[activeRhythmTrackIdx];
+            const i = activeRhythmTrackIdx;
+            
+            // ADDED: Unique IDs for all sliders and labels so we can update them without re-rendering
+            let panelHtml = `
+                <div class="bg-black rounded p-4 border border-secondary" style="animation: fadeIn 0.2s ease-in-out;">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="badge py-2 px-3 fs-6" style="background-color: ${t.hex}; color: #fff;">${t.name}</span>
+                            <input type="file" id="rhythm-file-${i}" class="d-none" accept="audio/*" onchange="handleRhythmUpload(${i}, event)">
+                            <button class="btn btn-sm fw-bold px-3 py-2 ${rhythmBuffers[i] ? 'btn-primary' : 'btn-outline-secondary'}" onclick="document.getElementById('rhythm-file-${i}').click()">
+                                ${rhythmBuffers[i] ? 'SAMPLE LOADED' : 'LOAD SAMPLE'}
+                            </button>
+                        </div>
+                        <button class="btn btn-sm fw-bold px-4 py-2 ${t.muted ? 'btn-danger' : 'btn-outline-secondary'}" onclick="toggleRhythmMute(${i})">
+                            ${t.muted ? 'MUTED' : 'MUTE'}
+                        </button>
+                    </div>
+                    
+                    <div class="d-flex flex-column gap-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-secondary fw-bold small tracking-widest" style="width: 80px;">STEPS</span>
+                            <input type="range" id="rhythm-slider-steps" class="form-range flex-grow-1 mx-3 mx-md-4" min="1" max="32" value="${t.steps}" oninput="updateRhythmTrack(${i}, 'steps', parseInt(this.value))">
+                            <span id="rhythm-label-steps" class="text-light font-monospace fw-bold text-end fs-5" style="width: 40px;">${t.steps}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-secondary fw-bold small tracking-widest" style="width: 80px;">PULSES</span>
+                            <input type="range" id="rhythm-slider-pulses" class="form-range flex-grow-1 mx-3 mx-md-4" min="0" max="${t.steps}" value="${t.pulses}" oninput="updateRhythmTrack(${i}, 'pulses', parseInt(this.value))">
+                            <span id="rhythm-label-pulses" class="text-light font-monospace fw-bold text-end fs-5" style="width: 40px;">${t.pulses}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-secondary fw-bold small tracking-widest" style="width: 80px;">OFFSET</span>
+                            <input type="range" id="rhythm-slider-offset" class="form-range flex-grow-1 mx-3 mx-md-4" min="0" max="${t.steps}" value="${t.offset}" oninput="updateRhythmTrack(${i}, 'offset', parseInt(this.value))">
+                            <span id="rhythm-label-offset" class="text-light font-monospace fw-bold text-end fs-5" style="width: 40px;">${t.offset}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center pt-3 mt-2 border-top border-secondary border-opacity-50">
+                            <span class="text-secondary fw-bold small tracking-widest" style="width: 80px;">VOLUME</span>
+                            <input type="range" id="rhythm-slider-volume" class="form-range flex-grow-1 mx-3 mx-md-4" min="0" max="100" value="${t.volume}" oninput="updateRhythmTrack(${i}, 'volume', parseInt(this.value))" ${t.muted ? 'disabled' : ''}>
+                            <span id="rhythm-label-volume" class="text-light font-monospace fw-bold text-end fs-5" style="width: 55px;">${t.volume}%</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = tabsHtml + panelHtml;
+        }
+
+        // Updated Visualizer (Only Linear View)
+        function drawRhythmVisualizers() {
+            const linearView = document.getElementById('rhythm-linear-view');
+            if (!linearView) return;
+            
+            let linearHtml = '';
+            rhythmTracks.forEach((track, idx) => {
+                const pattern = generateEuclidean(track.steps, track.pulses, track.offset);
+                // Highlight the active track in the grid
+                const isSelected = idx === activeRhythmTrackIdx;
+                const opacity = isSelected ? 'opacity-100' : 'opacity-50';
+                
+                linearHtml += `<div class="d-flex w-100 gap-1 ${opacity} flex-grow-1">`;
+                for(let i=0; i<32; i++) {
+                    const isActive = pattern[i % track.steps] === 1;
+                    const bg = (isActive && !track.muted) ? track.hex : '#222';
+                    linearHtml += `<div class="flex-grow-1 rounded-sm" style="background-color: ${bg}; border-radius: 3px; transition: background-color 0.2s;"></div>`;
+                }
+                linearHtml += `</div>`;
+            });
+            
+            // Playhead (Taller, brighter line)
+            const leftPos = (rhythmVisStep % 32) * (100 / 32);
+            linearHtml += `<div class="position-absolute top-0 bottom-0 z-1" style="width: 3px; background: rgba(255,255,255,0.85); left: ${leftPos}%; transition: left 0.05s; box-shadow: 0 0 8px rgba(255,255,255,0.5);"></div>`;
+            linearView.innerHTML = linearHtml;
+        }
+
+// Targeted Update Logic (No full re-renders on slider move)
+        window.updateRhythmTrack = (id, field, value) => {
+            rhythmTracks[id][field] = value;
+            
+            // 1. Update the specific text label for the slider you are moving
+            const label = document.getElementById(`rhythm-label-${field}`);
+            if (label) {
+                label.innerText = field === 'volume' ? value + '%' : value;
+            }
+            
+            // 2. If changing Steps, constrain Pulses and Offset so they don't break the math
+            if (field === 'steps') {
+                const sliderP = document.getElementById('rhythm-slider-pulses');
+                const labelP = document.getElementById('rhythm-label-pulses');
+                const sliderO = document.getElementById('rhythm-slider-offset');
+                const labelO = document.getElementById('rhythm-label-offset');
+                
+                // Update slider maximums
+                if (sliderP) sliderP.max = value;
+                if (sliderO) sliderO.max = value;
+
+                if (rhythmTracks[id].pulses > value) {
+                    rhythmTracks[id].pulses = value;
+                    if (sliderP) sliderP.value = value;
+                    if (labelP) labelP.innerText = value;
+                }
+                if (rhythmTracks[id].offset > value) {
+                    rhythmTracks[id].offset = value;
+                    if (sliderO) sliderO.value = value;
+                    if (labelO) labelO.innerText = value;
+                }
+            }
+            
+            // 3. Only redraw the MIDI view, leave the HTML inspector card alone
+            drawRhythmVisualizers();
+        };
+        
+// Mute All / Unmute All Logic
+        window.toggleAllRhythmTracksMute = () => {
+            // Check if every single track is currently muted
+            const allMuted = rhythmTracks.every(t => t.muted);
+            const newState = !allMuted; // If all are muted, unmute them. Otherwise, mute all.
+            
+            rhythmTracks.forEach(t => t.muted = newState);
+            
+            const muteAllBtn = document.getElementById('mute-all-rhythm-btn');
+            if (muteAllBtn) {
+                if (newState) {
+                    muteAllBtn.innerText = 'UNMUTE ALL';
+                    muteAllBtn.classList.remove('btn-outline-secondary');
+                    muteAllBtn.classList.add('btn-danger');
+                } else {
+                    muteAllBtn.innerText = 'MUTE ALL';
+                    muteAllBtn.classList.remove('btn-danger');
+                    muteAllBtn.classList.add('btn-outline-secondary');
+                }
+            }
+            
+            renderRhythmTracksUI();
+            drawRhythmVisualizers();
         };
 
-        // Audio Engine
-        function playSynthFallback(ctx, type, time, volume, trackGain) {
-            if (type === 0) { // Kick
-                const osc = ctx.createOscillator();
-                osc.connect(trackGain);
-                osc.frequency.setValueAtTime(150, time);
-                osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.5);
-                trackGain.gain.setValueAtTime(volume, time);
-                trackGain.gain.exponentialRampToValueAtTime(0.01, time + 0.5);
-                osc.start(time); osc.stop(time + 0.5);
-            } else if (type === 1) { // Hat
-                const bufferSize = ctx.sampleRate * 0.1;
-                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-                const data = buffer.getChannelData(0);
-                for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
-                const noise = ctx.createBufferSource();
-                noise.buffer = buffer;
-                const filter = ctx.createBiquadFilter();
-                filter.type = 'highpass'; filter.frequency.value = 5000;
-                noise.connect(filter); filter.connect(trackGain);
-                trackGain.gain.setValueAtTime(volume * 0.5, time);
-                trackGain.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
-                noise.start(time);
-            } else if (type === 2) { // Snare
-                const osc = ctx.createOscillator();
-                const oscGain = ctx.createGain();
-                osc.type = 'triangle';
-                osc.connect(oscGain); oscGain.connect(trackGain);
-                osc.frequency.setValueAtTime(250, time);
-                osc.frequency.exponentialRampToValueAtTime(100, time + 0.1);
-                oscGain.gain.setValueAtTime(0.7 * volume, time);
-                oscGain.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
-                osc.start(time); osc.stop(time + 0.2);
-
-                const bufferSize = ctx.sampleRate * 0.25; 
-                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-                const data = buffer.getChannelData(0);
-                for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
-                const noise = ctx.createBufferSource();
-                noise.buffer = buffer;
-                const noiseFilter = ctx.createBiquadFilter();
-                noiseFilter.type = 'highpass'; noiseFilter.frequency.value = 2000;
-                const noiseGain = ctx.createGain();
-                noise.connect(noiseFilter); noiseFilter.connect(noiseGain); noiseGain.connect(trackGain);
-                noiseGain.gain.setValueAtTime(0.15 * volume, time);
-                noiseGain.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
-                noise.start(time);
-            } else if (type === 3) { // Perc
-                const osc = ctx.createOscillator();
-                osc.type = 'square';
-                osc.connect(trackGain);
-                osc.frequency.setValueAtTime(800, time);
-                osc.frequency.exponentialRampToValueAtTime(100, time + 0.05);
-                trackGain.gain.setValueAtTime(volume * 0.4, time);
-                trackGain.gain.exponentialRampToValueAtTime(0.01, time + 0.05);
-                osc.start(time); osc.stop(time + 0.1);
+        // Restored & Upgraded Single Mute Button Logic
+        window.toggleRhythmMute = (id) => {
+            rhythmTracks[id].muted = !rhythmTracks[id].muted;
+            renderRhythmTracksUI(); 
+            drawRhythmVisualizers(); 
+            
+            // Sync the "Mute All" button state if the user manually mutes all 4 tracks
+            const allMuted = rhythmTracks.every(t => t.muted);
+            const muteAllBtn = document.getElementById('mute-all-rhythm-btn');
+            
+            if (muteAllBtn) {
+                if (allMuted) {
+                    muteAllBtn.innerText = 'UNMUTE ALL';
+                    muteAllBtn.classList.remove('btn-outline-secondary');
+                    muteAllBtn.classList.add('btn-danger');
+                } else {
+                    muteAllBtn.innerText = 'MUTE ALL';
+                    muteAllBtn.classList.remove('btn-danger');
+                    muteAllBtn.classList.add('btn-outline-secondary');
+                }
             }
+        };
+        
+window.exportRhythmMidi = () => {
+            try {
+                // Check if the library successfully loaded from the CDN
+                if (typeof MidiWriter === 'undefined') {
+                    alert("The MIDI generation library hasn't loaded yet. Please check your internet connection.");
+                    return;
+                }
+
+                // Map our 4 tracks to standard General MIDI drum notes
+                // Using Gb1 instead of F#1 to ensure universal pitch parsing
+                const midiNotes = ['C1', 'D1', 'Gb1', 'A2']; 
+                
+                const track = new MidiWriter.Track();
+                track.addTrackName('Sando Rhythm Explorer');
+                track.setTempo(globalBpm);
+
+                let waits = []; 
+                
+                // Loop through all 32 steps
+                for (let i = 0; i < 32; i++) {
+                    let activeNotes = [];
+                    
+                    rhythmTracks.forEach((t, trackIdx) => {
+                        if (!t.muted) {
+                            const pattern = generateEuclidean(t.steps, t.pulses, t.offset);
+                            if (pattern[i % t.steps] === 1) {
+                                activeNotes.push(midiNotes[trackIdx]);
+                            }
+                        }
+                    });
+
+                    if (activeNotes.length > 0) {
+                        let noteObj = {
+                            pitch: activeNotes,
+                            duration: '16', 
+                            velocity: 100,
+                            channel: 10 
+                        };
+                        
+                        // Only attach 'waits' if there are actually empty steps queued
+                        if (waits.length > 0) noteObj.wait = waits;
+                        
+                        track.addEvent(new MidiWriter.NoteEvent(noteObj));
+                        waits = []; 
+                    } else {
+                        // Queue up an empty 16th note step
+                        waits.push('16'); 
+                    }
+                }
+
+                // The library strictly expects an array of tracks [track]
+                const write = new MidiWriter.Writer([track]);
+                
+                // Use the native data URI generator (most stable for tiny files)
+                const uri = write.dataUri();
+                
+                const downloadAnchorNode = document.createElement('a');
+                downloadAnchorNode.setAttribute("href", uri);
+                downloadAnchorNode.setAttribute("download", "sando_rhythm.mid");
+                document.body.appendChild(downloadAnchorNode);
+                downloadAnchorNode.click();
+                downloadAnchorNode.remove();
+
+            } catch (error) {
+                // If anything breaks, print it to the console and alert the user
+                console.error("MIDI Export Failed:", error);
+                alert("MIDI Export Failed: " + error.message);
+            }
+        };
+        // Audio Engine
+// Melodic Audio Engine (Replacing the old drum synths)
+        function playSynthFallback(ctx, type, time, volume, trackGain) {
+            const osc = ctx.createOscillator();
+            const filter = ctx.createBiquadFilter();
+            const amp = ctx.createGain();
+
+            // Routing: Oscillator -> Filter -> Amp -> Track Volume -> Master
+            osc.connect(filter);
+            filter.connect(amp);
+            amp.connect(trackGain);
+
+            // Universal Pluck Envelope (Fast attack, quick decay so rhythms stay tight)
+            amp.gain.setValueAtTime(0, time);
+            amp.gain.linearRampToValueAtTime(volume, time + 0.01);
+            amp.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
+
+            if (type === 0) { 
+                // Track 1: Low Triangle Pluck (C3)
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(130.81, time); 
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(1000, time);
+                filter.frequency.exponentialRampToValueAtTime(150, time + 0.2);
+            } 
+            else if (type === 1) { 
+                // Track 2: Mid Square Pluck (C4)
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(261.63, time); 
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(1200, time);
+                filter.frequency.exponentialRampToValueAtTime(300, time + 0.2);
+            } 
+            else if (type === 2) { 
+                // Track 3: Mid-High Sine Pluck (G4)
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(392.00, time); 
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(2000, time); // Just rolls off any clicks
+            } 
+            else if (type === 3) { 
+                // Track 4: Higher Soft Saw Pluck (C5)
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(523.25, time); 
+                filter.type = 'lowpass';
+                // Heavily filtered so the saw wave doesn't pierce the ears
+                filter.frequency.setValueAtTime(1500, time);
+                filter.frequency.exponentialRampToValueAtTime(400, time + 0.2);
+                
+                // Slightly reduce volume for the saw wave as it naturally cuts through harder
+                amp.gain.linearRampToValueAtTime(volume * 0.6, time + 0.01);
+            }
+
+            osc.start(time); 
+            osc.stop(time + 0.3);
         }
 
         function scheduleRhythmNote(stepNumber, time) {
@@ -575,6 +785,14 @@ function drawRhythmVisualizers() {
                     }
                 }
             });
+
+            // Play the Hosted Backing Drums
+            if (backingEnabled) {
+                const step = stepNumber % 16;
+                if (step % 4 === 0) playBackingNote(0, time); // Kick
+                if (step === 4 || step === 12) playBackingNote(1, time); // Clap
+                if (step % 4 === 2) playBackingNote(2, time); // Hat
+            }
 
             // Sync visualizer to actual playhead time
             const timeUntilPlay = (time - ctx.currentTime) * 1000;
@@ -665,7 +883,7 @@ function drawRhythmVisualizers() {
             const totalBars = arrangeBlocks.reduce((acc, curr) => acc + (Number(curr.bars) || 0), 0);
             totalLabel.innerText = `TOTAL: ${totalBars} BARS`;
 
-            // Render Toolbar Buttons (Removed the empty check so they always draw)
+            // Render Toolbar Buttons
             toolbar.innerHTML = Object.keys(BLOCK_TYPES).map(type => 
                 `<button class="btn btn-sm text-white fw-bold border-0 shadow-sm" style="background-color: ${BLOCK_TYPES[type].color}; opacity: 0.9;" onclick="addArrangementBlock('${type}')">+ ${type}</button>`
             ).join('');
@@ -785,7 +1003,9 @@ function drawRhythmVisualizers() {
         }
 
         // Initialize Arrangement tab
-        renderArrangement();        // --- DELAY SYNC LOGIC ---
+        renderArrangement();        
+        
+        // --- DELAY SYNC LOGIC ---
         const delayBpmInput = document.getElementById('delay-bpm');
         const delayResults = document.getElementById('delay-results');
 
@@ -941,11 +1161,11 @@ function drawRhythmVisualizers() {
             const whiteKeys = keyboard.filter(n => !n.isBlack);
             let html = '';
             
-// White Keys (Now using onpointerdown to fix double firing)
+// White Keys 
             whiteKeys.forEach(whiteKey => {
                 const isActive = activeNotes.includes(whiteKey.note);
                 
-                // UPDATED: Solid purple background and white text for active keys
+                // Solid purple background and white text for active keys
                 const bg = isActive ? '#4f46e5' : '#ffffff'; 
                 const color = isActive ? '#ffffff' : '#9ca3af'; 
                 
@@ -958,7 +1178,7 @@ function drawRhythmVisualizers() {
                 </div>`;
             });
 
-            // Black Keys (Now using onpointerdown to fix double firing)
+            // Black Keys
             keyboard.forEach((keyObj, i) => {
                 if (!keyObj.isBlack) return;
                 const isActive = activeNotes.includes(keyObj.note);
@@ -1142,7 +1362,7 @@ function drawRhythmVisualizers() {
             }
         });
 
-applyBpmBtn.addEventListener('click', () => {
+        applyBpmBtn.addEventListener('click', () => {
             globalBpm = calcBpm;
             
             // 1. Push the new BPM to the other module inputs
@@ -1454,30 +1674,30 @@ applyBpmBtn.addEventListener('click', () => {
             "Automate the drive parameter of a saturator on your master bus, increasing it by just 10% during the final 8 bars of the drop for maximum energy.",
             "Record the master output of your track playing through your phone speakers or a cheap bluetooth speaker, and layer it subtly underneath the mix for lofi grit.",
             "For a signature UK Bounce donk, use FM synthesis: set the Modulator to a sine wave +7 semitones above the Carrier, with a fast, plucky decay on the index envelope.",
-"Split your kick into two channels: Sub (0-150Hz) and Crunch (150Hz+). Keep the sub completely clean and mono, and aggressively distort and widen the Crunch channel.",
-"Use mid-side EQ on your lead synth bus. Set it to 'Side' mode and boost 8kHz with a high shelf to make the lead sound massive without hurting the center punch of the kick and snare.",
-"Phase-align your kick and sub bass manually: bounce both to audio, zoom all the way in, and physically slide the bass audio so its first waveform cycle aligns perfectly with the kick's tail.",
-"Apply a 16th-note swing specifically to your shaker and top-hat layers, but keep the kick, bass, and main clap 100% straight on the grid to create push-and-pull friction.",
-"Increase the pre-delay on your main vocal reverb to 30-50ms. This completely separates the vocal transient from the reverb wash, pushing the dry vocal to the front of the mix.",
-"Create a parallel 'trash bus': send all synths and basses to an aux channel, decimate it with absolute distortion, high-pass at 500Hz, and blend it in at -20dB for intense upper-harmonic crunch.",
-"Duplicate the lead vocal, shift the formant down by 3-4 steps without changing the pitch, and blend it underneath the main channel for a thicker, modern electronic vocal texture.",
-"For classic Hard Dance screeches: pitch a saw wave up +48 semitones, then use a very fast pitch envelope to snap it down to the root note for a sharp, aggressive attack.",
-"Layer a completely silent, filtered white noise track and use a gate sidechained to a complex percussion loop. Mute the percussion loop, leaving pure rhythmic noise texture.",
-"Put a transient shaper on your donk bus, heavily boost the attack, then put a hard clipper immediately after it so it knocks aggressively without clipping your master headroom.",
-"Layer an organ or classic M1 bass patch, heavily compressed, directly over a pure sine-wave sub to get that classic 2000s club bounce weight without muddying the low end.",
-"Automate the unison detune spread on your supersaws: keep the spread tight and narrow during the verse, and automate it to open up to maximum width right when the drop hits.",
-"Mute the master bus completely for exactly a 1/16th or 1/8th note right before the drop hits. Absolute digital silence hits harder than a sub-drop.",
-"Put a harsh sidechain compressor on the off-beat ride cymbal, keyed to the kick, but with an extremely short release so the ride 'sucks' back in aggressively rather than smoothly.",
-"Take a 1-second snippet of an old rave vocal, throw it into a granular synth, freeze the grain position, and play it as a drone pad underneath the breakdown.",
-"Use a chorus effect on your off-beat bass, but set the mix to 100% wet and turn the LFO rate to 0Hz. It creates a static, metallic, comb-filtered effect that hardens the tone.",
-"Instead of a standard riser, layer a Shepard tone synth underneath your 16-bar build-up to create the psychological illusion of pitch continuously climbing without ever reaching a peak.",
-"Freeze a massive 10-second reverb tail of a single chord stab, bounce it to audio, and use volume automation to sidechain it rhythmically in the background of a verse.",
-"Instead of compressing the mid-range on your master bus to get loudness, use upward expansion on the 2kHz-5kHz band to bring out the snap and bite of leads only when they hit.",
-"Create a 'ghost clap': take your main drop clap, pitch it down 5 semitones, cut the high frequencies, and place it exactly on the 2 and 4 beats during the intro to tease the drop.",
-"Take the final note of your breakdown melody, put a long delay on it with high feedback, and automate a low-pass filter to close down as it washes into the drop.",
-"Make your off-beat bounce bass note slightly shorter than a 1/16th note and add a tiny bit of release so it doesn't click. This creates a tighter 'vacuum' between the kick and bass.",
-"Use the pink noise mixing trick: route a pink noise generator to your master at a low volume. Solo each track and balance its fader so it just barely peaks through the noise, then mute the noise.",
-"Put a bitcrusher on your pre-shift clap or reverse clap sweep. It gives the build-up digital grit and makes the clean transient of the main drop clap sound much wider by contrast."
+            "Split your kick into two channels: Sub (0-150Hz) and Crunch (150Hz+). Keep the sub completely clean and mono, and aggressively distort and widen the Crunch channel.",
+            "Use mid-side EQ on your lead synth bus. Set it to 'Side' mode and boost 8kHz with a high shelf to make the lead sound massive without hurting the center punch of the kick and snare.",
+            "Phase-align your kick and sub bass manually: bounce both to audio, zoom all the way in, and physically slide the bass audio so its first waveform cycle aligns perfectly with the kick's tail.",
+            "Apply a 16th-note swing specifically to your shaker and top-hat layers, but keep the kick, bass, and main clap 100% straight on the grid to create push-and-pull friction.",
+            "Increase the pre-delay on your main vocal reverb to 30-50ms. This completely separates the vocal transient from the reverb wash, pushing the dry vocal to the front of the mix.",
+            "Create a parallel 'trash bus': send all synths and basses to an aux channel, decimate it with absolute distortion, high-pass at 500Hz, and blend it in at -20dB for intense upper-harmonic crunch.",
+            "Duplicate the lead vocal, shift the formant down by 3-4 steps without changing the pitch, and blend it underneath the main channel for a thicker, modern electronic vocal texture.",
+            "For classic Hard Dance screeches: pitch a saw wave up +48 semitones, then use a very fast pitch envelope to snap it down to the root note for a sharp, aggressive attack.",
+            "Layer a completely silent, filtered white noise track and use a gate sidechained to a complex percussion loop. Mute the percussion loop, leaving pure rhythmic noise texture.",
+            "Put a transient shaper on your donk bus, heavily boost the attack, then put a hard clipper immediately after it so it knocks aggressively without clipping your master headroom.",
+            "Layer an organ or classic M1 bass patch, heavily compressed, directly over a pure sine-wave sub to get that classic 2000s club bounce weight without muddying the low end.",
+            "Automate the unison detune spread on your supersaws: keep the spread tight and narrow during the verse, and automate it to open up to maximum width right when the drop hits.",
+            "Mute the master bus completely for exactly a 1/16th or 1/8th note right before the drop hits. Absolute digital silence hits harder than a sub-drop.",
+            "Put a harsh sidechain compressor on the off-beat ride cymbal, keyed to the kick, but with an extremely short release so the ride 'sucks' back in aggressively rather than smoothly.",
+            "Take a 1-second snippet of an old rave vocal, throw it into a granular synth, freeze the grain position, and play it as a drone pad underneath the breakdown.",
+            "Use a chorus effect on your off-beat bass, but set the mix to 100% wet and turn the LFO rate to 0Hz. It creates a static, metallic, comb-filtered effect that hardens the tone.",
+            "Instead of a standard riser, layer a Shepard tone synth underneath your 16-bar build-up to create the psychological illusion of pitch continuously climbing without ever reaching a peak.",
+            "Freeze a massive 10-second reverb tail of a single chord stab, bounce it to audio, and use volume automation to sidechain it rhythmically in the background of a verse.",
+            "Instead of compressing the mid-range on your master bus to get loudness, use upward expansion on the 2kHz-5kHz band to bring out the snap and bite of leads only when they hit.",
+            "Create a 'ghost clap': take your main drop clap, pitch it down 5 semitones, cut the high frequencies, and place it exactly on the 2 and 4 beats during the intro to tease the drop.",
+            "Take the final note of your breakdown melody, put a long delay on it with high feedback, and automate a low-pass filter to close down as it washes into the drop.",
+            "Make your off-beat bounce bass note slightly shorter than a 1/16th note and add a tiny bit of release so it doesn't click. This creates a tighter 'vacuum' between the kick and bass.",
+            "Use the pink noise mixing trick: route a pink noise generator to your master at a low volume. Solo each track and balance its fader so it just barely peaks through the noise, then mute the noise.",
+            "Put a bitcrusher on your pre-shift clap or reverse clap sweep. It gives the build-up digital grit and makes the clean transient of the main drop clap sound much wider by contrast."
         ];
         
         const promptEl = document.getElementById('block-prompt');
