@@ -1,0 +1,600 @@
+/* =============================================================
+   PROMO PUMP - Satirical tap game for sandoproduces.com
+   Flat "South Park"-style character framed inside a vertical
+   selfie-camera phone screen. Scoped under .promo-pump-game.
+   ============================================================= */
+
+html.promo-pump-html,
+.promo-pump-body {
+    margin: 0;
+    background: #08090d;
+    /* Lock the document so iOS/Android browser chrome can't create a scrollable page */
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+    /* --app-height is set from visualViewport in JS when available */
+    height: var(--app-height, 100svh);
+}
+
+.promo-pump-game {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--app-height, 100svh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    /* Keep UI clear of notches / home indicator / browser insets */
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+    background:
+        radial-gradient(70% 50% at 50% 0%, rgba(10, 229, 13, 0.06), transparent 60%),
+        #08090d;
+    font-family: "Interstate", "Segoe UI", "Lucida Grande", Verdana, sans-serif;
+    color: #eafff0;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* ============================ PHONE ============================ */
+/* The whole game is a vertical phone screen in selfie-cam mode.
+   Prefer svh / --app-height so the frame fits inside the visible
+   area while the browser top/bottom bars are showing (no scroll-to-reveal). */
+.pp-phone {
+    position: relative;
+    box-sizing: border-box;
+    height: min(
+        calc(var(--app-height, 100svh) - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 8px),
+        calc(100vw * 2.1667)
+    );
+    aspect-ratio: 9 / 19.5;
+    width: auto;
+    max-width: 100%;
+    background: #05070b;
+    border-radius: 34px;
+    overflow: hidden;
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.65),
+        0 0 0 3px #14171f,
+        0 0 0 6px #05070b;
+    container-type: inline-size;
+    container-name: phone;
+}
+
+.pp-feed {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: #0c1119;
+}
+.pp-scene-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* faux front-cam scanlines + vignette */
+.pp-feed::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    background: repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    mix-blend-mode: overlay;
+}
+.pp-feed::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    box-shadow: inset 0 0 120px 28px rgba(0, 0, 0, 0.55);
+}
+
+/* ---- handheld camera motion ---- */
+.pp-cam {
+    transform-box: fill-box;
+    transform-origin: 50% 55%;
+    will-change: transform;
+    animation: pp-cam-sway 5.5s ease-in-out infinite;
+}
+@keyframes pp-cam-sway {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33%      { transform: translate(3px, -2px) rotate(0.4deg); }
+    66%      { transform: translate(-2px, 2px) rotate(-0.4deg); }
+}
+.promo-pump-game.tier-medium .pp-cam { animation-duration: 3s; }
+.promo-pump-game.tier-frantic .pp-cam { animation: pp-cam-shake 0.16s linear infinite; }
+@keyframes pp-cam-shake {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(-3px, 2px) rotate(0.5deg); }
+    50%  { transform: translate(3px, -2px) rotate(-0.4deg); }
+    75%  { transform: translate(-3px, -1px) rotate(0.3deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* ---- pumping arm joints (driven per-tap via the Web Animations API) ----
+   Pivots are absolute view-box coords so nested rotations stay stable:
+   shoulder = (120,548), elbow = (72,608). */
+.pp-arm      { transform-box: view-box; transform-origin: 120px 548px; will-change: transform; }
+.pp-forearm  { transform-box: view-box; transform-origin: 72px 608px; will-change: transform; }
+.pp-head     { transform-box: fill-box; transform-origin: 50% 100%; will-change: transform; }
+
+/* ---- DAW backdrop ---- */
+@keyframes pp-playhead { from { transform: translateX(0); } to { transform: translateX(120px); } }
+.pp-daw-playhead { animation: pp-playhead 2.4s linear infinite; }
+.pp-eq-bar {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: pp-eq 0.9s ease-in-out infinite alternate;
+}
+.pp-eq-bar:nth-child(2) { animation-delay: 0.10s; }
+.pp-eq-bar:nth-child(3) { animation-delay: 0.25s; }
+.pp-eq-bar:nth-child(4) { animation-delay: 0.15s; }
+.pp-eq-bar:nth-child(5) { animation-delay: 0.35s; }
+.pp-eq-bar:nth-child(6) { animation-delay: 0.05s; }
+@keyframes pp-eq { from { transform: scaleY(0.35); } to { transform: scaleY(1); } }
+.promo-pump-game.tier-medium .pp-eq-bar { animation-duration: 0.55s; }
+.promo-pump-game.tier-frantic .pp-eq-bar { animation-duration: 0.3s; }
+.promo-pump-game.tier-frantic .pp-daw-playhead { animation-duration: 1.1s; }
+
+/* ---- face reactions ---- */
+.pp-face-eye  { transform-box: fill-box; transform-origin: center; transition: transform 120ms ease-out; }
+.pp-face-mouth { transform-box: fill-box; transform-origin: center; transition: transform 120ms ease-out; }
+.pp-sweat { opacity: 0; transition: opacity 200ms ease-out; }
+.promo-pump-game.tier-medium  .pp-face-eye  { transform: scale(1.08); }
+.promo-pump-game.tier-frantic .pp-face-eye  { transform: scale(1.16); }
+.promo-pump-game.tier-medium  .pp-face-mouth { transform: scale(1.06, 1.3); }
+.promo-pump-game.tier-frantic .pp-face-mouth { transform: scale(1.16, 1.65); }
+/* Medium: first few beads. Frantic: the rest join in. */
+.promo-pump-game.tier-medium  .pp-sweat:not(.pp-sweat-late) { opacity: 0.75; }
+.promo-pump-game.tier-frantic .pp-sweat { opacity: 1; }
+.promo-pump-game.tier-frantic .pp-sweat-late { opacity: 1; }
+
+/* ============================ CAMERA UI ============================ */
+.pp-cam-ui {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+}
+@keyframes pp-blink { 50% { opacity: 0.15; } }
+
+/* status bar */
+.pp-statusbar {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3cqw 5cqw;
+    font-size: 3.6cqw;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+.pp-status-right { display: flex; align-items: center; gap: 5px; }
+.pp-status-right .bars,
+.pp-status-right .wifi { font-size: 3.2cqw; opacity: 0.9; }
+.pp-battery {
+    width: 6.5cqw; height: 3.4cqw;
+    border: 1.5px solid #fff; border-radius: 2px;
+    position: relative; opacity: 0.9;
+}
+.pp-battery::before {
+    content: ""; position: absolute; inset: 1.5px;
+    background: #fff; border-radius: 1px;
+}
+.pp-battery::after {
+    content: ""; position: absolute; right: -3px; top: 30%;
+    width: 2px; height: 40%; background: #fff; border-radius: 0 1px 1px 0;
+}
+
+/* REC pill */
+.pp-rec-pill {
+    position: absolute;
+    top: 9cqw; left: 50%;
+    transform: translateX(-50%);
+    display: flex; align-items: center; gap: 7px;
+    background: rgba(0, 0, 0, 0.42);
+    padding: 1.6cqw 3.4cqw;
+    border-radius: 999px;
+    font-size: 3.4cqw; font-weight: 800; letter-spacing: 1.5px;
+    color: #fff;
+}
+.pp-rec-dot {
+    width: 2.6cqw; height: 2.6cqw; border-radius: 50%;
+    background: #ff2d2d; box-shadow: 0 0 8px #ff2d2d;
+    animation: pp-blink 1s steps(1) infinite;
+}
+
+/* live engagement counter */
+.pp-likes {
+    position: absolute;
+    top: 8.5cqw; left: 4cqw;
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(0, 0, 0, 0.38);
+    padding: 1.4cqw 3cqw 1.4cqw 2cqw;
+    border-radius: 999px;
+}
+.pp-likes svg { width: 4.6cqw; height: 4.6cqw; display: block; }
+.pp-likes .pp-score {
+    font-size: 4.4cqw; font-weight: 900; color: #fff;
+    font-variant-numeric: tabular-nums;
+    text-shadow: none;
+}
+.pp-likes-label {
+    position: absolute; top: 17cqw; left: 5cqw;
+    font-size: 2.6cqw; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+.pp-best {
+    position: absolute; top: 8.8cqw; right: 4cqw;
+    font-size: 2.8cqw; color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+}
+
+/* focus square */
+.pp-focus {
+    position: absolute;
+    left: 32%; top: 26%;
+    width: 24cqw; height: 24cqw;
+    border: 2px solid rgba(255, 213, 74, 0.9);
+    border-radius: 6px;
+    opacity: 0;
+    animation: pp-focus 4s ease-in-out infinite;
+}
+@keyframes pp-focus {
+    0%, 100% { opacity: 0; transform: scale(1.15); }
+    8%  { opacity: 1; transform: scale(1.1); }
+    20% { opacity: 0.85; transform: scale(1); }
+    32% { opacity: 0; }
+}
+
+/* zoom pills */
+.pp-zoom {
+    position: absolute;
+    bottom: 24cqw; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 2cqw; align-items: center;
+    background: rgba(0, 0, 0, 0.34);
+    padding: 1.4cqw 2cqw;
+    border-radius: 999px;
+}
+.pp-zoom span {
+    font-size: 3cqw; font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    width: 8cqw; height: 8cqw;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+}
+.pp-zoom span.active {
+    color: #ffd54a; background: rgba(0, 0, 0, 0.45); font-weight: 900;
+}
+
+/* bottom control bar */
+.pp-cam-bottom {
+    position: absolute;
+    bottom: 6cqw; left: 0;
+    width: 100%;
+    display: flex; align-items: center; justify-content: space-around;
+}
+.pp-record-btn {
+    width: 17cqw; height: 17cqw; border-radius: 50%;
+    border: 4px solid #fff;
+    display: flex; align-items: center; justify-content: center;
+}
+.pp-record-btn i {
+    width: 12cqw; height: 12cqw; border-radius: 50%;
+    background: #ff3b30; display: block;
+    transition: all 150ms ease;
+}
+.promo-pump-game.state-playing .pp-record-btn i {
+    width: 7.5cqw; height: 7.5cqw; border-radius: 4px;
+    animation: pp-blink 1s ease-in-out infinite;
+}
+.pp-cam-icon {
+    width: 11cqw; height: 11cqw; border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    display: flex; align-items: center; justify-content: center;
+}
+.pp-cam-icon svg { width: 6cqw; height: 6cqw; }
+.pp-cam-thumb {
+    width: 10cqw; height: 10cqw; border-radius: 8px;
+    background: linear-gradient(135deg, #1f8f3f, #0d3c1c);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Floating "+1" */
+.pp-float {
+    position: absolute;
+    z-index: 35;
+    font-weight: 900;
+    pointer-events: none;
+    color: #0aff3a;
+    text-shadow: 0 0 10px rgba(10, 255, 58, 0.6);
+    animation: pp-floatup 650ms ease-out forwards;
+}
+@keyframes pp-floatup {
+    0%   { opacity: 1; transform: translate(-50%, 0) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -60px) scale(1.4); }
+}
+
+/* hype words */
+.pp-hype {
+    position: absolute;
+    top: 24%; left: 50%;
+    transform: translateX(-50%);
+    z-index: 34;
+    font-size: 6cqw; font-weight: 900; letter-spacing: 1px;
+    text-transform: uppercase; text-align: center; width: 90%;
+    color: #65c7e7; text-shadow: 0 0 14px rgba(101, 199, 231, 0.6);
+    pointer-events: none; opacity: 0;
+}
+.pp-hype.show { animation: pp-hype 1.8s ease-out; }
+@keyframes pp-hype {
+    0%   { opacity: 0; transform: translateX(-50%) scale(0.7); }
+    12%  { opacity: 1; transform: translateX(-50%) scale(1.05); }
+    70%  { opacity: 1; transform: translateX(-50%) scale(1); }
+    100% { opacity: 0; transform: translateX(-50%) scale(1); }
+}
+
+/* keep the raw timer element for logic but hidden (REC pill shows time) */
+.pp-timer-hidden { position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0; overflow: hidden; }
+
+/* ============================ OVERLAYS ============================ */
+.pp-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8cqw;
+    background: rgba(3, 5, 10, 0.74);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.pp-overlay[hidden] { display: none; }
+
+.pp-title {
+    font-size: 9cqw;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 3cqw;
+    color: #0aff3a;
+    text-shadow: 0 0 22px rgba(10, 255, 58, 0.55), 3px 3px 0 rgba(48, 82, 135, 0.7);
+    line-height: 1.05;
+}
+.pp-subtitle {
+    font-size: 4cqw;
+    max-width: 30ch;
+    color: rgba(234, 255, 240, 0.82);
+    margin: 0 0 3cqw;
+    line-height: 1.45;
+}
+.pp-subtitle-sub {
+    font-size: 3.4cqw;
+    color: rgba(234, 255, 240, 0.62);
+    margin: 0 0 7cqw;
+    max-width: 28ch;
+}
+
+.pp-btn {
+    pointer-events: auto;
+    cursor: pointer;
+    border: none;
+    border-radius: 999px;
+    padding: 4cqw 9cqw;
+    font-family: inherit;
+    font-size: 4.6cqw;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #04140a;
+    background: linear-gradient(180deg, #24ff56, #0ac932);
+    box-shadow: 0 8px 26px rgba(10, 229, 13, 0.4), 0 2px 0 #086b1e inset;
+    transition: transform 100ms ease, box-shadow 150ms ease;
+}
+.pp-btn:active { transform: translateY(2px) scale(0.98); }
+.pp-btn.secondary {
+    color: #eafff0;
+    background: linear-gradient(180deg, #2b3550, #1a2033);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+.pp-btn-row {
+    display: flex;
+    gap: 3cqw;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2cqw;
+}
+
+/* Brief lock after a round so leftover frantic taps don't hit Go Again */
+.pp-results.cooling .pp-btn,
+.pp-results.cooling .pp-name-input,
+.pp-results.cooling .pp-mini-btn {
+    pointer-events: none;
+    opacity: 0.45;
+    cursor: default;
+}
+
+.pp-pulse { animation: pp-pulse 1.4s ease-in-out infinite; }
+@keyframes pp-pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.05); }
+}
+
+/* Countdown big number */
+.pp-count {
+    font-size: 44cqw;
+    font-weight: 900;
+    color: #0aff3a;
+    text-shadow: 0 0 40px rgba(10, 255, 58, 0.6);
+    animation: pp-count 900ms ease-out;
+}
+@keyframes pp-count {
+    0%   { opacity: 0; transform: scale(2.2); }
+    30%  { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.15; transform: scale(0.8); }
+}
+
+/* Results */
+.pp-result-score {
+    font-size: 32cqw;
+    font-weight: 900;
+    color: #0aff3a;
+    line-height: 0.9;
+    text-shadow: 0 0 30px rgba(10, 255, 58, 0.55);
+    font-variant-numeric: tabular-nums;
+}
+.pp-result-tier {
+    font-size: 6cqw;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #65c7e7;
+    margin: 2cqw 0 1cqw;
+}
+.pp-result-stat {
+    font-size: 3.4cqw;
+    color: rgba(234, 255, 240, 0.65);
+    margin-bottom: 6cqw;
+}
+
+/* Name entry */
+.pp-name-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3cqw;
+    margin-bottom: 5cqw;
+}
+.pp-name-input {
+    width: 4.5em;
+    text-align: center;
+    font-family: inherit;
+    font-size: 9cqw;
+    font-weight: 900;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: #0aff3a;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(10, 255, 58, 0.4);
+    border-radius: 12px;
+    padding: 2cqw 1cqw 2cqw 3cqw;
+    caret-color: #0aff3a;
+}
+.pp-name-input:focus { outline: none; border-color: #0aff3a; }
+.pp-name-hint { font-size: 3cqw; letter-spacing: 2px; color: rgba(234, 255, 240, 0.5); text-transform: uppercase; }
+
+/* Leaderboard */
+.pp-leaderboard {
+    width: 88cqw;
+    margin: 2cqw 0 5cqw;
+    text-align: left;
+}
+.pp-leaderboard-full {
+    margin: 0 0 5cqw;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    width: min(88cqw, 100%);
+}
+.pp-leaderboard-title {
+    font-size: 3cqw;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(234, 255, 240, 0.55);
+    margin-bottom: 2cqw;
+    text-align: center;
+    flex-shrink: 0;
+}
+.pp-lb-scroll {
+    max-height: 42cqh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    border-radius: 10px;
+}
+.pp-leaderboard-full .pp-lb-scroll {
+    max-height: none;
+    flex: 1 1 auto;
+}
+.pp-lb-view {
+    justify-content: flex-start;
+    padding-top: 14cqw;
+    gap: 2cqw;
+}
+.pp-lb-row {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 10px;
+    padding: 2cqw 3cqw;
+    border-radius: 8px;
+    font-size: 3.6cqw;
+    align-items: center;
+}
+.pp-lb-row:nth-child(odd) { background: rgba(255, 255, 255, 0.04); }
+.pp-lb-row.me {
+    background: rgba(10, 255, 58, 0.16);
+    box-shadow: 0 0 0 1px rgba(10, 255, 58, 0.4) inset;
+}
+.pp-lb-rank { color: rgba(234, 255, 240, 0.5); font-weight: 700; }
+.pp-lb-name { font-weight: 800; letter-spacing: 2px; }
+.pp-lb-score { font-weight: 900; color: #0aff3a; font-variant-numeric: tabular-nums; }
+.pp-lb-empty, .pp-lb-error { text-align: center; font-size: 3cqw; color: rgba(234, 255, 240, 0.5); padding: 3cqw; }
+
+/* HOME + mute controls (top-left/right small) */
+.pp-controls {
+    position: absolute;
+    top: 3cqw;
+    right: 4cqw;
+    display: none;
+    gap: 2cqw;
+    z-index: 36;
+}
+.pp-mini-btn {
+    pointer-events: auto;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(0, 0, 0, 0.4);
+    color: rgba(234, 255, 240, 0.85);
+    border-radius: 999px;
+    padding: 1.4cqw 3cqw;
+    font-family: inherit;
+    font-size: 2.8cqw;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.pp-mini-btn:hover { color: #0aff3a; border-color: rgba(10, 255, 58, 0.4); }
+
+/* Show HOME/mute only on the intro + results (not mid-record) */
+.promo-pump-game:not(.state-playing):not(.state-countdown) .pp-controls { display: flex; }
