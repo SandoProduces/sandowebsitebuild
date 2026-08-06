@@ -333,6 +333,38 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     color: rgba(255, 255, 255, 0.5) !important;
     text-decoration: underline !important;
 }
+
+    /* Hold-to-join on vault button (anti-bot) */
+    .vault-btn.hold-to-join-btn {
+        position: relative !important;
+        overflow: hidden !important;
+        min-width: 110px !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+    }
+    .vault-btn .btn-text {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+    .vault-btn .btn-progress-fill {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        height: 100% !important;
+        width: 0% !important;
+        background: #ff2a2a !important;
+        z-index: 1 !important;
+        transition: width 0.2s ease-out !important;
+        pointer-events: none !important;
+    }
+    .vault-btn.is-holding .btn-progress-fill {
+        width: 100% !important;
+        transition: width 1.5s linear !important;
+    }
+    .vault-btn.is-confirmed .btn-progress-fill {
+        width: 100% !important;
+        background: #2d6e4f !important;
+    }
     
 </style>
 
@@ -378,18 +410,22 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
         <div class="harvest-vault">
             <h3 class="vault-label">SUBSCRIBE TO ACCESS ALL FREE DOWNLOADS<br><span class="vault-label-sub">(You won't be spammed every day, I promise)</span></h3>
-<p class="vault-disclaimer">By joining, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
-</p>
+            <p class="vault-disclaimer">By joining, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
             
             <form class="vault-form" action="https://eocampaign1.com/form/2f8c2618-746c-11f1-859c-090c42c07d9d" method="POST" target="hidden_submit">
 
                 <div class="vault-input-group">
-                    <input type="email" name="field_0" class="vault-input" placeholder="YOUR EMAIL ADDRESS" required>
-                    <button type="submit" class="vault-btn">JOIN</button>
+                    <input type="email" name="field_0" class="vault-input" placeholder="YOUR EMAIL ADDRESS" required autocomplete="email">
+                    <button type="button" class="vault-btn hold-to-join-btn" aria-label="Hold to join">
+                        <span class="btn-text">HOLD TO JOIN</span>
+                        <div class="btn-progress-fill"></div>
+                    </button>
                 </div>
 
-                <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                    <input type="text" name="hpc4b27b6e-eb38-11e9-be00-06b4694bee2a" tabindex="-1" autocomplete="nope">
+                <!-- EmailOctopus honeypot: leave empty. Bots that fill it are rejected. -->
+                <div aria-hidden="true" style="position: absolute; left: -5000px;" class="vault-honeypot">
+                    <label for="vault-company">Company</label>
+                    <input type="text" id="vault-company" name="hpc4b27b6e-eb38-11e9-be00-06b4694bee2a" tabindex="-1" autocomplete="off" value="">
                 </div>
                 
             </form>
@@ -490,6 +526,76 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
     });
+
+    // ==========================================
+    // 3. VAULT HOLD-TO-JOIN + ANTI-BOT GATES
+    // ==========================================
+    (function initVaultHoldToJoin() {
+        const form = document.querySelector(".vault-form");
+        const btn = document.querySelector(".hold-to-join-btn");
+        if (!form || !btn) return;
+
+        const label = btn.querySelector(".btn-text");
+        const honeypot = document.getElementById("vault-company");
+        const idleText = label ? label.textContent : "HOLD TO JOIN";
+        const minMs = 2500;
+        const pageReadyAt = Date.now();
+        let holdTimer = null;
+
+        // Block instant Enter-key submits; only hold-to-join may post
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+        });
+
+        function isBotBlocked() {
+            if (honeypot && honeypot.value.trim() !== "") return true;
+            if (Date.now() - pageReadyAt < minMs) return true;
+            return false;
+        }
+
+        function startHold(e) {
+            if (btn.classList.contains("is-confirmed")) return;
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            if (e.type === "touchstart" && e.cancelable) e.preventDefault();
+            if (isBotBlocked()) return;
+
+            btn.classList.add("is-holding");
+            holdTimer = setTimeout(function () {
+                if (isBotBlocked()) {
+                    btn.classList.remove("is-holding");
+                    return;
+                }
+                btn.classList.remove("is-holding");
+                btn.classList.add("is-confirmed");
+                if (label) label.textContent = "CHECK EMAIL";
+                btn.style.pointerEvents = "none";
+                HTMLFormElement.prototype.submit.call(form);
+                setTimeout(function () { form.reset(); }, 500);
+                setTimeout(function () {
+                    btn.classList.remove("is-confirmed");
+                    if (label) label.textContent = idleText;
+                    btn.style.pointerEvents = "";
+                }, 3500);
+            }, 1500);
+        }
+
+        function cancelHold() {
+            if (btn.classList.contains("is-confirmed")) return;
+            clearTimeout(holdTimer);
+            btn.classList.remove("is-holding");
+        }
+
+        btn.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+        btn.addEventListener("mousedown", startHold);
+        btn.addEventListener("mouseup", cancelHold);
+        btn.addEventListener("mouseleave", cancelHold);
+        btn.addEventListener("touchstart", startHold, { passive: false });
+        btn.addEventListener("touchend", cancelHold);
+        btn.addEventListener("touchcancel", cancelHold);
+    })();
 });
 </script>
 
