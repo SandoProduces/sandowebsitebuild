@@ -365,6 +365,11 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         width: 100% !important;
         background: #2d6e4f !important;
     }
+    .vault-turnstile {
+        margin-top: 14px !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
     
 </style>
 
@@ -412,15 +417,18 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             <h3 class="vault-label">SUBSCRIBE TO ACCESS ALL FREE DOWNLOADS<br><span class="vault-label-sub">(You won't be spammed every day, I promise)</span></h3>
             <p class="vault-disclaimer">By joining, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
             
-            <form class="vault-form" action="https://eocampaign1.com/form/2f8c2618-746c-11f1-859c-090c42c07d9d" method="POST" target="hidden_submit">
+            <form class="vault-form" action="#" method="POST" data-relay-form="release">
+                <input type="hidden" name="form_type" value="release">
 
                 <div class="vault-input-group">
                     <input type="email" name="field_0" class="vault-input" placeholder="YOUR EMAIL ADDRESS" required autocomplete="email">
-                    <button type="button" class="vault-btn hold-to-join-btn" aria-label="Hold to join">
+                    <button type="button" class="vault-btn hold-to-join-btn" data-sando-relay data-success-text="CHECK EMAIL" data-min-ms="2500" data-honeypot="#vault-company" aria-label="Hold to join">
                         <span class="btn-text">HOLD TO JOIN</span>
                         <div class="btn-progress-fill"></div>
                     </button>
                 </div>
+
+                <div class="cf-turnstile vault-turnstile" data-sitekey="0x4AAAAAAEJCy6RtIXvZYLnw" data-action="turnstile-spin-v2" data-theme="dark"></div>
 
                 <!-- EmailOctopus honeypot: leave empty. Bots that fill it are rejected. -->
                 <div aria-hidden="true" style="position: absolute; left: -5000px;" class="vault-honeypot">
@@ -527,76 +535,10 @@ document.addEventListener("DOMContentLoaded", function() {
         
     });
 
-    // ==========================================
-    // 3. VAULT HOLD-TO-JOIN + ANTI-BOT GATES
-    // ==========================================
-    (function initVaultHoldToJoin() {
-        const form = document.querySelector(".vault-form");
-        const btn = document.querySelector(".hold-to-join-btn");
-        if (!form || !btn) return;
-
-        const label = btn.querySelector(".btn-text");
-        const honeypot = document.getElementById("vault-company");
-        const idleText = label ? label.textContent : "HOLD TO JOIN";
-        const minMs = 2500;
-        const pageReadyAt = Date.now();
-        let holdTimer = null;
-
-        // Block instant Enter-key submits; only hold-to-join may post
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-        });
-
-        function isBotBlocked() {
-            if (honeypot && honeypot.value.trim() !== "") return true;
-            if (Date.now() - pageReadyAt < minMs) return true;
-            return false;
-        }
-
-        function startHold(e) {
-            if (btn.classList.contains("is-confirmed")) return;
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-            if (e.type === "touchstart" && e.cancelable) e.preventDefault();
-            if (isBotBlocked()) return;
-
-            btn.classList.add("is-holding");
-            holdTimer = setTimeout(function () {
-                if (isBotBlocked()) {
-                    btn.classList.remove("is-holding");
-                    return;
-                }
-                btn.classList.remove("is-holding");
-                btn.classList.add("is-confirmed");
-                if (label) label.textContent = "CHECK EMAIL";
-                btn.style.pointerEvents = "none";
-                HTMLFormElement.prototype.submit.call(form);
-                setTimeout(function () { form.reset(); }, 500);
-                setTimeout(function () {
-                    btn.classList.remove("is-confirmed");
-                    if (label) label.textContent = idleText;
-                    btn.style.pointerEvents = "";
-                }, 3500);
-            }, 1500);
-        }
-
-        function cancelHold() {
-            if (btn.classList.contains("is-confirmed")) return;
-            clearTimeout(holdTimer);
-            btn.classList.remove("is-holding");
-        }
-
-        btn.addEventListener("contextmenu", function (e) { e.preventDefault(); });
-        btn.addEventListener("mousedown", startHold);
-        btn.addEventListener("mouseup", cancelHold);
-        btn.addEventListener("mouseleave", cancelHold);
-        btn.addEventListener("touchstart", startHold, { passive: false });
-        btn.addEventListener("touchend", cancelHold);
-        btn.addEventListener("touchcancel", cancelHold);
-    })();
+    // Hold-to-join is handled by assets/js/form-relay.js (Turnstile + relay)
 });
 </script>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="assets/js/form-relay.js"></script>
 <script src="assets/js/global-tracking.js"></script><a class="desktop-toggle" href="#">MENU</a><script src="assets/bootstrap/js/bootstrap.min.js?h=374d178d651fa0eaf680a1fa7b40c788"></script><script src="assets/js/script.min.js?h=f949ceb86f3acb03d3a515ffea71cec0"></script></body></html>

@@ -129,8 +129,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
                     <div class="premium-glass-card subscribe-card">
                         <h3 class="card-mini-title">Mailing List</h3>
-                        <form class="premium-form" action="https://sandoproduces.us5.list-manage.com/subscribe/post" method="POST" target="hidden_submit">
-                            
+                        <form class="premium-form" action="#" method="POST" data-relay-form="newsletter">
+                            <input type="hidden" name="form_type" value="newsletter">
                             <input type="hidden" name="u" value="9c24f58ad0bc55e1cc4cc27ec">
                             <input type="hidden" name="id" value="b408479745">
                             <input type="hidden" name="SOURCE" value="Newsletter">
@@ -142,6 +142,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
                             <input type="text" name="FNAME" class="premium-input" placeholder="Name" required>
                             <input type="email" name="EMAIL" class="premium-input" placeholder="Email" required>
+
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAEJCy6RtIXvZYLnw" data-action="turnstile-spin-v2" data-theme="dark"></div>
                             
                             <label class="premium-checkbox-row">
                                 <input type="checkbox" required>
@@ -149,7 +151,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                                 <span class="check-label">I accept my information will be used for updates.</span>
                             </label>
                             
-                            <button type="button" class="solid-white-btn hold-to-submit-btn">
+                            <button type="button" class="solid-white-btn hold-to-relay-btn" data-sando-relay data-success-text="Subscribed" data-honeypot='input[name="b_9c24f58ad0bc55e1cc4cc27ec_b408479745"]'>
                                 <span class="btn-text">Hold to Subscribe</span>
                                 <div class="btn-progress-fill"></div>
                             </button>
@@ -159,8 +161,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
                 <div class="contact-right-col">
                     <div class="premium-glass-card main-form-card">
-                        <form class="premium-form" action="https://sandoproduces.us5.list-manage.com/subscribe/post" method="POST" target="hidden_submit">
-                            
+                        <form class="premium-form" action="#" method="POST" data-relay-form="enquiry">
+                            <input type="hidden" name="form_type" value="enquiry">
                             <input type="hidden" name="u" value="9c24f58ad0bc55e1cc4cc27ec">
                             <input type="hidden" name="id" value="b408479745">
                             <input type="hidden" name="SOURCE" value="Enquiry">
@@ -179,6 +181,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                             <input type="text" name="SUBJECT" class="premium-input" placeholder="Subject">
                             
                             <textarea name="MESSAGE" class="premium-input" placeholder="Message (Max 255 Characters)" rows="6" required></textarea>
+
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAEJCy6RtIXvZYLnw" data-action="turnstile-spin-v2" data-theme="dark"></div>
                             
                             <label class="premium-checkbox-row">
                                 <input type="checkbox" required>
@@ -186,7 +190,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                                 <span class="check-label">I accept my information will be used to process this enquiry.</span>
                             </label>
                             
-                            <button type="button" class="solid-white-btn hold-to-submit-btn">
+                            <button type="button" class="solid-white-btn hold-to-relay-btn" data-sando-relay data-success-text="Message Sent" data-honeypot='input[name="b_9c24f58ad0bc55e1cc4cc27ec_b408479745"]'>
                                 <span class="btn-text">Hold to Submit</span>
                                 <div class="btn-progress-fill"></div>
                             </button>
@@ -208,6 +212,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
 </section>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="assets/js/form-relay.js"></script>
 <script src="assets/js/global-tracking.js"></script><script>
 document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener("click", function(event) {
