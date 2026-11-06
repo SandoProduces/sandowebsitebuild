@@ -141,6 +141,14 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         animation: text-plasma-flash 6s infinite ease-in-out !important;
     }
 
+    .vault-label-main {
+        font-size: clamp(1.36rem, 8.32cqi, 2.12rem) !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.045em !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+    }
+
     @keyframes text-plasma-flash {
         0%, 100% {
             text-shadow: 0 0 5px rgba(94, 44, 165, 0.3); /* Removed !important here */
@@ -155,6 +163,10 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
     /* Turns the lights off for the bracketed text so it stays readable */
     .vault-label-sub {
+        font-size: 0.78rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0 !important;
+        line-height: 1.35 !important;
         color: rgba(255, 255, 255, 0.5) !important;
         text-shadow: none !important; 
     }
@@ -185,19 +197,36 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         margin-top: clamp(15px, 6vh, 25px) !important; 
         box-sizing: border-box !important;
 
-        /* Static lighting mapped from the original Vault label */
-        box-shadow: 
-            0 0 4px rgba(255, 255, 255, 0.8),
-            0 0 15px #5e2ca5, 
-            0 0 25px #5e2ca5,
-            0 0 40px rgba(94, 44, 165, 0.5) !important;
+        /* Quiet metal. The email button carries the glow. */
+        box-shadow: none !important;
+        margin-top: 0 !important;
     }
 
     .bandcamp-dl-btn:hover {
-        background: #5e2ca5 !important;
+        background: #3a3b44 !important;
         color: #ffffff !important;
-        box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.8) !important;
+        box-shadow: none !important;
         transform: none !important;
+    }
+
+    .also-on {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 380px;
+        margin-top: clamp(22px, 4vh, 36px);
+        box-sizing: border-box;
+    }
+
+    .also-on-label {
+        margin: 0 0 12px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
     }
     
     /* ========================================================= */
@@ -227,7 +256,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         backdrop-filter: blur(4px);
         text-decoration: none;
         transition: all 0.3s ease;
-        animation: soft-dsp-pulse 1s infinite ease-in-out !important;
+        animation: none !important;
     }
 
     /* Base Logo Colors */
@@ -303,6 +332,10 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         .bandcamp-dl-btn {
             max-width: 340px !important;
         }
+
+        .also-on {
+            max-width: 340px;
+        }
         
         /* This keeps the DSP buttons aligned with the Bandcamp button on mobile */
         .dsp-row-container {
@@ -339,8 +372,43 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         position: relative !important;
         overflow: hidden !important;
         min-width: 110px !important;
+        padding: 0 12px !important;
+        font-size: 0.68rem !important;
+        letter-spacing: 0.03em;
+        white-space: nowrap !important;
         user-select: none !important;
         -webkit-user-select: none !important;
+    }
+
+    .harvest-vault {
+        container-type: inline-size;
+        filter: none !important;
+        animation: none !important;
+    }
+
+    /* Halo sits behind the card so only the outside edge lights up. */
+    .harvest-vault::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        animation: bandcamp-glow-pulse 6s infinite ease-in-out;
+    }
+
+    @keyframes bandcamp-glow-pulse {
+        0%, 100% {
+            box-shadow:
+                0 0 2px rgba(255, 255, 255, 0.25),
+                0 0 8px rgba(94, 44, 165, 0.35);
+        }
+        50% {
+            box-shadow:
+                0 0 4px rgba(255, 255, 255, 0.8),
+                0 0 15px #5e2ca5,
+                0 0 25px #5e2ca5,
+                0 0 40px rgba(94, 44, 165, 0.5);
+        }
     }
     .vault-btn .btn-text {
         position: relative !important;
@@ -414,16 +482,16 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         </div>
 
         <div class="harvest-vault">
-            <h3 class="vault-label">SUBSCRIBE TO ACCESS ALL FREE DOWNLOADS<br><span class="vault-label-sub">(You won't be spammed every day, I promise)</span></h3>
-            <p class="vault-disclaimer">By joining, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+            <h3 class="vault-label"><span class="vault-label-main">FREE DOWNLOAD</span><br><span class="vault-label-sub">Enter your email and the file is sent to your inbox.</span></h3>
+            <p class="vault-disclaimer">By downloading, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
             
             <form class="vault-form" action="#" method="POST" data-relay-form="release">
                 <input type="hidden" name="form_type" value="release">
 
                 <div class="vault-input-group">
                     <input type="email" name="field_0" class="vault-input" placeholder="YOUR EMAIL ADDRESS" required autocomplete="email">
-                    <button type="button" class="vault-btn hold-to-join-btn" data-sando-relay data-success-text="CHECK EMAIL" data-min-ms="2500" data-honeypot="#vault-company" aria-label="Hold to join">
-                        <span class="btn-text">HOLD TO JOIN</span>
+                    <button type="button" class="vault-btn hold-to-join-btn" data-sando-relay data-success-text="CHECK EMAIL" data-min-ms="2500" data-honeypot="#vault-company" aria-label="Hold to download">
+                        <span class="btn-text">HOLD TO DOWNLOAD</span>
                         <div class="btn-progress-fill"></div>
                     </button>
                 </div>
@@ -439,9 +507,11 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             </form>
         </div>
             
-        <a href="https://sandoproduces.bandcamp.com/track/david-guetta-ft-sia-titanium-sando-ash-davis-remix-extended-mix" target="_blank" class="bandcamp-dl-btn">
-            DOWNLOAD ON BANDCAMP
-        </a>
+        <div class="also-on">
+            <p class="also-on-label">Also on</p>
+            <a href="https://sandoproduces.bandcamp.com/track/david-guetta-ft-sia-titanium-sando-ash-davis-remix-extended-mix" target="_blank" class="bandcamp-dl-btn">
+                DOWNLOAD ON BANDCAMP
+            </a>
 
         <div class="dsp-row-container">
             
@@ -474,6 +544,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                     <path d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12zm0-19.12a7.12 7.12 0 1 1 0 14.24 7.12 7.12 0 0 1 0-14.24zm-2.25 9.87 5.25-2.75-5.25-2.75v5.5z"/>
                 </svg>
             </a>
+        </div>
         </div>
 
         <iframe name="hidden_submit" id="hidden_submit" style="display:none;"></iframe>
