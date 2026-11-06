@@ -103,15 +103,19 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         margin: 0 !important; 
     }
 
-    /* Gives the player its own dedicated spacing control */
+    /* Upper slot, now the download card: same gap under the title the player had. */
+    .release-environment .harvest-vault {
+        margin-top: 0 !important;
+        margin-bottom: clamp(0px, 1vh, 5px) !important;
+    }
+
+    /* Lower slot, now the player. Its own bottom margin stays off so the
+       gap above Also on stays the one the card had. */
     .release-environment .hardware-player {
         margin-top: 0 !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
-        
-        /* THE CONTROL: This pushes the Harvest Vault further down. 
-            Change the first number for the OnePlus, the last number for the BenQ. */
-        margin-bottom: clamp(0px, 1vh, 5px) !important; 
+        margin-bottom: 0 !important;
     }
 
     .sando-legal-footer {
@@ -327,7 +331,11 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             font-size: clamp(2.5rem, 12vw, 4rem) !important; 
         }
         .release-environment .hardware-player {
-            padding: 15px !important; 
+            padding: 15px !important;
+            transform: translateY(25px) !important;
+        }
+        .release-environment .harvest-vault {
+            transform: translateY(10px) !important;
         }
         .bandcamp-dl-btn {
             max-width: 340px !important;
@@ -452,6 +460,32 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             <h1 class="release-title">TITANIUM</h1>
         </div>
 
+        <div class="harvest-vault">
+            <h3 class="vault-label"><span class="vault-label-main">FREE DOWNLOAD</span><br><span class="vault-label-sub">Enter your email and the file is sent to your inbox.</span></h3>
+            <p class="vault-disclaimer">By downloading, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+            
+            <form class="vault-form" action="#" method="POST" data-relay-form="release">
+                <input type="hidden" name="form_type" value="release">
+
+                <div class="vault-input-group">
+                    <input type="email" name="field_0" class="vault-input" placeholder="YOUR EMAIL ADDRESS" required autocomplete="email">
+                    <button type="button" class="vault-btn hold-to-join-btn" data-sando-relay data-success-text="CHECK EMAIL" data-min-ms="2500" data-honeypot="#vault-company" aria-label="Hold to download">
+                        <span class="btn-text">HOLD TO DOWNLOAD</span>
+                        <div class="btn-progress-fill"></div>
+                    </button>
+                </div>
+
+                <div class="cf-turnstile vault-turnstile" data-sitekey="0x4AAAAAAEJCy6RtIXvZYLnw" data-action="turnstile-spin-v2" data-theme="dark"></div>
+
+                <!-- EmailOctopus honeypot: leave empty. Bots that fill it are rejected. -->
+                <div aria-hidden="true" style="position: absolute; left: -5000px;" class="vault-honeypot">
+                    <label for="vault-company">Company</label>
+                    <input type="text" id="vault-company" name="hpc4b27b6e-eb38-11e9-be00-06b4694bee2a" tabindex="-1" autocomplete="off" value="">
+                </div>
+                
+            </form>
+        </div>
+
         <div class="hardware-player">
             <div class="release-accent-dot"></div> 
             <div class="player-labels">
@@ -479,32 +513,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                 
                 <span class="time-readout" id="total-duration">00:00</span>
             </div>
-        </div>
-
-        <div class="harvest-vault">
-            <h3 class="vault-label"><span class="vault-label-main">FREE DOWNLOAD</span><br><span class="vault-label-sub">Enter your email and the file is sent to your inbox.</span></h3>
-            <p class="vault-disclaimer">By downloading, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
-            
-            <form class="vault-form" action="#" method="POST" data-relay-form="release">
-                <input type="hidden" name="form_type" value="release">
-
-                <div class="vault-input-group">
-                    <input type="email" name="field_0" class="vault-input" placeholder="YOUR EMAIL ADDRESS" required autocomplete="email">
-                    <button type="button" class="vault-btn hold-to-join-btn" data-sando-relay data-success-text="CHECK EMAIL" data-min-ms="2500" data-honeypot="#vault-company" aria-label="Hold to download">
-                        <span class="btn-text">HOLD TO DOWNLOAD</span>
-                        <div class="btn-progress-fill"></div>
-                    </button>
-                </div>
-
-                <div class="cf-turnstile vault-turnstile" data-sitekey="0x4AAAAAAEJCy6RtIXvZYLnw" data-action="turnstile-spin-v2" data-theme="dark"></div>
-
-                <!-- EmailOctopus honeypot: leave empty. Bots that fill it are rejected. -->
-                <div aria-hidden="true" style="position: absolute; left: -5000px;" class="vault-honeypot">
-                    <label for="vault-company">Company</label>
-                    <input type="text" id="vault-company" name="hpc4b27b6e-eb38-11e9-be00-06b4694bee2a" tabindex="-1" autocomplete="off" value="">
-                </div>
-                
-            </form>
         </div>
             
         <div class="also-on">
