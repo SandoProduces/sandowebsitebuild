@@ -123,7 +123,12 @@
           .then(function () {
             btn.classList.remove("is-sending");
             btn.classList.add("is-confirmed");
-            if (label) label.textContent = successText;
+            if (form.getAttribute("data-relay-form") === "release") {
+              // Lets the player script show "Check your spam folder too" and fire the download event.
+              form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+            } else if (label) {
+              label.textContent = successText;
+            }
             setTimeout(function () {
               form.reset();
               resetTurnstile(form);
