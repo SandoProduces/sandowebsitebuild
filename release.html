@@ -325,7 +325,12 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             padding-bottom: 20px !important;
         }
         .release-header {
-            padding-top: 1px !important;
+            padding: 16px 100px 0 !important;
+            box-sizing: border-box !important;
+            font-size: clamp(0.78rem, 4.05vw, 1.5rem) !important;
+            letter-spacing: 0.04em !important;
+            line-height: 1.05 !important;
+            white-space: nowrap !important;
         }
         .release-environment .release-title {
             font-size: clamp(2.5rem, 12vw, 4rem) !important; 
@@ -614,7 +619,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
     });
 
-    // Hold-to-join is handled by assets/js/form-relay.js (Turnstile + relay)
+    // Hold-to-download is handled by assets/js/form-relay.js (Turnstile + relay)
 });
 </script>
 
